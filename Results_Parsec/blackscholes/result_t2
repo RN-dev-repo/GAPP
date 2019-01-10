@@ -1,0 +1,116 @@
+Criticality Metric for each thread
+      5814 110642689 
+      5832 111572069 
+      5817 111896446 
+      5823 112299177 
+      5821 112381039 
+      5796 112616675 
+      5806 112813471 
+      5804 113475433 
+      5774 113641164 
+      5802 114181522 
+      5822 114186704 
+      5788 114335380 
+      5785 114345365 
+      5816 114436891 
+      5812 114487993 
+      5813 114510404 
+      5828 114595905 
+      5825 114612267 
+      5781 114729191 
+      5792 114758633 
+      5808 114829644 
+      5811 114892457 
+      5819 114904485 
+      5815 114954444 
+      5782 114987328 
+      5798 115101410 
+      5778 115300419 
+      5830 115487621 
+      5827 115689537 
+      5800 115987892 
+      5818 116259111 
+      5769 116500062 
+      5831 116557890 
+      5775 116786174 
+      5809 116957818 
+      5794 116997585 
+      5801 117065368 
+      5770 117296061 
+      5787 117834655 
+      5777 118347393 
+      5826 149627248 
+      5829 149661020 
+      5772 150827503 
+      5773 151467399 
+      5790 151539387 
+      5820 151715886 
+      5795 152974949 
+      5789 153563581 
+      5797 153803147 
+      5807 154023653 
+      5793 154359252 
+      5799 154555883 
+      5824 154872279 
+      5783 156977276 
+      5791 157206780 
+      5780 157465884 
+      5805 157675962 
+      5786 157934596 
+      5779 157976031 
+      5803 158050248 
+      5784 160618331 
+      5776 160633800 
+      5810 161417816 
+      5771 177867745 
+      5755 7050900684 
+Sum = 15390972112
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+
+Critical Path 1: 
+	bs_thread(void*) --114875061. 
+
+CNDF(float) -- 205
+	blackscholes.m4.cpp:193 -- 27
+	blackscholes.m4.cpp:212 -- 20
+	blackscholes.m4.cpp:216 -- 18
+bs_thread(void*) -- 124
+	blackscholes.m4.cpp:376 -- 117
+	blackscholes.m4.cpp:379 -- 4
+	cmath:464 -- 3
+BlkSchlsEqEuroNoDiv(float, float, float, float, float, int, float) -- 77
+	blackscholes.m4.cpp:277 -- 27
+	blackscholes.m4.cpp:289 -- 12
+	blackscholes.m4.cpp:267 -- 9
+
+Critical Path 2: 
+	[unknown] [blackscholes] --1711871. 
+
+CNDF(float) -- 3
+	blackscholes.m4.cpp:211 -- 1
+	blackscholes.m4.cpp:220 -- 1
+	blackscholes.m4.cpp:205 -- 1
+BlkSchlsEqEuroNoDiv(float, float, float, float, float, int, float) -- 2
+	blackscholes.m4.cpp:291 -- 1
+	blackscholes.m4.cpp:289 -- 1
+***************************************************
+
+Top Critical Functions and lines of code with frequency
+CNDF(float) -- 208
+	blackscholes.m4.cpp:193 -- 27
+	blackscholes.m4.cpp:212 -- 20
+	blackscholes.m4.cpp:216 -- 18
+bs_thread(void*) -- 124
+	blackscholes.m4.cpp:376 -- 117
+	blackscholes.m4.cpp:379 -- 4
+	cmath:464 -- 3
+BlkSchlsEqEuroNoDiv(float, float, float, float, float, int, float) -- 79
+	blackscholes.m4.cpp:277 -- 27
+	blackscholes.m4.cpp:289 -- 13
+	blackscholes.m4.cpp:267 -- 9
+***************************************************
+Post Processing time in milli seconds: 1637
+Total switches: 20278 Critical switches: 190
+***************************************************
