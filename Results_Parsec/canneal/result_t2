@@ -1,0 +1,153 @@
+Criticality Metric for each thread
+     14259 241184992 
+     14279 241755737 
+     14283 243626572 
+     14305 244127590 
+     14271 247064721 
+     14289 247312115 
+     14290 250055511 
+     14267 250889901 
+     14312 251418545 
+     14304 251470389 
+     14277 251722401 
+     14284 255065672 
+     14292 255529121 
+     14264 255848396 
+     14278 255917489 
+     14266 256474232 
+     14293 257186539 
+     14263 258744424 
+     14276 259445633 
+     14273 259971708 
+     14298 260110884 
+     14302 260539865 
+     14308 260820998 
+     14280 261243773 
+     14295 261456360 
+     14316 261603806 
+     14261 262199967 
+     14268 262760831 
+     14270 263010712 
+     14297 264141805 
+     14294 264195821 
+     14319 264300213 
+     14296 264326504 
+     14317 264494437 
+     14318 264956068 
+     14314 265432482 
+     14291 265735906 
+     14315 266079652 
+     14288 266416803 
+     14306 266722564 
+     14258 267214362 
+     14257 267403418 
+     14287 267703778 
+     14265 267958456 
+     14281 269684074 
+     14320 270506283 
+     14282 271392688 
+     14310 271451489 
+     14262 272011254 
+     14286 272222743 
+     14275 272665365 
+     14309 273449413 
+     14269 273596824 
+     14311 273692737 
+     14260 274267226 
+     14303 274447264 
+     14307 275150377 
+     14300 275515543 
+     14272 277834463 
+     14285 278938197 
+     14301 279968135 
+     14274 280051046 
+     14299 283126355 
+     14313 293591931 
+     14190 15432390761 
+Sum = 32321595321
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+
+Critical Path 1: 
+	netlist_elem::swap_cost(location_t*, location_t*)
+	<---annealer_thread::Run()
+	<---entry_pt(void*) --116462848. 
+
+netlist_elem::swap_cost(location_t*, location_t*) -- 143
+	AtomicPtr.h:197 -- 113
+	netlist_elem.cpp:89 -- 16
+	netlist_elem.cpp:80 -- 5
+atomic_load_acq_long -- 6
+	atomic.h:215 -- 6
+annealer_thread::Run() -- 3
+	AtomicPtr.h:197 -- 3
+
+Critical Path 2: 
+	entry_pt(void*) --4899629. 
+
+entry_pt(void*) -- 58
+	main.cpp:141 -- 58
+
+Critical Path 3: 
+	annealer_thread::Run()
+	<---entry_pt(void*) --2757756. 
+
+annealer_thread::Run() -- 9
+	AtomicPtr.h:197 -- 8
+	MersenneTwister.h:295 -- 1
+atomic_load_acq_long -- 2
+	atomic.h:215 -- 2
+
+Critical Path 4: 
+	netlist::get_random_element(long*, long, Rng*)
+	<---annealer_thread::Run()
+	<---entry_pt(void*) --1087752. 
+
+netlist::get_random_element(long*, long, Rng*) -- 1
+	netlist.cpp:100 -- 1
+
+Critical Path 5: 
+	Rng::drand()
+	<---annealer_thread::Run()
+	<---entry_pt(void*) --942525. 
+
+Rng::drand() -- 1
+	rng.cpp:54 -- 1
+
+Critical Path 6: 
+	Rng::drand()
+	<---entry_pt(void*) --729805. 
+
+netlist_elem::swap_cost(location_t*, location_t*) -- 1
+	AtomicPtr.h:197 -- 1
+
+Critical Path 7: 
+	main --52229. 
+
+main -- 3
+	main.cpp:116 -- 3
+***************************************************
+
+Top Critical Functions and lines of code with frequency
+netlist_elem::swap_cost(location_t*, location_t*) -- 144
+	AtomicPtr.h:197 -- 114
+	netlist_elem.cpp:89 -- 16
+	netlist_elem.cpp:80 -- 5
+entry_pt(void*) -- 58
+	main.cpp:141 -- 58
+annealer_thread::Run() -- 12
+	AtomicPtr.h:197 -- 11
+	MersenneTwister.h:295 -- 1
+atomic_load_acq_long -- 8
+	atomic.h:215 -- 8
+main -- 3
+	main.cpp:116 -- 3
+Rng::drand() -- 1
+	rng.cpp:54 -- 1
+netlist::get_random_element(long*, long, Rng*) -- 1
+	netlist.cpp:100 -- 1
+***************************************************
+Post Processing time in milli seconds: 2497
+Total switches: 402658 Critical switches: 267
+***************************************************

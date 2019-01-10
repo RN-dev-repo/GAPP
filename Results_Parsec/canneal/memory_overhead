@@ -1,0 +1,77 @@
+Original
+------------
+ Command being timed: "/data/rn1115/parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc-pthreads/bin/canneal 64 15000 2000 2500000.nets 6000"
+        User time (seconds): 1165.20
+        System time (seconds): 16.26
+        Percent of CPU this job got: 1769%
+        Elapsed (wall clock) time (h:mm:ss or m:ss): 1:06.78
+        Average shared text size (kbytes): 0
+        Average unshared data size (kbytes): 0
+        Average stack size (kbytes): 0
+        Average total size (kbytes): 0
+        Maximum resident set size (kbytes): 872916
+        Average resident set size (kbytes): 0
+        Major (requiring I/O) page faults: 0
+        Minor (reclaiming a frame) page faults: 738014
+        Voluntary context switches: 381565
+        Involuntary context switches: 51648
+        Swaps: 0
+        File system inputs: 0
+        File system outputs: 8
+        Socket messages sent: 0
+        Socket messages received: 0
+        Signals delivered: 0
+        Page size (bytes): 4096
+        Exit status: 0
+
+With GAPP
+-----------
+ Command being timed: "/data/rn1115/parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc-pthreads/bin/canneal 64 15000 2000 2500000.nets 6000"
+        User time (seconds): 736.83
+        System time (seconds): 35.32
+        Percent of CPU this job got: 1238%
+        Elapsed (wall clock) time (h:mm:ss or m:ss): 1:02.33
+        Average shared text size (kbytes): 0
+        Average unshared data size (kbytes): 0
+        Average stack size (kbytes): 0
+        Average total size (kbytes): 0
+        Maximum resident set size (kbytes): 872912
+        Average resident set size (kbytes): 0
+        Major (requiring I/O) page faults: 0
+        Minor (reclaiming a frame) page faults: 1547293
+        Voluntary context switches: 378482
+        Involuntary context switches: 37261
+        Swaps: 0
+        File system inputs: 0
+        File system outputs: 0
+        Socket messages sent: 0
+        Socket messages received: 0
+        Signals delivered: 0
+        Page size (bytes): 4096
+        Exit status: 0
+
+GAPP memory
+------------
+Command being timed: "python GAPP_dynamic_final.py -x canneal -t 32"
+        User time (seconds): 8.93
+        System time (seconds): 3.04
+        Percent of CPU this job got: 10%
+        Elapsed (wall clock) time (h:mm:ss or m:ss): 1:55.40
+        Average shared text size (kbytes): 0
+        Average unshared data size (kbytes): 0
+        Average stack size (kbytes): 0
+        Average total size (kbytes): 0
+        Maximum resident set size (kbytes): 112084
+        Average resident set size (kbytes): 0
+        Major (requiring I/O) page faults: 0
+        Minor (reclaiming a frame) page faults: 46697
+        Voluntary context switches: 9753
+        Involuntary context switches: 1404
+        Swaps: 0
+        File system inputs: 0
+        File system outputs: 8
+        Socket messages sent: 0
+        Socket messages received: 0
+        Signals delivered: 0
+        Page size (bytes): 4096
+        Exit status: 0
