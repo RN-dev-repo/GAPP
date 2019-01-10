@@ -1,0 +1,224 @@
+Criticality Metric for each thread
+      9336 470187467 
+      9393 470415743 
+      9383 471334899 
+      9337 471636042 
+      9334 472441833 
+      9363 473039673 
+      9367 473273041 
+      9384 473366373 
+      9349 473429372 
+      9338 473607931 
+      9375 473625008 
+      9350 473658730 
+      9381 473939809 
+      9366 474017700 
+      9369 474049881 
+      9380 474117057 
+      9374 474284426 
+      9333 474315304 
+      9340 474346963 
+      9371 474356551 
+      9335 474548810 
+      9362 474653535 
+      9352 474678741 
+      9353 474916608 
+      9342 475047578 
+      9394 475163110 
+      9345 475654555 
+      9372 475813306 
+      9388 476024221 
+      9351 476057385 
+      9361 476255103 
+      9343 476544637 
+      9370 476606494 
+      9359 476905438 
+      9364 477128957 
+      9385 477327242 
+      9357 477450751 
+      9356 477476603 
+      9382 477566471 
+      9386 477571728 
+      9347 477742491 
+      9373 477925283 
+      9379 478029061 
+      9368 478464019 
+      9390 478516071 
+      9354 478746874 
+      9358 478763380 
+      9378 478904896 
+      9389 479128605 
+      9387 479389511 
+      9376 479550279 
+      9377 479598573 
+      9392 480253337 
+      9391 480349888 
+      9332 480631328 
+      9346 480981802 
+      9365 481523645 
+      9360 481564395 
+      9341 481581793 
+      9344 481891816 
+      9339 482863774 
+      9355 483198732 
+      9348 486360759 
+      9331 717207760 
+      9395 830523603 
+      9330 7062341183 
+Sum = 38642867934
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+
+Critical Path 1: 
+	AsyncImageLoader::LoadSet(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&, std::vector<BinaryImage, std::allocator<BinaryImage> >&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&, std::vector<FlexImage<unsigned char, 1>, std::allocator<FlexImage<unsigned char, 1> > >&)
+	<---AsyncImageLoader::Run()
+	<---thread_entry --21714919. 
+
+AsyncImageLoader::LoadSet(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&, std::vector<BinaryImage, std::allocator<BinaryImage> >&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&, std::vector<FlexImage<unsigned char, 1>, std::allocator<FlexImage<unsigned char, 1> > >&) -- 8
+	BinaryImage.h:90 -- 3
+	BinaryImage.h:93 -- 2
+	BinaryImage.h:92 -- 2
+int FlexConvert<unsigned char, unsigned char, 1>(FlexImage<unsigned char, 1> const&, FlexImage<unsigned char, 1>&, bool) -- 6
+	FlexDataExchange.h:233 -- 6
+
+Critical Path 2: 
+	threads::WorkerGroup::RecvCmd()
+	<---threads::WorkerGroup::Run()
+	<---thread_entry --10129769. 
+
+threads::WorkerGroup::RecvCmd() -- 4784
+	WorkerGroup.cpp:101 -- 4784
+
+Critical Path 3: 
+	TrackingModelPthread::Exec(unsigned short, unsigned int)
+	<---threads::WorkerGroup::Run()
+	<---thread_entry --1588520. 
+
+TrackingModelPthread::Exec(unsigned short, unsigned int) -- 301
+	TicketDispenser.h:99 -- 181
+	TicketDispenser.h:101 -- 119
+	TrackingModelPthread.cpp:181 -- 1
+GradientMagThresholdPthread(int, FlexImage<unsigned char, 1>&, float, FlexImage<unsigned char, 1>&) -- 109
+	TrackingModelPthread.cpp:131 -- 97
+	TrackingModelPthread.cpp:139 -- 6
+	TrackingModelPthread.cpp:134 -- 4
+void FlexFilterColumnVPthread<unsigned char, float>(int, FlexImage<unsigned char, 1>&, FlexImage<unsigned char, 1>&, float*, int, bool) -- 5
+	TrackingModelPthread.cpp:109 -- 3
+	TrackingModelPthread.cpp:108 -- 1
+	TrackingModelPthread.cpp:111 -- 1
+void FlexFilterRowVPthread<unsigned char, float>(int, FlexImage<unsigned char, 1>&, FlexImage<unsigned char, 1>&, float*, int, bool) -- 2
+	TrackingModelPthread.cpp:90 -- 2
+
+Critical Path 4: 
+	ParticleFilterPthread<TrackingModel>::Exec(unsigned short, unsigned int)
+	<---threads::WorkerGroup::Run()
+	<---thread_entry --1394867. 
+
+ParticleFilterPthread<TrackingModel>::Exec(unsigned short, unsigned int) -- 441
+	TicketDispenser.h:98 -- 433
+	ParticleFilterPthread.h:118 -- 4
+	ParticleFilter.h:132 -- 2
+
+Critical Path 5: 
+	ImageMeasurements::ImageErrorEdge(std::vector<FlexImage<unsigned char, 1>, std::allocator<FlexImage<unsigned char, 1> > >&, MultiCameraProjectedBody&)
+	<---TrackingModel::LogLikelihood(std::vector<float, std::allocator<float> > const&, bool&, int)
+	<---ParticleFilterPthread<TrackingModel>::Exec(unsigned short, unsigned int)
+	<---threads::WorkerGroup::Run()
+	<---thread_entry --91576. 
+
+SampleEdgePoint(float, float, FlexImage<unsigned char, 1> const&, int&, int&) -- 3
+	ImageMeasurements.cpp:37 -- 2
+	ImageMeasurements.cpp:35 -- 1
+
+Critical Path 6: 
+	threads::Thread::Thread(threads::Runnable&)
+	<---threads::ThreadGroup::CreateThreads(int, threads::Runnable&)
+	<---threads::WorkerGroup::WorkerGroup(int)
+	<---mainPthreads(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, int, int, int, int, bool)
+	<---main --31951. 
+
+threads::Thread::Thread(threads::Runnable&) -- 1
+	Thread.cpp:53 -- 1
+
+Critical Path 7: 
+	RandomGenerator::RandN()
+	<---threads::WorkerGroup::Run()
+	<---thread_entry --26396. 
+
+RandomGenerator::RandN() -- 2
+	RandomGenerator.cpp:77 -- 2
+
+Critical Path 8: 
+	void EulerRotation<float>(DMatrix<float>&, float, float, float, DMOrder) [clone .constprop.49]
+	<---BodyGeometry::ComputeGeometry(BodyPose&, BodyParameters&)
+	<---TrackingModel::LogLikelihood(std::vector<float, std::allocator<float> > const&, bool&, int)
+	<---ParticleFilterPthread<TrackingModel>::Exec(unsigned short, unsigned int)
+	<---threads::WorkerGroup::Run()
+	<---thread_entry --10004. 
+
+void EulerRotation<float>(DMatrix<float>&, float, float, float, DMOrder) -- 1
+	DMatrix.h:285 -- 1
+
+Critical Path 9: 
+	ImageMeasurements::InsideError(ProjectedCylinder const&, BinaryImage const&, int&, int&)
+	<---ImageMeasurements::ImageErrorInside(std::vector<BinaryImage, std::allocator<BinaryImage> >&, MultiCameraProjectedBody&)
+	<---TrackingModel::LogLikelihood(std::vector<float, std::allocator<float> > const&, bool&, int)
+	<---ParticleFilterPthread<TrackingModel>::Exec(unsigned short, unsigned int)
+	<---threads::WorkerGroup::Run()
+	<---thread_entry --8304. 
+
+ImageMeasurements::InsideError(ProjectedCylinder const&, BinaryImage const&, int&, int&) -- 2
+	BinaryImage.h:64 -- 2
+SampleInsidePoint(float, float, BinaryImage const&, int&, int&) -- 1
+	ImageMeasurements.cpp:80 -- 1
+
+Critical Path 10: 
+	RandomGenerator::RandN()
+	<---ParticleFilterPthread<TrackingModel>::Exec(unsigned short, unsigned int)
+	<---threads::WorkerGroup::Run()
+	<---thread_entry --7841. 
+
+RandomGenerator::RandN() -- 2
+	RandomGenerator.cpp:76 -- 1
+	RandomGenerator.cpp:68 -- 1
+***************************************************
+
+Top Critical Functions and lines of code with frequency
+threads::WorkerGroup::RecvCmd() -- 4784
+	WorkerGroup.cpp:101 -- 4784
+ParticleFilterPthread<TrackingModel>::Exec(unsigned short, unsigned int) -- 441
+	TicketDispenser.h:98 -- 433
+	ParticleFilterPthread.h:118 -- 4
+	ParticleFilter.h:132 -- 2
+TrackingModelPthread::Exec(unsigned short, unsigned int) -- 301
+	TicketDispenser.h:99 -- 181
+	TicketDispenser.h:101 -- 119
+	TrackingModelPthread.cpp:181 -- 1
+GradientMagThresholdPthread(int, FlexImage<unsigned char, 1>&, float, FlexImage<unsigned char, 1>&) -- 109
+	TrackingModelPthread.cpp:131 -- 97
+	TrackingModelPthread.cpp:139 -- 6
+	TrackingModelPthread.cpp:134 -- 4
+AsyncImageLoader::LoadSet(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&, std::vector<BinaryImage, std::allocator<BinaryImage> >&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&, std::vector<FlexImage<unsigned char, 1>, std::allocator<FlexImage<unsigned char, 1> > >&) -- 8
+	BinaryImage.h:90 -- 3
+	BinaryImage.h:93 -- 2
+	BinaryImage.h:92 -- 2
+int FlexConvert<unsigned char, unsigned char, 1>(FlexImage<unsigned char, 1> const&, FlexImage<unsigned char, 1>&, bool) -- 6
+	FlexDataExchange.h:233 -- 6
+void FlexFilterColumnVPthread<unsigned char, float>(int, FlexImage<unsigned char, 1>&, FlexImage<unsigned char, 1>&, float*, int, bool) -- 5
+	TrackingModelPthread.cpp:109 -- 3
+	TrackingModelPthread.cpp:108 -- 1
+	TrackingModelPthread.cpp:111 -- 1
+RandomGenerator::RandN() -- 4
+	RandomGenerator.cpp:77 -- 2
+	RandomGenerator.cpp:76 -- 1
+	RandomGenerator.cpp:68 -- 1
+SampleEdgePoint(float, float, FlexImage<unsigned char, 1> const&, int&, int&) -- 3
+	ImageMeasurements.cpp:37 -- 2
+	ImageMeasurements.cpp:35 -- 1
+void FlexFilterRowVPthread<unsigned char, float>(int, FlexImage<unsigned char, 1>&, FlexImage<unsigned char, 1>&, float*, int, bool) -- 2
+	TrackingModelPthread.cpp:90 -- 2
+***************************************************
+Post Processing time in milli seconds: 1736
+Total switches: 1416531 Critical switches: 5735
+***************************************************

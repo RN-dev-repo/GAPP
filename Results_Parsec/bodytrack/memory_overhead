@@ -1,0 +1,79 @@
+Original
+-----------
+ Command being timed: "/data/rn1115/parsec-3.0/pkgs/apps/bodytrack/inst/amd64-linux.gcc-pthreads/bin/bodytrack sequenceB_261 4 261 4000 5 0 64"
+        User time (seconds): 394.70
+        System time (seconds): 34.45
+        Percent of CPU this job got: 2027%
+        Elapsed (wall clock) time (h:mm:ss or m:ss): 0:21.17
+        Average shared text size (kbytes): 0
+        Average unshared data size (kbytes): 0
+        Average stack size (kbytes): 0
+        Average total size (kbytes): 0
+        Maximum resident set size (kbytes): 36044
+        Average resident set size (kbytes): 0
+        Major (requiring I/O) page faults: 0
+        Minor (reclaiming a frame) page faults: 171359
+        Voluntary context switches: 1444678
+        Involuntary context switches: 33029
+        Swaps: 0
+        File system inputs: 0
+        File system outputs: 472056
+        Socket messages sent: 0
+        Socket messages received: 0
+        Signals delivered: 0
+        Page size (bytes): 4096
+        Exit status: 0
+
+With GAPP
+------------
+ Command being timed: "/data/rn1115/parsec-3.0/pkgs/apps/bodytrack/inst/amd64-linux.gcc-pthreads/bin/bodytrack sequenceB_261 4 261 4000 5 0 64"
+        User time (seconds): 388.82
+        System time (seconds): 53.99
+        Percent of CPU this job got: 1634%
+        Elapsed (wall clock) time (h:mm:ss or m:ss): 0:27.09
+        Average shared text size (kbytes): 0
+        Average unshared data size (kbytes): 0
+        Average stack size (kbytes): 0
+        Average total size (kbytes): 0
+        Maximum resident set size (kbytes): 35748
+        Average resident set size (kbytes): 0
+        Major (requiring I/O) page faults: 0
+        Minor (reclaiming a frame) page faults: 172403
+        Voluntary context switches: 1400911
+        Involuntary context switches: 31455
+        Swaps: 0
+        File system inputs: 0
+        File system outputs: 472048
+        Socket messages sent: 0
+        Socket messages received: 0
+        Signals delivered: 0
+        Page size (bytes): 4096
+        Exit status: 0
+
+GAPP_Memory (default ring buffer size)
+---------------
+Command being timed: "python GAPP_dynamic_final.py -x bodytrack -t 32"
+        User time (seconds): 17.78
+        System time (seconds): 1.95
+        Percent of CPU this job got: 20%
+        Elapsed (wall clock) time (h:mm:ss or m:ss): 1:36.51
+        Average shared text size (kbytes): 0
+        Average unshared data size (kbytes): 0
+        Average stack size (kbytes): 0
+        Average total size (kbytes): 0
+        Maximum resident set size (kbytes): 111640
+        Average resident set size (kbytes): 0
+        Major (requiring I/O) page faults: 0
+        Minor (reclaiming a frame) page faults: 134439
+        Voluntary context switches: 1389
+        Involuntary context switches: 1942
+        Swaps: 0
+        File system inputs: 0
+        File system outputs: 32
+        Socket messages sent: 0
+        Socket messages received: 0
+        Signals delivered: 0
+        Page size (bytes): 4096
+        Exit status: 0
+
+
