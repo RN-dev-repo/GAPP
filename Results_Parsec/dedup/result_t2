@@ -1,0 +1,830 @@
+Final
+Criticality Metric for each thread
+      5680 13205698
+      5693 17060815
+      5689 17393497
+      5683 19544102
+      5695 20021664
+      5682 22708627
+      5679 24167993
+      5686 24248248
+      5698 24532442
+      5688 26864142
+      5690 27819044
+      5691 28283944
+      5705 29429146
+      5717 30074505
+      5715 30199207
+      5684 30335890
+      5704 30564674
+      5706 30753472
+      5701 30951424
+      5716 31096623
+      5703 31803023
+      5718 31891803
+      5702 32565270
+      5697 32608179
+      5699 32949872
+      5685 33935933
+      5700 35721664
+      5710 39707191
+      5696 40028441
+      5707 41102439
+      5708 41743034
+      5709 41914537
+      5712 43950845
+      5711 45392215
+      5714 46259977
+      5713 48108883
+      5681 51830267
+      5694 60392488
+      5692 76172025
+      5687 102945224
+      5675 216143076
+      5723 424370763
+      5734 425042976
+      5722 425285195
+      5726 431399662
+      5719 432816957
+      5721 433084566
+      5720 434021398
+      5732 435204228
+      5738 436371066
+      5724 436565369
+      5731 437170707
+      5733 437376713
+      5725 437441345
+      5735 438605641
+      5729 446685863
+      5737 447383190
+      5728 447483441
+      5730 448034219
+      5736 449463054
+      5727 455076264
+      5678 708920404
+      5739 3571992667
+Sum = 14676217231
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+
+Critical Path 1:
+deflate_slow
+        <---deflate
+        <---compress
+        <---Compress --1611985683.
+
+0. deflate_slow -- 178158
+        deflate.c:1650 -- 149969
+        deflate.c:1580 -- 24697
+        deflate.c:1635 -- 1356
+1. longest_match -- 493
+        deflate.c:1121 -- 134
+        deflate.c:1163 -- 107
+        deflate.c:1030 -- 51
+2. adler32 -- 135
+        adler32.c:112 -- 63
+        adler32.c:101 -- 56
+        adler32.c:103 -- 11
+3. pqdownheap -- 114
+        trees.c:464 -- 40
+        trees.c:465 -- 31
+        trees.c:472 -- 18
+4. copy_block -- 50
+        trees.c:1217 -- 46
+        trees.c:1216 -- 4
+5. build_tree -- 31
+        trees.c:687 -- 9
+        trees.c:672 -- 8
+        trees.c:677 -- 4
+6. compress_block -- 19
+        trees.c:1087 -- 9
+        trees.c:1114 -- 3
+        trees.c:1084 -- 3
+7. fill_window -- 13
+        deflate.c:1268 -- 7
+        deflate.c:1275 -- 1
+        deflate.c:1327 -- 1
+8. gen_codes -- 8
+        trees.c:604 -- 5
+        trees.c:602 -- 2
+        trees.c:600 -- 1
+9. init_block -- 6
+        trees.c:417 -- 5
+        trees.c:418 -- 1
+
+Critical Path 2:
+_tr_stored_block
+        <---_tr_flush_block
+        <---deflate_slow
+        <---deflate
+        <---compress
+        <---Compress --472461821.
+
+0. copy_block -- 25559
+        trees.c:1217 -- 25547
+        trees.c:1216 -- 12
+1. pqdownheap -- 397
+        trees.c:464 -- 151
+        trees.c:465 -- 119
+        trees.c:469 -- 46
+2. deflate_slow -- 355
+        deflate.c:1580 -- 183
+        deflate.c:1650 -- 50
+        deflate.c:1585 -- 30
+3. build_tree -- 79
+        trees.c:687 -- 24
+        trees.c:672 -- 15
+        trees.c:677 -- 7
+4. longest_match -- 77
+        deflate.c:1121 -- 24
+        deflate.c:1163 -- 17
+        deflate.c:1030 -- 7
+5. gen_bitlen -- 34
+        trees.c:527 -- 15
+        trees.c:516 -- 4
+        trees.c:528 -- 4
+6. bi_reverse -- 32
+        trees.c:1153 -- 15
+        trees.c:1152 -- 12
+        trees.c:1154 -- 4
+7. gen_codes -- 16
+        trees.c:604 -- 10
+        trees.c:600 -- 4
+        trees.c:601 -- 1
+8. fill_window -- 15
+        deflate.c:1268 -- 7
+        deflate.c:1358 -- 4
+        deflate.c:1293 -- 3
+9. scan_tree -- 9
+        trees.c:724 -- 3
+        trees.c:727 -- 2
+        trees.c:725 -- 2
+
+Critical Path 3:
+compress
+        <---Compress --318946011.
+
+0. compress2 -- 58710
+        compress.c:47 -- 58701
+        compress.c:50 -- 5
+        compress.c:56 -- 4
+1. deflate_slow -- 13
+        deflate.c:1580 -- 5
+        deflate.c:1585 -- 2
+        deflate.c:1588 -- 2
+2. pqdownheap -- 7
+        trees.c:465 -- 4
+        trees.c:472 -- 1
+        trees.c:469 -- 1
+3. init_block -- 3
+        trees.c:417 -- 2
+        trees.c:423 -- 1
+4. build_tree -- 2
+        trees.c:639 -- 1
+        trees.c:672 -- 1
+5. gen_bitlen -- 2
+        trees.c:527 -- 1
+        trees.c:521 -- 1
+6. bi_reverse -- 1
+        trees.c:1153 -- 1
+7. adler32 -- 1
+        adler32.c:112 -- 1
+8. memset -- 1
+        string_fortified.h:71 -- 1
+9. _tr_init -- 1
+        trees.c:390 -- 1
+
+Critical Path 4:
+compress_block
+        <---_tr_flush_block
+        <---deflate_slow
+        <---deflate
+        <---compress
+        <---Compress --222994200.
+
+0. compress_block -- 9822
+        trees.c:1087 -- 9311
+        trees.c:1106 -- 198
+        trees.c:1092 -- 165
+1. deflate_slow -- 133
+        deflate.c:1580 -- 55
+        deflate.c:1650 -- 25
+        deflate.c:1585 -- 11
+2. pqdownheap -- 121
+        trees.c:464 -- 45
+        trees.c:465 -- 40
+        trees.c:472 -- 14
+3. longest_match -- 63
+        deflate.c:1121 -- 20
+        deflate.c:1163 -- 15
+        deflate.c:1164 -- 6
+4. build_tree -- 35
+        trees.c:687 -- 15
+        trees.c:672 -- 10
+        trees.c:676 -- 3
+5. gen_bitlen -- 13
+        trees.c:527 -- 8
+        trees.c:516 -- 2
+        trees.c:528 -- 1
+6. gen_codes -- 9
+        trees.c:604 -- 7
+        trees.c:601 -- 1
+        trees.c:600 -- 1
+7. bi_reverse -- 7
+        trees.c:1153 -- 5
+        trees.c:1152 -- 2
+8. fill_window -- 7
+        deflate.c:1358 -- 3
+        deflate.c:1316 -- 2
+        deflate.c:1293 -- 1
+9. send_tree -- 5
+        trees.c:773 -- 4
+        trees.c:770 -- 1
+
+Critical Path 5:
+rabinseg
+        <---FragmentRefine --116540489.
+
+0. rabinseg -- 16658
+        rabin.c:96 -- 12234
+        rabin.c:94 -- 4390
+        rabin.c:91 -- 11
+1. mbuffer_split -- 2
+        mbuffer.c:281 -- 2
+2. gen_codes -- 1
+        trees.c:604 -- 1
+3. deflate_slow -- 1
+        deflate.c:1644 -- 1
+
+Critical Path 6:
+adler32
+        <---fill_window
+        <---deflate_slow
+        <---deflate
+        <---compress
+        <---Compress --58303610.
+
+0. adler32 -- 1258
+        adler32.c:101 -- 750
+        adler32.c:112 -- 506
+        adler32.c:67 -- 1
+1. deflate_slow -- 71
+        deflate.c:1580 -- 38
+        deflate.c:1650 -- 10
+        deflate.c:1585 -- 7
+2. pqdownheap -- 32
+        trees.c:465 -- 14
+        trees.c:464 -- 8
+        trees.c:472 -- 3
+3. longest_match -- 17
+        deflate.c:1121 -- 7
+        deflate.c:1030 -- 3
+        deflate.c:1164 -- 3
+4. copy_block -- 10
+        trees.c:1217 -- 10
+5. bi_reverse -- 5
+        trees.c:1153 -- 2
+        trees.c:1152 -- 2
+        trees.c:1154 -- 1
+6. build_tree -- 5
+        trees.c:672 -- 3
+        trees.c:687 -- 1
+        trees.c:669 -- 1
+7. compress_block -- 4
+        trees.c:1087 -- 4
+8. mbuffer_free -- 1
+        mbuffer.c:187 -- 1
+9. gen_bitlen -- 1
+        trees.c:524 -- 1
+
+Critical Path 7:
+hashtable_search
+        <---sub_Deduplicate
+        <---Deduplicate --52642016.
+
+0. hashtable_search -- 2212
+        hashtable.c:237 -- 2120
+        hashtable.c:234 -- 91
+        hashtable.c:241 -- 1
+1. sha1_block_data_order -- 23
+        sha_locl.h:347 -- 2
+        sha_locl.h:331 -- 2
+        sha_locl.h:311 -- 1
+
+Critical Path 8:
+Reorder --40267759.
+
+0. Reorder -- 22
+        encoder.c:1284 -- 9
+        encoder.c:1227 -- 8
+        encoder.c:1254 -- 5
+1. write_chunk_to_file -- 15
+        encoder.c:277 -- 15
+
+Critical Path 9:
+Deduplicate --28751673.
+
+0. Deduplicate -- 1117
+        encoder.c:559 -- 736
+        encoder.c:548 -- 214
+        encoder.c:579 -- 84
+1. sha1_block_data_order -- 34
+        sha_locl.h:328 -- 3
+        sha_locl.h:307 -- 3
+        sha_locl.h:298 -- 2
+2. ringbuffer_insert -- 27
+        queue.h:89 -- 27
+3. deflate_slow -- 4
+        deflate.c:1580 -- 2
+        deflate.c:1644 -- 1
+        deflate.c:1650 -- 1
+4. longest_match -- 2
+        deflate.c:1121 -- 1
+        deflate.c:1163 -- 1
+5. build_tree -- 1
+        trees.c:672 -- 1
+6. SHA1_Update -- 1
+        md32_common.h:326 -- 1
+7. pqdownheap -- 1
+        trees.c:465 -- 1
+8. copy_block -- 1
+        trees.c:1217 -- 1
+9. hash_from_key_fn -- 1
+        encoder.c:72 -- 1
+
+Critical Path 10:
+build_tree
+        <---_tr_flush_block
+        <---deflate_slow
+        <---deflate
+        <---compress
+        <---Compress --28668878.
+
+0. pqdownheap -- 85
+        trees.c:464 -- 39
+        trees.c:465 -- 18
+        trees.c:462 -- 9
+1. build_tree -- 41
+        trees.c:687 -- 16
+        trees.c:622 -- 12
+        trees.c:639 -- 4
+2. deflate_slow -- 28
+        deflate.c:1580 -- 17
+        deflate.c:1650 -- 3
+        deflate.c:1585 -- 2
+3. gen_bitlen -- 15
+        trees.c:527 -- 11
+        trees.c:528 -- 4
+4. bi_reverse -- 5
+        trees.c:1154 -- 2
+        trees.c:1152 -- 2
+        trees.c:1153 -- 1
+5. adler32 -- 5
+        adler32.c:101 -- 3
+        adler32.c:112 -- 1
+        adler32.c:61 -- 1
+6. copy_block -- 5
+        trees.c:1217 -- 5
+7. gen_codes -- 4
+        trees.c:604 -- 4
+8. longest_match -- 3
+        deflate.c:1121 -- 1
+        deflate.c:1038 -- 1
+        deflate.c:1163 -- 1
+9. scan_tree -- 1
+        trees.c:724 -- 1
+***************************************************
+
+Top Critical Functions and lines of code with frequency
+deflate_slow -- 178763
+        deflate.c:1650 -- 150059
+        deflate.c:1580 -- 24997
+        deflate.c:1635 -- 1365
+compress2 -- 58711
+        compress.c:47 -- 58701
+        compress.c:50 -- 5
+        compress.c:56 -- 4
+copy_block -- 25625
+        trees.c:1217 -- 25609
+        trees.c:1216 -- 16
+rabinseg -- 16658
+        rabin.c:96 -- 12234
+        rabin.c:94 -- 4390
+        rabin.c:91 -- 11
+compress_block -- 9849
+        trees.c:1087 -- 9327
+        trees.c:1106 -- 200
+        trees.c:1092 -- 166
+hashtable_search -- 2212
+        hashtable.c:237 -- 2120
+        hashtable.c:234 -- 91
+        hashtable.c:241 -- 1
+adler32 -- 1405
+        adler32.c:101 -- 811
+        adler32.c:112 -- 573
+        adler32.c:103 -- 11
+Deduplicate -- 1117
+        encoder.c:559 -- 736
+        encoder.c:548 -- 214
+        encoder.c:579 -- 84
+pqdownheap -- 757
+        trees.c:464 -- 283
+        trees.c:465 -- 227
+        trees.c:472 -- 76
+longest_match -- 655
+        deflate.c:1121 -- 187
+        deflate.c:1163 -- 143
+        deflate.c:1030 -- 63
+***************************************************
+Post Processing time in milli seconds: 21154
+Total switches: 1054420 Critical switches: 299376
+***************************************************
+
+
+With all samples
+Criticality Metric for each thread
+      8628 13747994
+      8640 16163756
+      8631 16658424
+      8642 18162443
+      8625 22979985
+      8626 24242809
+      8635 25038259
+      8630 25134242
+      8641 31969121
+      8629 34010370
+      8624 35757909
+      8645 37095710
+      8661 37718123
+      8646 37754783
+      8643 37847539
+      8662 37974664
+      8660 38194077
+      8659 38259502
+      8650 39044093
+      8644 39400909
+      8648 39998768
+      8638 40237743
+      8649 40321809
+      8632 40405690
+      8647 40574328
+      8623 40910264
+      8653 41888804
+      8634 41936000
+      8657 42537774
+      8655 43040332
+      8658 43043728
+      8652 43094853
+      8636 43828107
+      8633 44205883
+      8654 44505074
+      8656 44588683
+      8651 44649978
+      8637 45722885
+      8627 48027478
+      8639 53426819
+      8620 211089758
+      8673 364869109
+      8680 366811916
+      8677 369716349
+      8671 369788566
+      8664 370282967
+      8675 370740190
+      8672 370810239
+      8674 370812950
+      8679 371696455
+      8669 374545885
+      8676 375882526
+      8667 376765716
+      8665 376827055
+      8682 377261256
+      8678 377924375
+      8681 379168573
+      8668 380679740
+      8663 384646835
+      8666 390759084
+      8670 392304551
+      8622 615604653
+      8683 3329919682
+Sum = 13143008142
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+Critical Path 1: deflate_slow<-deflate<-compress<-Compress --1576294420 WakeCount: 9905
+
+Critical Path 2: compress<-Compress --775207204 WakeCount: 38952
+
+Critical Path 3: _tr_stored_block<-_tr_flush_block<-deflate_slow<-deflate<-compress<-Compress --517635587 WakeCount: 1071
+
+Critical Path 4: compress_block<-_tr_flush_block<-deflate_slow<-deflate<-compress<-Compress --209522455 WakeCount: 278
+
+Critical Path 5: build_tree<-_tr_flush_block<-deflate_slow<-deflate<-compress<-Compress --111013632 WakeCount: 73
+
+Critical Path 6: DeleteMin<-Reorder --62734101 WakeCount: 4
+
+Critical Path 7: Reorder --40544259 WakeCount: 0
+
+Critical Path 8: Compress --39669368 WakeCount: 4
+
+Critical Path 9: longest_match<-deflate_slow<-deflate<-compress<-Compress --27123782 WakeCount: 8
+
+Critical Path 10: rabinseg<-FragmentRefine --26449974 WakeCount: 471
+Top Critical Functions and lines of code
+0. deflate_slow -- 168091
+        deflate.c:1650 -- 143367
+        deflate.c:1580 -- 21110
+        deflate.c:1635 -- 1094
+1. compress2 -- 146981
+        compress.c:47 -- 146971
+        compress.c:56 -- 7
+        compress.c:50 -- 2
+2. copy_block -- 30849
+        trees.c:1217 -- 30830
+        trees.c:1216 -- 19
+3. compress_block -- 9496
+        trees.c:1087 -- 8642
+        trees.c:1106 -- 502
+        trees.c:1092 -- 191
+4. rabinseg -- 2737
+        rabin.c:94 -- 2677
+        rabin.c:95 -- 18
+        rabin.c:96 -- 15
+5. pqdownheap -- 1337
+        trees.c:465 -- 420
+        trees.c:464 -- 396
+        trees.c:469 -- 159
+6. longest_match -- 754
+        deflate.c:1121 -- 232
+        deflate.c:1163 -- 136
+        deflate.c:1030 -- 72
+7. build_tree -- 312
+        trees.c:672 -- 101
+        trees.c:687 -- 95
+        trees.c:669 -- 25
+8. DeleteMin -- 282
+        binheap.c:88 -- 261
+        binheap.c:93 -- 17
+        binheap.c:83 -- 3
+9. adler32 -- 172
+        adler32.c:101 -- 76
+        adler32.c:112 -- 76
+        adler32.c:110 -- 9
+***************************************************
+Results based on wake count
+***************************************************
+Critical Path 1: compress<-Compress --775207204 WakeCount: 38952
+
+Critical Path 2: deflate_slow<-deflate<-compress<-Compress --1576294420 WakeCount: 9905
+
+Critical Path 3: _tr_stored_block<-_tr_flush_block<-deflate_slow<-deflate<-compress<-Compress --517635587 WakeCount: 1071
+
+Critical Path 4: rabinseg<-FragmentRefine --26449974 WakeCount: 471
+
+Critical Path 5: compress_block<-_tr_flush_block<-deflate_slow<-deflate<-compress<-Compress --209522455 WakeCount: 278
+
+Critical Path 6: Deduplicate --14415621 WakeCount: 135
+
+Critical Path 7: queue_enqueue<-FragmentRefine --10375554 WakeCount: 94
+
+Critical Path 8: build_tree<-_tr_flush_block<-deflate_slow<-deflate<-compress<-Compress --111013632 WakeCount: 73
+
+Critical Path 9: deflateReset<-compress<-Compress --346587 WakeCount: 31
+
+Critical Path 10: queue_enqueue<-Deduplicate --15327698 WakeCount: 30
+
+***************************************************
+deflate_slow -- 168035
+        deflate.c:1650 -- 143361
+        deflate.c:1580 -- 21082
+        deflate.c:1635 -- 1093
+compress2 -- 146981
+        compress.c:47 -- 146971
+        compress.c:56 -- 7
+        compress.c:50 -- 2
+copy_block -- 30840
+        trees.c:1217 -- 30822
+        trees.c:1216 -- 18
+compress_block -- 9495
+        trees.c:1087 -- 8641
+        trees.c:1106 -- 502
+        trees.c:1092 -- 191
+rabinseg -- 2767
+        rabin.c:94 -- 2689
+        rabin.c:95 -- 22
+        rabin.c:96 -- 18
+pqdownheap -- 1305
+        trees.c:465 -- 405
+        trees.c:464 -- 388
+        trees.c:469 -- 158
+Deduplicate -- 1298
+        encoder.c:559 -- 1123
+        encoder.c:548 -- 60
+        encoder.c:579 -- 58
+ringbuffer_insert -- 863
+        queue.h:89 -- 862
+        queue.h:88 -- 1
+longest_match -- 639
+        deflate.c:1121 -- 202
+        deflate.c:1163 -- 116
+        deflate.c:1030 -- 64
+build_tree -- 302
+        trees.c:672 -- 99
+        trees.c:687 -- 89
+        trees.c:676 -- 24
+***************************************************
+Post Processing time in milli seconds: 27205
+Total switches: 889949 Critical switches: 362544
+***************************************************
+
+With lost samples:
+
+Criticality Metric for each thread
+     59456 15240455 
+     59463 16402985 
+     59474 18093069 
+     59472 20558038 
+     59459 22202749 
+     59457 27348960 
+     59462 28608765 
+     59455 30605790 
+     59476 34985942 
+     59493 36042346 
+     59475 36529236 
+     59461 36794815 
+     59465 37318628 
+     59467 37592400 
+     59478 37718298 
+     59477 37948042 
+     59479 38249303 
+     59481 38623546 
+     59494 38831090 
+     59470 39193957 
+     59480 39288137 
+     59491 39355253 
+     59482 39623769 
+     59471 40495397 
+     59492 41321041 
+     59489 43259022 
+     59488 44723137 
+     59468 45205798 
+     59487 45663685 
+     59466 45813378 
+     59484 46225501 
+     59490 46569427 
+     59486 46673578 
+     59485 47035653 
+     59483 47353591 
+     59458 49539853 
+     59460 59514428 
+     59464 70657593 
+     59473 77271518 
+     59469 79420562 
+     59452 183090979 
+     59500 459873911 
+     59511 460072150 
+     59504 462683527 
+     59506 463785205 
+     59499 464424520 
+     59508 465119042 
+     59502 465140290 
+     59501 465442696 
+     59497 466468827 
+     59505 466493919 
+     59503 466678567 
+     59507 469064884 
+     59513 469734172 
+     59514 472140885 
+     59509 472602296 
+     59512 473109808 
+     59495 477427540 
+     59498 483358346 
+     59510 491965064 
+     59496 493401942 
+     59454 556240040 
+     59515 3802671409 
+Sum = 15574888754
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+Critical Path 1: deflate_slow<-deflate<-compress<-Compress --439581052 WakeCount: 2795
+
+Critical Path 2: compress<-Compress --228110290 WakeCount: 11277
+
+Critical Path 3: _tr_stored_block<-_tr_flush_block<-deflate_slow<-deflate<-compress<-Compress --154216750 WakeCount: 297
+
+Critical Path 4: adler32<-fill_window<-deflate_slow<-deflate<-compress<-Compress --91616448 WakeCount: 463
+
+Critical Path 5: compress_block<-_tr_flush_block<-deflate_slow<-deflate<-compress<-Compress --61704675 WakeCount: 89
+
+Critical Path 6: DeleteMin<-Reorder --58158788 WakeCount: 3
+
+Critical Path 7: rabinseg<-FragmentRefine --39740095 WakeCount: 407
+
+Critical Path 8: Deduplicate --30954879 WakeCount: 53
+
+Critical Path 9: mbuffer_free<-Reorder --28760019 WakeCount: 2
+
+Critical Path 10: hashtable_search<-sub_Deduplicate<-Deduplicate --20625590 WakeCount: 27
+
+Top Critical Functions and lines of code
+0. deflate_slow -- 50559
+	deflate.c:1650 -- 42840
+	deflate.c:1580 -- 6614
+	deflate.c:1635 -- 359
+1. compress2 -- 43925
+	compress.c:47 -- 43925
+2. copy_block -- 8996
+	trees.c:1217 -- 8994
+	trees.c:1216 -- 2
+3. adler32 -- 6233
+	adler32.c:112 -- 3320
+	adler32.c:101 -- 2893
+	adler32.c:116 -- 16
+4. rabinseg -- 4156
+	rabin.c:94 -- 4062
+	rabin.c:91 -- 55
+	rabin.c:95 -- 14
+5. compress_block -- 2707
+	trees.c:1087 -- 2573
+	trees.c:1106 -- 46
+	trees.c:1092 -- 40
+6. Deduplicate -- 1193
+	encoder.c:559 -- 871
+	encoder.c:548 -- 188
+	encoder.c:572 -- 114
+7. hashtable_search -- 572
+	hashtable.c:237 -- 499
+	hashtable.c:234 -- 73
+8. pqdownheap -- 265
+	trees.c:464 -- 98
+	trees.c:465 -- 74
+	trees.c:472 -- 25
+9. DeleteMin -- 199
+	binheap.c:88 -- 162
+	binheap.c:93 -- 30
+	binheap.c:83 -- 5
+***************************************************
+Results based on wake count
+***************************************************
+Critical Path 1: compress<-Compress --228110290 WakeCount: 11277
+
+Critical Path 2: deflate_slow<-deflate<-compress<-Compress --439581052 WakeCount: 2795
+
+Critical Path 3: adler32<-fill_window<-deflate_slow<-deflate<-compress<-Compress --91616448 WakeCount: 463
+
+Critical Path 4: rabinseg<-FragmentRefine --39740095 WakeCount: 407
+
+Critical Path 5: _tr_stored_block<-_tr_flush_block<-deflate_slow<-deflate<-compress<-Compress --154216750 WakeCount: 297
+
+Critical Path 6: rabinseg --1128119 WakeCount: 90
+
+Critical Path 7: compress_block<-_tr_flush_block<-deflate_slow<-deflate<-compress<-Compress --61704675 WakeCount: 89
+
+Critical Path 8: Deduplicate --30954879 WakeCount: 53
+
+Critical Path 9: queue_enqueue<-FragmentRefine --6395560 WakeCount: 28
+
+Critical Path 10: hashtable_search<-sub_Deduplicate<-Deduplicate --20625590 WakeCount: 27
+
+***************************************************
+deflate_slow -- 50559
+	deflate.c:1650 -- 42840
+	deflate.c:1580 -- 6614
+	deflate.c:1635 -- 359
+compress2 -- 43925
+	compress.c:47 -- 43925
+copy_block -- 8996
+	trees.c:1217 -- 8994
+	trees.c:1216 -- 2
+adler32 -- 6233
+	adler32.c:112 -- 3320
+	adler32.c:101 -- 2893
+	adler32.c:116 -- 16
+rabinseg -- 4300
+	rabin.c:94 -- 4066
+	rabin.c:84 -- 130
+	rabin.c:91 -- 58
+compress_block -- 2707
+	trees.c:1087 -- 2573
+	trees.c:1106 -- 46
+	trees.c:1092 -- 40
+Deduplicate -- 1193
+	encoder.c:559 -- 871
+	encoder.c:548 -- 188
+	encoder.c:572 -- 114
+hashtable_search -- 572
+	hashtable.c:237 -- 499
+	hashtable.c:234 -- 73
+pqdownheap -- 265
+	trees.c:464 -- 98
+	trees.c:465 -- 74
+	trees.c:472 -- 25
+longest_match -- 182
+	deflate.c:1121 -- 51
+	deflate.c:1163 -- 34
+	deflate.c:1030 -- 21
+***************************************************
+Post Processing time in milli seconds: 15845
+Total switches: 327208 Critical switches: 119720
+***************************************************
