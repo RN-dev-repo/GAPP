@@ -1,0 +1,78 @@
+Original
+-----------
+Command being timed: "/data/rn1115/parsec-3.0/pkgs/apps/freqmine/inst/amd64-linux.gcc-openmp/bin/freqmine webdocs_250k.dat 11000"
+        User time (seconds): 866.26
+        System time (seconds): 12.55
+        Percent of CPU this job got: 2438%
+        Elapsed (wall clock) time (h:mm:ss or m:ss): 0:36.04
+        Average shared text size (kbytes): 0
+        Average unshared data size (kbytes): 0
+        Average stack size (kbytes): 0
+        Average total size (kbytes): 0
+        Maximum resident set size (kbytes): 2828864
+        Average resident set size (kbytes): 0
+        Major (requiring I/O) page faults: 0
+        Minor (reclaiming a frame) page faults: 1426851
+        Voluntary context switches: 7299
+        Involuntary context switches: 87223
+        Swaps: 0
+        File system inputs: 0
+        File system outputs: 8
+        Socket messages sent: 0
+        Socket messages received: 0
+        Signals delivered: 0
+        Page size (bytes): 4096
+        Exit status: 0
+With GAPP
+----------------
+Command being timed: "/data/rn1115/parsec-3.0/pkgs/apps/freqmine/inst/amd64-linux.gcc-openmp/bin/freqmine webdocs_250k.dat 11000"
+        User time (seconds): 864.82
+        System time (seconds): 13.16
+        Percent of CPU this job got: 2495%
+        Elapsed (wall clock) time (h:mm:ss or m:ss): 0:35.18
+        Average shared text size (kbytes): 0
+        Average unshared data size (kbytes): 0
+        Average stack size (kbytes): 0
+        Average total size (kbytes): 0
+        Maximum resident set size (kbytes): 2865136
+        Average resident set size (kbytes): 0
+        Major (requiring I/O) page faults: 0
+        Minor (reclaiming a frame) page faults: 1402690
+        Voluntary context switches: 7212
+        Involuntary context switches: 87938
+        Swaps: 0
+        File system inputs: 0
+        File system outputs: 0
+        Socket messages sent: 0
+        Socket messages received: 0
+        Signals delivered: 0
+        Page size (bytes): 4096
+        Exit status: 0
+
+GAPP Memory
+------------
+        Command being timed: "python GAPP_dynamic_final.py -x freqmine -t 32"
+        User time (seconds): 12.21
+        System time (seconds): 25.76
+        Percent of CPU this job got: 17%
+        Elapsed (wall clock) time (h:mm:ss or m:ss): 3:31.15
+        Average shared text size (kbytes): 0
+        Average unshared data size (kbytes): 0
+        Average stack size (kbytes): 0
+        Average total size (kbytes): 0
+        Maximum resident set size (kbytes): 110476
+        Average resident set size (kbytes): 0
+        Major (requiring I/O) page faults: 0
+        Minor (reclaiming a frame) page faults: 1097674
+        Voluntary context switches: 43829
+        Involuntary context switches: 3411
+        Swaps: 0
+        File system inputs: 0
+        File system outputs: 184
+        Socket messages sent: 0
+        Socket messages received: 0
+        Signals delivered: 0
+        Page size (bytes): 4096
+        Exit status: 0
+
+

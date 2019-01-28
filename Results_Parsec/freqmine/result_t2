@@ -1,0 +1,1318 @@
+Criticality Metric for each thread
+     60169 261549597 
+     60174 261611907 
+     60173 261733266 
+     60136 262497206 
+     60147 266203856 
+     60182 266505386 
+     60166 272406032 
+     60176 273452053 
+     60153 277676952 
+     60172 280044640 
+     60128 281564145 
+     60164 294425745 
+     60141 294677951 
+     60146 299354670 
+     60175 303530076 
+     60129 313696559 
+     60127 320123640 
+     60138 335344563 
+     60181 358327804 
+     60161 369233472 
+     60168 405659344 
+     60159 410399092 
+     60144 421148050 
+     60134 425210155 
+     60185 455360157 
+     60179 466574659 
+     60131 472409119 
+     60143 493906456 
+     60126 499428981 
+     60135 548800530 
+     60145 553135910 
+     60148 581667229 
+     60162 599091727 
+     60133 620105731 
+     60165 664775960 
+     60137 665152209 
+     60163 721167914 
+     60177 729205522 
+     60156 789427391 
+     60155 847542223 
+     60167 860524096 
+     60154 916822072 
+     60178 918492309 
+     60139 930795973 
+     60160 1016406939 
+     60149 1049527544 
+     60132 1058866853 
+     60184 1079552850 
+     60170 1090676692 
+     60152 1138204885 
+     60157 1140831539 
+     60151 1234384115 
+     60180 1244456622 
+     60130 1528893653 
+     60171 1575914710 
+     60187 2340210072 
+     60158 2440065617 
+     60183 2508242870 
+     60140 3158507140 
+     60142 3692179699 
+     60124 4254711723 
+     60188 4321043606 
+     60186 4593541970 
+     60150 5139385868 
+Sum = 66456367296
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+
+Critical Path 1: 
+	FP_tree::insert(int*, int, int, int, int)
+	<---void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*) --1610239439. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 515
+	fp_tree.cpp:361 -- 100
+	fp_tree.cpp:374 -- 44
+	fp_tree.cpp:364 -- 43
+FP_tree::insert(int*, int, int, int, int) -- 498
+	fp_tree.cpp:931 -- 49
+	fp_tree.cpp:958 -- 37
+	fp_tree.cpp:949 -- 36
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 287
+	fp_tree.cpp:309 -- 143
+	fp_tree.cpp:310 -- 18
+	fp_tree.cpp:301 -- 13
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 265
+	fp_tree.cpp:155 -- 32
+	fp_tree.cpp:151 -- 28
+	fp_tree.cpp:134 -- 27
+FP_tree::fill_count(int, int) -- 236
+	fp_tree.cpp:1037 -- 99
+	fp_tree.cpp:1039 -- 45
+	fp_tree.cpp:1038 -- 42
+
+Critical Path 2: 
+	void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*) --1014532485. 
+
+FP_tree::insert(int*, int, int, int, int) -- 330
+	fp_tree.cpp:940 -- 27
+	fp_tree.cpp:949 -- 27
+	fp_tree.cpp:931 -- 26
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 328
+	fp_tree.cpp:361 -- 61
+	fp_tree.cpp:364 -- 27
+	fp_tree.cpp:367 -- 26
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 179
+	fp_tree.cpp:309 -- 76
+	fp_tree.cpp:315 -- 12
+	fp_tree.cpp:310 -- 12
+FP_tree::fill_count(int, int) -- 172
+	fp_tree.cpp:1037 -- 73
+	fp_tree.cpp:1038 -- 40
+	fp_tree.cpp:1039 -- 31
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 170
+	fp_tree.cpp:151 -- 21
+	fp_tree.cpp:134 -- 20
+	fp_tree.cpp:155 -- 20
+
+Critical Path 3: 
+	void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*) --823985256. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 275
+	fp_tree.cpp:361 -- 66
+	fp_tree.cpp:374 -- 28
+	fp_tree.cpp:367 -- 22
+FP_tree::insert(int*, int, int, int, int) -- 256
+	fp_tree.cpp:931 -- 25
+	fp_tree.cpp:949 -- 24
+	fp_tree.cpp:939 -- 19
+FP_tree::fill_count(int, int) -- 141
+	fp_tree.cpp:1037 -- 69
+	fp_tree.cpp:1038 -- 23
+	fp_tree.cpp:1039 -- 17
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 140
+	fp_tree.cpp:155 -- 17
+	fp_tree.cpp:134 -- 15
+	fp_tree.cpp:151 -- 14
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 117
+	fp_tree.cpp:309 -- 59
+	fp_tree.cpp:301 -- 12
+	fp_tree.cpp:310 -- 11
+
+Critical Path 4: 
+	void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth_first(FSout*) [clone ._omp_fn.5] --706125045. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 258
+	fp_tree.cpp:361 -- 45
+	fp_tree.cpp:364 -- 27
+	fp_tree.cpp:374 -- 24
+FP_tree::insert(int*, int, int, int, int) -- 217
+	fp_tree.cpp:931 -- 23
+	fp_tree.cpp:971 -- 19
+	fp_tree.cpp:958 -- 18
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 112
+	fp_tree.cpp:309 -- 62
+	fp_tree.cpp:301 -- 12
+	fp_tree.cpp:310 -- 7
+FP_tree::fill_count(int, int) -- 110
+	fp_tree.cpp:1037 -- 47
+	fp_tree.cpp:1038 -- 27
+	fp_tree.cpp:1039 -- 11
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 97
+	fp_tree.cpp:136 -- 11
+	fp_tree.cpp:134 -- 10
+	fp_tree.cpp:152 -- 9
+
+Critical Path 5: 
+	void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth_first(FSout*) [clone ._omp_fn.5] --663456765. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 225
+	fp_tree.cpp:361 -- 47
+	fp_tree.cpp:367 -- 22
+	fp_tree.cpp:364 -- 18
+FP_tree::insert(int*, int, int, int, int) -- 209
+	fp_tree.cpp:949 -- 20
+	fp_tree.cpp:971 -- 18
+	fp_tree.cpp:940 -- 16
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 120
+	fp_tree.cpp:309 -- 52
+	fp_tree.cpp:301 -- 13
+	fp_tree.cpp:322 -- 7
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 118
+	fp_tree.cpp:123 -- 15
+	fp_tree.cpp:136 -- 14
+	fp_tree.cpp:134 -- 13
+FP_tree::fill_count(int, int) -- 98
+	fp_tree.cpp:1037 -- 47
+	fp_tree.cpp:1038 -- 19
+	fp_tree.cpp:1039 -- 18
+
+Critical Path 6: 
+	void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth_first(FSout*) [clone ._omp_fn.5] --622888018. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 229
+	fp_tree.cpp:361 -- 49
+	fp_tree.cpp:374 -- 24
+	fp_tree.cpp:364 -- 22
+FP_tree::insert(int*, int, int, int, int) -- 187
+	fp_tree.cpp:931 -- 22
+	fp_tree.cpp:971 -- 14
+	fp_tree.cpp:955 -- 14
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 133
+	fp_tree.cpp:151 -- 15
+	fp_tree.cpp:136 -- 13
+	fp_tree.cpp:155 -- 12
+FP_tree::fill_count(int, int) -- 111
+	fp_tree.cpp:1037 -- 53
+	fp_tree.cpp:1038 -- 23
+	fp_tree.cpp:1039 -- 16
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 105
+	fp_tree.cpp:309 -- 54
+	fp_tree.cpp:310 -- 10
+	fp_tree.cpp:301 -- 9
+
+Critical Path 7: 
+	int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*) --616810851. 
+
+FP_tree::insert(int*, int, int, int, int) -- 205
+	fp_tree.cpp:931 -- 19
+	fp_tree.cpp:949 -- 16
+	fp_tree.cpp:971 -- 15
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 199
+	fp_tree.cpp:361 -- 32
+	fp_tree.cpp:374 -- 18
+	fp_tree.cpp:364 -- 15
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 127
+	fp_tree.cpp:134 -- 16
+	fp_tree.cpp:136 -- 13
+	fp_tree.cpp:155 -- 12
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 91
+	fp_tree.cpp:309 -- 53
+	fp_tree.cpp:301 -- 4
+	fp_tree.cpp:315 -- 4
+FP_tree::fill_count(int, int) -- 89
+	fp_tree.cpp:1037 -- 42
+	fp_tree.cpp:1038 -- 19
+	fp_tree.cpp:1039 -- 15
+
+Critical Path 8: 
+	FP_tree::insert(int*, int, int, int, int)
+	<---void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth_first(FSout*) [clone ._omp_fn.5] --599599892. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 221
+	fp_tree.cpp:361 -- 45
+	fp_tree.cpp:374 -- 17
+	fp_tree.cpp:368 -- 17
+FP_tree::insert(int*, int, int, int, int) -- 197
+	fp_tree.cpp:931 -- 21
+	fp_tree.cpp:1008 -- 17
+	fp_tree.cpp:940 -- 14
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 114
+	fp_tree.cpp:309 -- 54
+	fp_tree.cpp:301 -- 10
+	fp_tree.cpp:306 -- 8
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 113
+	fp_tree.cpp:152 -- 15
+	fp_tree.cpp:155 -- 11
+	fp_tree.cpp:151 -- 9
+FP_tree::fill_count(int, int) -- 96
+	fp_tree.cpp:1037 -- 43
+	fp_tree.cpp:1038 -- 17
+	fp_tree.cpp:1039 -- 15
+
+Critical Path 9: 
+	FP_tree::fill_count(int, int)
+	<---void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*) --573049106. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 186
+	fp_tree.cpp:361 -- 31
+	fp_tree.cpp:367 -- 16
+	fp_tree.cpp:363 -- 15
+FP_tree::insert(int*, int, int, int, int) -- 175
+	fp_tree.cpp:971 -- 17
+	fp_tree.cpp:955 -- 12
+	fp_tree.cpp:931 -- 12
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 100
+	fp_tree.cpp:309 -- 53
+	fp_tree.cpp:301 -- 6
+	fp_tree.cpp:305 -- 5
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 92
+	fp_tree.cpp:155 -- 10
+	fp_tree.cpp:134 -- 8
+	fp_tree.cpp:123 -- 8
+FP_tree::fill_count(int, int) -- 86
+	fp_tree.cpp:1037 -- 35
+	fp_tree.cpp:1038 -- 22
+	fp_tree.cpp:1039 -- 8
+
+Critical Path 10: 
+	FP_tree::insert(int*, int, int, int, int)
+	<---void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth_first(FSout*) [clone ._omp_fn.5] --567529164. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 206
+	fp_tree.cpp:361 -- 50
+	fp_tree.cpp:364 -- 21
+	fp_tree.cpp:374 -- 16
+FP_tree::insert(int*, int, int, int, int) -- 205
+	fp_tree.cpp:949 -- 23
+	fp_tree.cpp:958 -- 20
+	fp_tree.cpp:955 -- 16
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 108
+	fp_tree.cpp:309 -- 60
+	fp_tree.cpp:301 -- 5
+	fp_tree.cpp:310 -- 5
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 103
+	fp_tree.cpp:134 -- 11
+	fp_tree.cpp:136 -- 9
+	fp_tree.cpp:155 -- 8
+FP_tree::fill_count(int, int) -- 96
+	fp_tree.cpp:1037 -- 45
+	fp_tree.cpp:1038 -- 16
+	fp_tree.cpp:1039 -- 16
+***************************************************
+
+Top Critical Functions and lines of code with frequency
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 2642
+	fp_tree.cpp:361 -- 526
+	fp_tree.cpp:374 -- 223
+	fp_tree.cpp:364 -- 216
+FP_tree::insert(int*, int, int, int, int) -- 2479
+	fp_tree.cpp:931 -- 229
+	fp_tree.cpp:949 -- 190
+	fp_tree.cpp:971 -- 166
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 1358
+	fp_tree.cpp:155 -- 142
+	fp_tree.cpp:134 -- 136
+	fp_tree.cpp:151 -- 130
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 1333
+	fp_tree.cpp:309 -- 666
+	fp_tree.cpp:301 -- 93
+	fp_tree.cpp:310 -- 84
+FP_tree::fill_count(int, int) -- 1235
+	fp_tree.cpp:1037 -- 553
+	fp_tree.cpp:1038 -- 248
+	fp_tree.cpp:1039 -- 192
+FP_tree::FP_growth(int, FSout*) -- 941
+	fp_tree.cpp:1513 -- 81
+	fp_tree.cpp:1515 -- 67
+	fp_tree.cpp:1525 -- 64
+memory::newbuf(unsigned int, unsigned int) -- 845
+	buffer.cpp:103 -- 200
+	buffer.cpp:119 -- 184
+	buffer.cpp:110 -- 152
+FP_tree::scan1_DB(int, FP_tree*, int) -- 531
+	fp_tree.cpp:1198 -- 55
+	fp_tree.cpp:1199 -- 52
+	fp_tree.cpp:1196 -- 47
+FP_tree::init(int, int, int) -- 229
+	fp_tree.cpp:507 -- 54
+	fp_tree.cpp:510 -- 47
+	fp_tree.cpp:499 -- 38
+memory::bufmark(unsigned int*, int*) -- 229
+	buffer.cpp:164 -- 79
+	buffer.cpp:161 -- 59
+	buffer.cpp:163 -- 54
+***************************************************
+Post Processing time in milli seconds: 22358
+Total switches: 91224 Critical switches: 11831
+***************************************************
+Criticality Metric for each thread
+     62141 235936145 
+     62115 236052167 
+     62161 239106961 
+     62131 240571495 
+     62176 242531342 
+     62128 242543189 
+     62168 244363261 
+     62152 244984827 
+     62145 245603385 
+     62133 245682813 
+     62173 249742197 
+     62139 253547256 
+     62156 256687866 
+     62174 269843111 
+     62177 271290920 
+     62169 277127311 
+     62137 277808250 
+     62117 279979256 
+     62126 280097813 
+     62138 293519096 
+     62150 331955058 
+     62136 362829475 
+     62129 384245809 
+     62155 480051885 
+     62123 485023491 
+     62142 520797202 
+     62144 523995605 
+     62124 528036546 
+     62153 528570637 
+     62134 556578696 
+     62149 558738119 
+     62146 582901387 
+     62172 630292574 
+     62167 633609423 
+     62140 675351227 
+     62118 686694939 
+     62158 698845375 
+     62154 742657278 
+     62132 778558778 
+     62162 779245819 
+     62160 782561664 
+     62111 790300152 
+     62122 860433512 
+     62116 896058525 
+     62171 996206917 
+     62135 1015906916 
+     62125 1036798761 
+     62165 1045682925 
+     62163 1052680573 
+     62130 1086676012 
+     62175 1141789977 
+     62157 1173745675 
+     62148 1209915164 
+     62170 1342351724 
+     62147 1642944777 
+     62121 2278970587 
+     62151 2431192223 
+     62164 2594167418 
+     62159 3383076221 
+     62143 3481885989 
+     62166 3802548348 
+     62119 4242888217 
+     62127 4428544344 
+     62120 5289823666 
+Sum = 64603148271
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+
+Critical Path 1: 
+	FP_tree::insert(int*, int, int, int, int)
+	<---void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*) --1767272488. 
+
+FP_tree::insert(int*, int, int, int, int) -- 605
+	fp_tree.cpp:931 -- 59
+	fp_tree.cpp:949 -- 40
+	fp_tree.cpp:940 -- 38
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 576
+	fp_tree.cpp:361 -- 113
+	fp_tree.cpp:374 -- 58
+	fp_tree.cpp:367 -- 50
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 347
+	fp_tree.cpp:155 -- 39
+	fp_tree.cpp:151 -- 37
+	fp_tree.cpp:134 -- 34
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 321
+	fp_tree.cpp:309 -- 138
+	fp_tree.cpp:301 -- 20
+	fp_tree.cpp:310 -- 20
+FP_tree::fill_count(int, int) -- 291
+	fp_tree.cpp:1037 -- 130
+	fp_tree.cpp:1038 -- 70
+	fp_tree.cpp:1039 -- 38
+
+Critical Path 2: 
+	void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*) --1267627065. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 391
+	fp_tree.cpp:361 -- 73
+	fp_tree.cpp:374 -- 36
+	fp_tree.cpp:367 -- 30
+FP_tree::insert(int*, int, int, int, int) -- 390
+	fp_tree.cpp:949 -- 41
+	fp_tree.cpp:931 -- 32
+	fp_tree.cpp:969 -- 29
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 203
+	fp_tree.cpp:134 -- 21
+	fp_tree.cpp:151 -- 20
+	fp_tree.cpp:155 -- 19
+FP_tree::fill_count(int, int) -- 195
+	fp_tree.cpp:1037 -- 81
+	fp_tree.cpp:1038 -- 45
+	fp_tree.cpp:1039 -- 35
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 168
+	fp_tree.cpp:309 -- 64
+	fp_tree.cpp:301 -- 12
+	fp_tree.cpp:310 -- 12
+
+Critical Path 3: 
+	void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*) --946205711. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 293
+	fp_tree.cpp:361 -- 68
+	fp_tree.cpp:374 -- 31
+	fp_tree.cpp:364 -- 20
+FP_tree::insert(int*, int, int, int, int) -- 264
+	fp_tree.cpp:931 -- 27
+	fp_tree.cpp:971 -- 23
+	fp_tree.cpp:1008 -- 17
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 172
+	fp_tree.cpp:134 -- 20
+	fp_tree.cpp:155 -- 20
+	fp_tree.cpp:151 -- 16
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 144
+	fp_tree.cpp:309 -- 64
+	fp_tree.cpp:301 -- 12
+	fp_tree.cpp:310 -- 11
+FP_tree::fill_count(int, int) -- 141
+	fp_tree.cpp:1037 -- 60
+	fp_tree.cpp:1038 -- 36
+	fp_tree.cpp:1039 -- 24
+
+Critical Path 4: 
+	void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth_first(FSout*) [clone ._omp_fn.5] --781581523. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 326
+	fp_tree.cpp:361 -- 74
+	fp_tree.cpp:364 -- 30
+	fp_tree.cpp:367 -- 26
+FP_tree::insert(int*, int, int, int, int) -- 273
+	fp_tree.cpp:931 -- 26
+	fp_tree.cpp:949 -- 24
+	fp_tree.cpp:955 -- 22
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 172
+	fp_tree.cpp:134 -- 19
+	fp_tree.cpp:136 -- 17
+	fp_tree.cpp:155 -- 16
+FP_tree::fill_count(int, int) -- 138
+	fp_tree.cpp:1037 -- 57
+	fp_tree.cpp:1038 -- 35
+	fp_tree.cpp:1039 -- 21
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 135
+	fp_tree.cpp:309 -- 59
+	fp_tree.cpp:310 -- 13
+	fp_tree.cpp:301 -- 8
+
+Critical Path 5: 
+	void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth_first(FSout*) [clone ._omp_fn.5] --739644660. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 268
+	fp_tree.cpp:361 -- 57
+	fp_tree.cpp:374 -- 32
+	fp_tree.cpp:367 -- 18
+FP_tree::insert(int*, int, int, int, int) -- 234
+	fp_tree.cpp:949 -- 25
+	fp_tree.cpp:944 -- 21
+	fp_tree.cpp:940 -- 16
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 136
+	fp_tree.cpp:134 -- 19
+	fp_tree.cpp:152 -- 14
+	fp_tree.cpp:155 -- 11
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 136
+	fp_tree.cpp:309 -- 73
+	fp_tree.cpp:301 -- 13
+	fp_tree.cpp:315 -- 7
+FP_tree::fill_count(int, int) -- 108
+	fp_tree.cpp:1037 -- 33
+	fp_tree.cpp:1038 -- 33
+	fp_tree.cpp:1039 -- 16
+
+Critical Path 6: 
+	void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth_first(FSout*) [clone ._omp_fn.5] --715072754. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 258
+	fp_tree.cpp:361 -- 48
+	fp_tree.cpp:364 -- 20
+	fp_tree.cpp:381 -- 20
+FP_tree::insert(int*, int, int, int, int) -- 221
+	fp_tree.cpp:931 -- 23
+	fp_tree.cpp:949 -- 19
+	fp_tree.cpp:944 -- 14
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 128
+	fp_tree.cpp:134 -- 16
+	fp_tree.cpp:155 -- 16
+	fp_tree.cpp:151 -- 13
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 126
+	fp_tree.cpp:309 -- 66
+	fp_tree.cpp:310 -- 10
+	fp_tree.cpp:301 -- 7
+FP_tree::fill_count(int, int) -- 111
+	fp_tree.cpp:1037 -- 41
+	fp_tree.cpp:1038 -- 33
+	fp_tree.cpp:1039 -- 18
+
+Critical Path 7: 
+	void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth_first(FSout*) [clone ._omp_fn.5] --713792339. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 281
+	fp_tree.cpp:361 -- 57
+	fp_tree.cpp:367 -- 27
+	fp_tree.cpp:364 -- 25
+FP_tree::insert(int*, int, int, int, int) -- 264
+	fp_tree.cpp:949 -- 32
+	fp_tree.cpp:931 -- 30
+	fp_tree.cpp:955 -- 21
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 149
+	fp_tree.cpp:309 -- 89
+	fp_tree.cpp:301 -- 15
+	fp_tree.cpp:310 -- 7
+FP_tree::fill_count(int, int) -- 144
+	fp_tree.cpp:1037 -- 58
+	fp_tree.cpp:1038 -- 31
+	fp_tree.cpp:1039 -- 22
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 138
+	fp_tree.cpp:134 -- 19
+	fp_tree.cpp:155 -- 17
+	fp_tree.cpp:151 -- 16
+
+Critical Path 8: 
+	FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*) --682484993. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 213
+	fp_tree.cpp:361 -- 51
+	fp_tree.cpp:364 -- 19
+	fp_tree.cpp:374 -- 18
+FP_tree::insert(int*, int, int, int, int) -- 202
+	fp_tree.cpp:931 -- 23
+	fp_tree.cpp:949 -- 14
+	fp_tree.cpp:958 -- 14
+FP_tree::fill_count(int, int) -- 124
+	fp_tree.cpp:1037 -- 41
+	fp_tree.cpp:1038 -- 32
+	fp_tree.cpp:1039 -- 28
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 111
+	fp_tree.cpp:134 -- 14
+	fp_tree.cpp:123 -- 13
+	fp_tree.cpp:152 -- 8
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 94
+	fp_tree.cpp:309 -- 42
+	fp_tree.cpp:301 -- 11
+	fp_tree.cpp:310 -- 5
+
+Critical Path 9: 
+	FP_tree::insert(int*, int, int, int, int)
+	<---void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth_first(FSout*) [clone ._omp_fn.5] --665225011. 
+
+FP_tree::insert(int*, int, int, int, int) -- 244
+	fp_tree.cpp:949 -- 25
+	fp_tree.cpp:931 -- 23
+	fp_tree.cpp:1008 -- 19
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 233
+	fp_tree.cpp:361 -- 50
+	fp_tree.cpp:364 -- 28
+	fp_tree.cpp:374 -- 18
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 143
+	fp_tree.cpp:309 -- 69
+	fp_tree.cpp:310 -- 14
+	fp_tree.cpp:301 -- 12
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 137
+	fp_tree.cpp:155 -- 23
+	fp_tree.cpp:134 -- 17
+	fp_tree.cpp:136 -- 10
+FP_tree::fill_count(int, int) -- 114
+	fp_tree.cpp:1037 -- 55
+	fp_tree.cpp:1038 -- 30
+	fp_tree.cpp:1039 -- 17
+
+Critical Path 10: 
+	FP_tree::insert(int*, int, int, int, int)
+	<---void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth_first(FSout*) [clone ._omp_fn.5] --660835362. 
+
+FP_tree::insert(int*, int, int, int, int) -- 222
+	fp_tree.cpp:931 -- 23
+	fp_tree.cpp:971 -- 19
+	fp_tree.cpp:940 -- 17
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 218
+	fp_tree.cpp:361 -- 44
+	fp_tree.cpp:374 -- 21
+	fp_tree.cpp:364 -- 20
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 132
+	fp_tree.cpp:309 -- 68
+	fp_tree.cpp:301 -- 12
+	fp_tree.cpp:310 -- 9
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 109
+	fp_tree.cpp:155 -- 18
+	fp_tree.cpp:151 -- 15
+	fp_tree.cpp:152 -- 11
+FP_tree::fill_count(int, int) -- 106
+	fp_tree.cpp:1037 -- 52
+	fp_tree.cpp:1038 -- 27
+	fp_tree.cpp:1039 -- 13
+***************************************************
+
+Top Critical Functions and lines of code with frequency
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 3057
+	fp_tree.cpp:361 -- 635
+	fp_tree.cpp:374 -- 268
+	fp_tree.cpp:364 -- 251
+FP_tree::insert(int*, int, int, int, int) -- 2919
+	fp_tree.cpp:931 -- 282
+	fp_tree.cpp:949 -- 248
+	fp_tree.cpp:944 -- 174
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 1653
+	fp_tree.cpp:134 -- 189
+	fp_tree.cpp:155 -- 183
+	fp_tree.cpp:151 -- 158
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 1548
+	fp_tree.cpp:309 -- 732
+	fp_tree.cpp:301 -- 122
+	fp_tree.cpp:310 -- 103
+FP_tree::fill_count(int, int) -- 1472
+	fp_tree.cpp:1037 -- 608
+	fp_tree.cpp:1038 -- 372
+	fp_tree.cpp:1039 -- 232
+FP_tree::FP_growth(int, FSout*) -- 1067
+	fp_tree.cpp:1515 -- 91
+	fp_tree.cpp:1513 -- 73
+	fp_tree.cpp:1457 -- 73
+memory::newbuf(unsigned int, unsigned int) -- 969
+	buffer.cpp:119 -- 223
+	buffer.cpp:103 -- 206
+	buffer.cpp:110 -- 178
+FP_tree::scan1_DB(int, FP_tree*, int) -- 508
+	fp_tree.cpp:1199 -- 53
+	fp_tree.cpp:1198 -- 49
+	fp_tree.cpp:1196 -- 48
+FP_tree::init(int, int, int) -- 269
+	fp_tree.cpp:507 -- 56
+	fp_tree.cpp:510 -- 53
+	fp_tree.cpp:499 -- 27
+memory::freebuf(unsigned int, int, char*) -- 226
+	buffer.cpp:175 -- 104
+	buffer.cpp:196 -- 62
+	buffer.cpp:195 -- 32
+***************************************************
+Post Processing time in milli seconds: 22831
+Total switches: 91009 Critical switches: 13368
+***************************************************
+Criticality Metric for each thread
+     63993 256975004 
+     64027 258496395 
+     64002 259463553 
+     64020 259963950 
+     63987 261384110 
+     63980 265366280 
+     63986 265946807 
+     64012 273362336 
+     64003 273431379 
+     64010 273870288 
+     64040 276625557 
+     63994 295403214 
+     64031 299650167 
+     63996 302463246 
+     64004 311866574 
+     64036 313843074 
+     64011 315216099 
+     64033 322973987 
+     63983 326130192 
+     64030 349892261 
+     64039 350691823 
+     64041 388203310 
+     64037 410949124 
+     63990 411044656 
+     64007 420794413 
+     64028 452881016 
+     64015 490959025 
+     64009 495039243 
+     64019 507816452 
+     63989 562261720 
+     63997 566752754 
+     63981 580819534 
+     64014 640862764 
+     64038 699450750 
+     64013 707152571 
+     63985 732998238 
+     64021 738463139 
+     64000 757156521 
+     63992 772197677 
+     64034 777284842 
+     64005 783197012 
+     64008 795063918 
+     64025 853809075 
+     63988 862686855 
+     63998 1003758295 
+     63976 1011071635 
+     63984 1015431021 
+     64001 1021152841 
+     64035 1027378305 
+     63991 1116836941 
+     63999 1131681793 
+     64032 1179726775 
+     63982 1368323604 
+     64017 1405166795 
+     64026 1551923524 
+     64024 2488815521 
+     64016 2517266633 
+     64023 2583490889 
+     63979 3491106959 
+     64006 3711308820 
+     63995 3841901482 
+     64018 4493102738 
+     64022 4853560628 
+     64029 4996550368 
+Sum = 66330416472
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+
+Critical Path 1: 
+	FP_tree::insert(int*, int, int, int, int)
+	<---void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*) --1972812651. 
+
+FP_tree::insert(int*, int, int, int, int) -- 597
+	fp_tree.cpp:949 -- 57
+	fp_tree.cpp:931 -- 48
+	fp_tree.cpp:958 -- 36
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 558
+	fp_tree.cpp:361 -- 107
+	fp_tree.cpp:364 -- 49
+	fp_tree.cpp:374 -- 45
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 341
+	fp_tree.cpp:134 -- 37
+	fp_tree.cpp:155 -- 35
+	fp_tree.cpp:123 -- 30
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 340
+	fp_tree.cpp:309 -- 145
+	fp_tree.cpp:301 -- 32
+	fp_tree.cpp:310 -- 22
+FP_tree::fill_count(int, int) -- 298
+	fp_tree.cpp:1037 -- 127
+	fp_tree.cpp:1038 -- 64
+	fp_tree.cpp:1039 -- 55
+
+Critical Path 2: 
+	void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*) --1407812712. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 430
+	fp_tree.cpp:361 -- 86
+	fp_tree.cpp:374 -- 39
+	fp_tree.cpp:364 -- 32
+FP_tree::insert(int*, int, int, int, int) -- 405
+	fp_tree.cpp:931 -- 39
+	fp_tree.cpp:971 -- 31
+	fp_tree.cpp:944 -- 26
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 233
+	fp_tree.cpp:151 -- 28
+	fp_tree.cpp:134 -- 23
+	fp_tree.cpp:155 -- 22
+FP_tree::fill_count(int, int) -- 232
+	fp_tree.cpp:1037 -- 82
+	fp_tree.cpp:1038 -- 67
+	fp_tree.cpp:1039 -- 39
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 215
+	fp_tree.cpp:309 -- 93
+	fp_tree.cpp:301 -- 21
+	fp_tree.cpp:310 -- 14
+
+Critical Path 3: 
+	void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*) --1064609189. 
+
+FP_tree::insert(int*, int, int, int, int) -- 323
+	fp_tree.cpp:971 -- 27
+	fp_tree.cpp:931 -- 26
+	fp_tree.cpp:939 -- 25
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 312
+	fp_tree.cpp:361 -- 74
+	fp_tree.cpp:374 -- 30
+	fp_tree.cpp:364 -- 25
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 175
+	fp_tree.cpp:309 -- 82
+	fp_tree.cpp:301 -- 11
+	fp_tree.cpp:310 -- 10
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 164
+	fp_tree.cpp:151 -- 21
+	fp_tree.cpp:136 -- 17
+	fp_tree.cpp:152 -- 15
+FP_tree::fill_count(int, int) -- 163
+	fp_tree.cpp:1037 -- 71
+	fp_tree.cpp:1038 -- 38
+	fp_tree.cpp:1039 -- 19
+
+Critical Path 4: 
+	void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth_first(FSout*) [clone ._omp_fn.5] --827241816. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 315
+	fp_tree.cpp:361 -- 60
+	fp_tree.cpp:364 -- 32
+	fp_tree.cpp:374 -- 27
+FP_tree::insert(int*, int, int, int, int) -- 289
+	fp_tree.cpp:958 -- 23
+	fp_tree.cpp:955 -- 22
+	fp_tree.cpp:949 -- 21
+FP_tree::fill_count(int, int) -- 160
+	fp_tree.cpp:1037 -- 81
+	fp_tree.cpp:1038 -- 28
+	fp_tree.cpp:1039 -- 22
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 160
+	fp_tree.cpp:155 -- 20
+	fp_tree.cpp:134 -- 18
+	fp_tree.cpp:151 -- 18
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 152
+	fp_tree.cpp:309 -- 69
+	fp_tree.cpp:301 -- 18
+	fp_tree.cpp:310 -- 10
+
+Critical Path 5: 
+	void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth_first(FSout*) [clone ._omp_fn.5] --773279739. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 268
+	fp_tree.cpp:361 -- 59
+	fp_tree.cpp:364 -- 22
+	fp_tree.cpp:374 -- 21
+FP_tree::insert(int*, int, int, int, int) -- 261
+	fp_tree.cpp:958 -- 24
+	fp_tree.cpp:949 -- 23
+	fp_tree.cpp:931 -- 21
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 146
+	fp_tree.cpp:151 -- 18
+	fp_tree.cpp:134 -- 14
+	fp_tree.cpp:155 -- 14
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 146
+	fp_tree.cpp:309 -- 55
+	fp_tree.cpp:301 -- 16
+	fp_tree.cpp:310 -- 12
+FP_tree::fill_count(int, int) -- 126
+	fp_tree.cpp:1037 -- 58
+	fp_tree.cpp:1038 -- 34
+	fp_tree.cpp:1039 -- 16
+
+Critical Path 6: 
+	int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*) --747461941. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 225
+	fp_tree.cpp:361 -- 40
+	fp_tree.cpp:374 -- 26
+	fp_tree.cpp:367 -- 19
+FP_tree::insert(int*, int, int, int, int) -- 221
+	fp_tree.cpp:931 -- 17
+	fp_tree.cpp:958 -- 17
+	fp_tree.cpp:944 -- 14
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 124
+	fp_tree.cpp:309 -- 64
+	fp_tree.cpp:315 -- 8
+	fp_tree.cpp:301 -- 7
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 123
+	fp_tree.cpp:134 -- 16
+	fp_tree.cpp:155 -- 14
+	fp_tree.cpp:152 -- 10
+FP_tree::fill_count(int, int) -- 102
+	fp_tree.cpp:1037 -- 47
+	fp_tree.cpp:1038 -- 24
+	fp_tree.cpp:1039 -- 14
+
+Critical Path 7: 
+	FP_tree::fill_count(int, int)
+	<---void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*) --731409807. 
+
+FP_tree::insert(int*, int, int, int, int) -- 239
+	fp_tree.cpp:931 -- 21
+	fp_tree.cpp:949 -- 20
+	fp_tree.cpp:974 -- 15
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 212
+	fp_tree.cpp:361 -- 53
+	fp_tree.cpp:374 -- 26
+	fp_tree.cpp:367 -- 13
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 133
+	fp_tree.cpp:155 -- 19
+	fp_tree.cpp:134 -- 17
+	fp_tree.cpp:151 -- 9
+FP_tree::fill_count(int, int) -- 113
+	fp_tree.cpp:1037 -- 49
+	fp_tree.cpp:1038 -- 26
+	fp_tree.cpp:1039 -- 17
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 111
+	fp_tree.cpp:309 -- 47
+	fp_tree.cpp:301 -- 12
+	fp_tree.cpp:306 -- 7
+
+Critical Path 8: 
+	void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth_first(FSout*) [clone ._omp_fn.5] --731070851. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 309
+	fp_tree.cpp:361 -- 69
+	fp_tree.cpp:364 -- 32
+	fp_tree.cpp:381 -- 22
+FP_tree::insert(int*, int, int, int, int) -- 287
+	fp_tree.cpp:949 -- 30
+	fp_tree.cpp:1008 -- 28
+	fp_tree.cpp:931 -- 19
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 151
+	fp_tree.cpp:309 -- 67
+	fp_tree.cpp:310 -- 24
+	fp_tree.cpp:306 -- 13
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 149
+	fp_tree.cpp:134 -- 17
+	fp_tree.cpp:136 -- 16
+	fp_tree.cpp:155 -- 15
+FP_tree::fill_count(int, int) -- 142
+	fp_tree.cpp:1037 -- 60
+	fp_tree.cpp:1038 -- 33
+	fp_tree.cpp:1039 -- 21
+
+Critical Path 9: 
+	void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth_first(FSout*) [clone ._omp_fn.5] --708293025. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 238
+	fp_tree.cpp:361 -- 45
+	fp_tree.cpp:364 -- 20
+	fp_tree.cpp:374 -- 19
+FP_tree::insert(int*, int, int, int, int) -- 227
+	fp_tree.cpp:949 -- 23
+	fp_tree.cpp:971 -- 17
+	fp_tree.cpp:931 -- 15
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 150
+	fp_tree.cpp:134 -- 21
+	fp_tree.cpp:155 -- 11
+	fp_tree.cpp:152 -- 11
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 132
+	fp_tree.cpp:309 -- 54
+	fp_tree.cpp:301 -- 12
+	fp_tree.cpp:310 -- 10
+FP_tree::fill_count(int, int) -- 123
+	fp_tree.cpp:1037 -- 60
+	fp_tree.cpp:1038 -- 29
+	fp_tree.cpp:1039 -- 20
+
+Critical Path 10: 
+	FP_tree::insert(int*, int, int, int, int)
+	<---void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth(int, FSout*)
+	<---FP_tree::FP_growth_first(FSout*) [clone ._omp_fn.5] --704073360. 
+
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 254
+	fp_tree.cpp:361 -- 62
+	fp_tree.cpp:364 -- 23
+	fp_tree.cpp:367 -- 20
+FP_tree::insert(int*, int, int, int, int) -- 242
+	fp_tree.cpp:949 -- 24
+	fp_tree.cpp:944 -- 18
+	fp_tree.cpp:931 -- 16
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 130
+	fp_tree.cpp:152 -- 17
+	fp_tree.cpp:136 -- 15
+	fp_tree.cpp:155 -- 13
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 118
+	fp_tree.cpp:309 -- 53
+	fp_tree.cpp:310 -- 15
+	fp_tree.cpp:301 -- 10
+FP_tree::fill_count(int, int) -- 102
+	fp_tree.cpp:1037 -- 40
+	fp_tree.cpp:1039 -- 21
+	fp_tree.cpp:1038 -- 19
+***************************************************
+
+Top Critical Functions and lines of code with frequency
+void FPArray_scan2_DB<unsigned char>(FP_tree*, FP_tree*, int, int, unsigned char) -- 3121
+	fp_tree.cpp:361 -- 655
+	fp_tree.cpp:374 -- 272
+	fp_tree.cpp:364 -- 263
+FP_tree::insert(int*, int, int, int, int) -- 3091
+	fp_tree.cpp:949 -- 255
+	fp_tree.cpp:931 -- 242
+	fp_tree.cpp:971 -- 200
+void transform_FPTree_into_FPArray<unsigned char>(FP_tree*, int, unsigned char) -- 1729
+	fp_tree.cpp:134 -- 187
+	fp_tree.cpp:155 -- 176
+	fp_tree.cpp:151 -- 157
+int FPArray_conditional_pattern_base<unsigned char>(FP_tree*, int, int, unsigned char) -- 1664
+	fp_tree.cpp:309 -- 729
+	fp_tree.cpp:301 -- 151
+	fp_tree.cpp:310 -- 127
+FP_tree::fill_count(int, int) -- 1561
+	fp_tree.cpp:1037 -- 675
+	fp_tree.cpp:1038 -- 362
+	fp_tree.cpp:1039 -- 244
+FP_tree::FP_growth(int, FSout*) -- 1089
+	fp_tree.cpp:1515 -- 92
+	fp_tree.cpp:1513 -- 89
+	fp_tree.cpp:1525 -- 84
+memory::newbuf(unsigned int, unsigned int) -- 1065
+	buffer.cpp:103 -- 254
+	buffer.cpp:119 -- 219
+	buffer.cpp:114 -- 191
+FP_tree::scan1_DB(int, FP_tree*, int) -- 606
+	fp_tree.cpp:1196 -- 59
+	fp_tree.cpp:1199 -- 57
+	fp_tree.cpp:1194 -- 53
+FP_tree::init(int, int, int) -- 262
+	fp_tree.cpp:507 -- 59
+	fp_tree.cpp:510 -- 42
+	fp_tree.cpp:499 -- 36
+memory::freebuf(unsigned int, int, char*) -- 257
+	buffer.cpp:175 -- 109
+	buffer.cpp:196 -- 77
+	buffer.cpp:195 -- 52
+***************************************************
+Post Processing time in milli seconds: 21465
+Total switches: 91481 Critical switches: 13667
+***************************************************
