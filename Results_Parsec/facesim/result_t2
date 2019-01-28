@@ -1,0 +1,307 @@
+Criticality Metric for each thread
+     61636 2104583 
+     61700 2776983773 
+     61688 2782914987 
+     61674 2785795583 
+     61640 2787103564 
+     61638 2787171460 
+     61658 2787811068 
+     61694 2794895173 
+     61691 2795611921 
+     61661 2801694358 
+     61670 2802373475 
+     61643 2809245636 
+     61646 2809268982 
+     61651 2810647298 
+     61664 2811609801 
+     61648 2814438776 
+     61699 2815810744 
+     61697 2817205376 
+     61666 2819166776 
+     61698 2819397289 
+     61663 2827924211 
+     61657 2827925387 
+     61645 2829880509 
+     61639 2831116639 
+     61641 2831286480 
+     61662 2832084239 
+     61696 2833196013 
+     61665 2833970887 
+     61644 2837546674 
+     61671 2838769659 
+     61678 2842318765 
+     61676 2845865837 
+     61650 2848070250 
+     61642 2848470218 
+     61687 2851023404 
+     61647 2854573832 
+     61695 2854615412 
+     61685 2860436379 
+     61692 2861511449 
+     61682 2862128843 
+     61689 2863563038 
+     61652 2864640922 
+     61649 2867744662 
+     61679 2867852685 
+     61669 2869700754 
+     61693 2870363224 
+     61673 2872420539 
+     61690 2873467797 
+     61668 2885106333 
+     61686 2895825934 
+     61684 2897700472 
+     61653 2900667458 
+     61680 2907979489 
+     61675 2908303077 
+     61681 2918884227 
+     61683 2959818254 
+     61667 2962064886 
+     61654 2967745600 
+     61677 2970882521 
+     61659 2978730399 
+     61660 2985825894 
+     61655 2990555422 
+     61672 3013049612 
+     61656 3015077655 
+     61635 17230431209 
+Sum = 197422367773
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+
+Critical Path 1: 
+	PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*)
+	<---taskQIdleLoop(void*) --20535032. 
+
+PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*) -- 93
+	MATRIX_3X3.h:597 -- 46
+	DIAGONALIZED_FINITE_VOLUME_3D.cpp:297 -- 11
+	ARRAYS.h:425 -- 10
+PhysBAM::MATRIX_3X3<float>::operator*(PhysBAM::MATRIX_3X3<float> const&) const -- 6
+	MATRIX_3X3.h:228 -- 3
+	MATRIX_3X3.h:226 -- 2
+	MATRIX_3X3.h:227 -- 1
+PhysBAM::SYMMETRIC_MATRIX_2X2<float>::Conjugate(PhysBAM::MATRIX_2X2<float> const&, PhysBAM::DIAGONAL_MATRIX_2X2<float> const&) -- 3
+	SYMMETRIC_MATRIX_2X2.h:295 -- 2
+	SYMMETRIC_MATRIX_2X2.h:294 -- 1
+PhysBAM::DIAGONALIZED_FACE_3D<float>::dP_From_dF(PhysBAM::MATRIX_3X3<float> const&, PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, PhysBAM::DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D<float> const&, float, int) const -- 3
+	MATRIX_3X3.h:76 -- 1
+	DIAGONALIZED_FACE_3D.h:229 -- 1
+	MATRIX_3X3.h:233 -- 1
+PhysBAM::MATRIX_3X3<float>::Multiply_With_Transpose(PhysBAM::MATRIX_3X3<float> const&) const -- 1
+	MATRIX_3X3.h:616 -- 1
+
+Critical Path 2: 
+	PhysBAM::MATRIX_3X3<float>::operator*(PhysBAM::MATRIX_3X3<float> const&) const
+	<---PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*)
+	<---taskQIdleLoop(void*) --16091986. 
+
+PhysBAM::MATRIX_3X3<float>::operator*(PhysBAM::MATRIX_3X3<float> const&) const -- 24
+	MATRIX_3X3.h:228 -- 14
+	MATRIX_3X3.h:227 -- 7
+	MATRIX_3X3.h:226 -- 3
+PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*) -- 6
+	MATRIX_3X3.h:169 -- 2
+	DIAGONALIZED_FINITE_VOLUME_3D.cpp:313 -- 1
+	ARRAYS.h:431 -- 1
+PhysBAM::SYMMETRIC_MATRIX_3X3<float>::Fast_Eigenvectors_Double(PhysBAM::DIAGONAL_MATRIX_3X3<double> const&, PhysBAM::MATRIX_3X3<double>&, double) const -- 2
+	SYMMETRIC_MATRIX_3X3.h:224 -- 1
+	SYMMETRIC_MATRIX_3X3.h:216 -- 1
+PhysBAM::MATRIX_3X3<float>::Fast_Singular_Value_Decomposition_Double(PhysBAM::MATRIX_3X3<double>&, PhysBAM::DIAGONAL_MATRIX_3X3<double>&, PhysBAM::MATRIX_3X3<double>&, double) const -- 2
+	VECTOR_3D.h:166 -- 1
+	MATRIX_3X3.cpp:24 -- 1
+PhysBAM::SYMMETRIC_MATRIX_2X2<float>::Conjugate(PhysBAM::MATRIX_2X2<float> const&, PhysBAM::DIAGONAL_MATRIX_2X2<float> const&) -- 2
+	SYMMETRIC_MATRIX_2X2.h:295 -- 2
+
+Critical Path 3: 
+	PhysBAM::DIAGONALIZED_FACE_3D<float>::dP_From_dF(PhysBAM::MATRIX_3X3<float> const&, PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, PhysBAM::DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D<float> const&, float, int) const
+	<---PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*)
+	<---taskQIdleLoop(void*) --7226834. 
+
+PhysBAM::DIAGONALIZED_FACE_3D<float>::dP_From_dF(PhysBAM::MATRIX_3X3<float> const&, PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, PhysBAM::DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D<float> const&, float, int) const -- 4
+	MATRIX_3X3.h:78 -- 1
+	cmath:464 -- 1
+	MATRIX_3X3.h:154 -- 1
+PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*) -- 4
+	ARRAY.h:133 -- 2
+	MATRIX_3X3.h:30 -- 1
+	MATRIX_3X3.h:696 -- 1
+PhysBAM::MATRIX_3X3<float>::operator*(PhysBAM::MATRIX_3X3<float> const&) const -- 3
+	MATRIX_3X3.h:228 -- 3
+PhysBAM::DIAGONALIZED_FACE_3D<float>::Isotropic_Stress_Derivative(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D<float>&, int) const -- 3
+	DIAGONALIZED_FACE_3D.h:203 -- 1
+	DIAGONALIZED_FACE_3D.h:200 -- 1
+	DIAGONALIZED_FACE_3D.h:221 -- 1
+PhysBAM::MATRIX_3X3<float>::Multiply_With_Transpose(PhysBAM::MATRIX_3X3<float> const&) const -- 1
+	MATRIX_3X3.h:615 -- 1
+
+Critical Path 4: 
+	PhysBAM::MATRIX_3X3<float>::Fast_Singular_Value_Decomposition_Double(PhysBAM::MATRIX_3X3<double>&, PhysBAM::DIAGONAL_MATRIX_3X3<double>&, PhysBAM::MATRIX_3X3<double>&, double) const
+	<---PhysBAM::MATRIX_3X3<float>::Fast_Singular_Value_Decomposition(PhysBAM::MATRIX_3X3<float>&, PhysBAM::DIAGONAL_MATRIX_3X3<float>&, PhysBAM::MATRIX_3X3<float>&) const
+	<---PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*)
+	<---taskQIdleLoop(void*) --6863868. 
+
+PhysBAM::MATRIX_3X3<float>::Fast_Singular_Value_Decomposition_Double(PhysBAM::MATRIX_3X3<double>&, PhysBAM::DIAGONAL_MATRIX_3X3<double>&, PhysBAM::MATRIX_3X3<double>&, double) const -- 9
+	MATRIX_3X3.h:245 -- 9
+PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*) -- 4
+	ARRAYS.h:383 -- 2
+	DIAGONALIZED_FINITE_VOLUME_3D.cpp:310 -- 1
+	DIAGONALIZED_FINITE_VOLUME_3D.cpp:313 -- 1
+PhysBAM::DIAGONALIZED_FACE_3D<float>::dP_From_dF(PhysBAM::MATRIX_3X3<float> const&, PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, PhysBAM::DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D<float> const&, float, int) const -- 2
+	MATRIX_3X3.h:233 -- 1
+	MATRIX_3X3.h:72 -- 1
+PhysBAM::MATRIX_3X3<float>::Multiply_With_Transpose(PhysBAM::MATRIX_3X3<float> const&) const -- 1
+	MATRIX_3X3.h:617 -- 1
+PhysBAM::MATRIX_3X3<float>::operator*(PhysBAM::MATRIX_3X3<float> const&) const -- 1
+	MATRIX_3X3.h:228 -- 1
+
+Critical Path 5: 
+	PhysBAM::MATRIX_3X3<float>::Multiply_With_Transpose(PhysBAM::MATRIX_3X3<float> const&) const
+	<---PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*)
+	<---taskQIdleLoop(void*) --6684648. 
+
+PhysBAM::MATRIX_3X3<float>::Multiply_With_Transpose(PhysBAM::MATRIX_3X3<float> const&) const -- 6
+	MATRIX_3X3.h:615 -- 5
+	MATRIX_3X3.h:616 -- 1
+PhysBAM::SYMMETRIC_MATRIX_3X3<double>::Fast_Eigenvectors_Double(PhysBAM::DIAGONAL_MATRIX_3X3<double> const&, PhysBAM::MATRIX_3X3<double>&, double) const -- 4
+	VECTOR_3D.h:166 -- 2
+	SYMMETRIC_MATRIX_3X3.cpp:50 -- 1
+	SYMMETRIC_MATRIX_3X3.h:224 -- 1
+PhysBAM::DIAGONALIZED_FACE_3D<float>::dP_From_dF(PhysBAM::MATRIX_3X3<float> const&, PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, PhysBAM::DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D<float> const&, float, int) const -- 2
+	DIAGONALIZED_FACE_3D.h:229 -- 1
+	DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D.h:28 -- 1
+PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*) -- 2
+	MATRIX_3X3.h:154 -- 1
+	DIAGONALIZED_FINITE_VOLUME_3D.cpp:309 -- 1
+PhysBAM::SYMMETRIC_MATRIX_3X3<float>::Fast_Eigenvectors_Double(PhysBAM::DIAGONAL_MATRIX_3X3<double> const&, PhysBAM::MATRIX_3X3<double>&, double) const -- 1
+	VECTOR_3D.h:165 -- 1
+
+Critical Path 6: 
+	PhysBAM::SYMMETRIC_MATRIX_2X2<float>::Conjugate(PhysBAM::MATRIX_2X2<float> const&, PhysBAM::DIAGONAL_MATRIX_2X2<float> const&)
+	<---PhysBAM::DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D<float>::Fix_Indefinite_Blocks()
+	<---PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*)
+	<---taskQIdleLoop(void*) --5985332. 
+
+PhysBAM::SYMMETRIC_MATRIX_2X2<float>::Conjugate(PhysBAM::MATRIX_2X2<float> const&, PhysBAM::DIAGONAL_MATRIX_2X2<float> const&) -- 2
+	SYMMETRIC_MATRIX_2X2.h:295 -- 1
+	SYMMETRIC_MATRIX_2X2.h:294 -- 1
+PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*) -- 2
+	MATRIX_3X3.h:78 -- 1
+	ARRAYS.h:404 -- 1
+PhysBAM::SYMMETRIC_MATRIX_3X3<float>::Fast_Eigenvectors_Double(PhysBAM::DIAGONAL_MATRIX_3X3<double> const&, PhysBAM::MATRIX_3X3<double>&, double) const -- 1
+	VECTOR_3D.h:165 -- 1
+PhysBAM::MATRIX_3X3<float>::operator*(PhysBAM::MATRIX_3X3<float> const&) const -- 1
+	MATRIX_3X3.h:226 -- 1
+PhysBAM::MATRIX_3X3<float>::Multiply_With_Transpose(PhysBAM::MATRIX_3X3<float> const&) const -- 1
+	MATRIX_3X3.h:617 -- 1
+
+Critical Path 7: 
+	PhysBAM::DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D<float>::Fix_Indefinite_Blocks()
+	<---PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*)
+	<---taskQIdleLoop(void*) --3842487. 
+
+PhysBAM::DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D<float>::Fix_Indefinite_Blocks() -- 13
+	DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D.h:48 -- 12
+	SYMMETRIC_MATRIX_3X3.h:316 -- 1
+PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*) -- 3
+	ARRAY.h:127 -- 1
+	DIAGONALIZED_FINITE_VOLUME_3D.cpp:304 -- 1
+	ARRAY.h:133 -- 1
+PhysBAM::MATRIX_3X3<float>::operator*(PhysBAM::MATRIX_3X3<float> const&) const -- 1
+	MATRIX_3X3.h:228 -- 1
+PhysBAM::DIAGONALIZED_FACE_3D<float>::dP_From_dF(PhysBAM::MATRIX_3X3<float> const&, PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, PhysBAM::DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D<float> const&, float, int) const -- 1
+	DIAGONALIZED_FACE_3D.h:235 -- 1
+PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) -- 1
+	MATRIX_3X3.h:629 -- 1
+
+Critical Path 8: 
+	PhysBAM::SYMMETRIC_MATRIX_3X3<double>::Fast_Eigenvectors_Double(PhysBAM::DIAGONAL_MATRIX_3X3<double> const&, PhysBAM::MATRIX_3X3<double>&, double) const
+	<---PhysBAM::MATRIX_3X3<float>::Fast_Singular_Value_Decomposition_Double(PhysBAM::MATRIX_3X3<double>&, PhysBAM::DIAGONAL_MATRIX_3X3<double>&, PhysBAM::MATRIX_3X3<double>&, double) const
+	<---PhysBAM::MATRIX_3X3<float>::Fast_Singular_Value_Decomposition(PhysBAM::MATRIX_3X3<float>&, PhysBAM::DIAGONAL_MATRIX_3X3<float>&, PhysBAM::MATRIX_3X3<float>&) const
+	<---PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*)
+	<---taskQIdleLoop(void*) --3271501. 
+
+PhysBAM::SYMMETRIC_MATRIX_3X3<double>::Fast_Eigenvectors_Double(PhysBAM::DIAGONAL_MATRIX_3X3<double> const&, PhysBAM::MATRIX_3X3<double>&, double) const -- 2
+	SYMMETRIC_MATRIX_3X3.h:222 -- 2
+PhysBAM::MATRIX_3X3<float>::Fast_Singular_Value_Decomposition(PhysBAM::MATRIX_3X3<float>&, PhysBAM::DIAGONAL_MATRIX_3X3<float>&, PhysBAM::MATRIX_3X3<float>&) const -- 1
+	MATRIX_3X3.h:640 -- 1
+PhysBAM::SYMMETRIC_MATRIX_2X2<float>::Solve_Eigenproblem(PhysBAM::DIAGONAL_MATRIX_2X2<float>&, PhysBAM::MATRIX_2X2<float>&) const -- 1
+	SYMMETRIC_MATRIX_2X2.h:274 -- 1
+PhysBAM::DIAGONALIZED_FACE_3D<float>::dP_From_dF(PhysBAM::MATRIX_3X3<float> const&, PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, PhysBAM::DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D<float> const&, float, int) const -- 1
+	DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D.h:27 -- 1
+
+Critical Path 9: 
+	PhysBAM::DIAGONALIZED_FACE_3D<float>::Isotropic_Stress_Derivative(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D<float>&, int) const
+	<---PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*)
+	<---taskQIdleLoop(void*) --3256712. 
+
+PhysBAM::MATRIX_3X3<float>::operator*(PhysBAM::MATRIX_3X3<float> const&) const -- 2
+	MATRIX_3X3.h:228 -- 2
+PhysBAM::DIAGONALIZED_FACE_3D<float>::Isotropic_Stress_Derivative(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D<float>&, int) const -- 1
+	DIAGONALIZED_FACE_3D.h:221 -- 1
+PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*) -- 1
+	MATRIX_3X3.h:78 -- 1
+PhysBAM::MATRIX_3X3<float>::Fast_Singular_Value_Decomposition(PhysBAM::MATRIX_3X3<float>&, PhysBAM::DIAGONAL_MATRIX_3X3<float>&, PhysBAM::MATRIX_3X3<float>&) const -- 1
+	MATRIX_3X3.h:640 -- 1
+
+Critical Path 10: 
+	PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int)
+	<---PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*)
+	<---taskQIdleLoop(void*) --2466643. 
+
+PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) -- 8
+	max.h:24 -- 8
+PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*) -- 2
+	SYMMETRIC_MATRIX_3X3.h:64 -- 1
+	MATRIX_3X3.h:154 -- 1
+PhysBAM::MATRIX_3X3<float>::operator*(PhysBAM::MATRIX_3X3<float> const&) const -- 1
+	MATRIX_3X3.h:76 -- 1
+PhysBAM::SYMMETRIC_MATRIX_2X2<float>::Solve_Eigenproblem(PhysBAM::DIAGONAL_MATRIX_2X2<float>&, PhysBAM::MATRIX_2X2<float>&) const -- 1
+	SYMMETRIC_MATRIX_2X2.h:271 -- 1
+PhysBAM::DIAGONALIZED_FACE_3D<float>::Isotropic_Stress_Derivative(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D<float>&, int) const -- 1
+	DIAGONALIZED_FACE_3D.h:194 -- 1
+***************************************************
+
+Top Critical Functions and lines of code with frequency
+PhysBAM::DIAGONALIZED_FINITE_VOLUME_3D<float>::Update_Position_Based_State_Helper(long, void*) -- 117
+	MATRIX_3X3.h:597 -- 46
+	DIAGONALIZED_FINITE_VOLUME_3D.cpp:297 -- 11
+	ARRAYS.h:425 -- 10
+PhysBAM::MATRIX_3X3<float>::operator*(PhysBAM::MATRIX_3X3<float> const&) const -- 39
+	MATRIX_3X3.h:228 -- 24
+	MATRIX_3X3.h:227 -- 8
+	MATRIX_3X3.h:226 -- 6
+PhysBAM::DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D<float>::Fix_Indefinite_Blocks() -- 16
+	DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D.h:48 -- 12
+	MATRIX_3X3.h:591 -- 1
+	DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D.h:61 -- 1
+PhysBAM::DIAGONALIZED_FACE_3D<float>::dP_From_dF(PhysBAM::MATRIX_3X3<float> const&, PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, PhysBAM::DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D<float> const&, float, int) const -- 15
+	cmath:464 -- 2
+	MATRIX_3X3.h:233 -- 2
+	DIAGONALIZED_FACE_3D.h:229 -- 2
+PhysBAM::MATRIX_3X3<float>::Fast_Singular_Value_Decomposition_Double(PhysBAM::MATRIX_3X3<double>&, PhysBAM::DIAGONAL_MATRIX_3X3<double>&, PhysBAM::MATRIX_3X3<double>&, double) const -- 12
+	MATRIX_3X3.h:245 -- 9
+	maxabs.h:29 -- 1
+	VECTOR_3D.h:166 -- 1
+PhysBAM::MATRIX_3X3<float>::Multiply_With_Transpose(PhysBAM::MATRIX_3X3<float> const&) const -- 11
+	MATRIX_3X3.h:615 -- 6
+	MATRIX_3X3.h:617 -- 2
+	MATRIX_3X3.h:616 -- 2
+PhysBAM::SYMMETRIC_MATRIX_2X2<float>::Conjugate(PhysBAM::MATRIX_2X2<float> const&, PhysBAM::DIAGONAL_MATRIX_2X2<float> const&) -- 10
+	SYMMETRIC_MATRIX_2X2.h:295 -- 8
+	SYMMETRIC_MATRIX_2X2.h:294 -- 2
+PhysBAM::DIAGONALIZED_FACE_3D<float>::Update_State_Dependent_Auxiliary_Variables(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::MATRIX_3X3<float> const&, int) -- 9
+	max.h:24 -- 8
+	MATRIX_3X3.h:629 -- 1
+PhysBAM::SYMMETRIC_MATRIX_3X3<double>::Fast_Eigenvectors_Double(PhysBAM::DIAGONAL_MATRIX_3X3<double> const&, PhysBAM::MATRIX_3X3<double>&, double) const -- 9
+	VECTOR_3D.h:166 -- 4
+	SYMMETRIC_MATRIX_3X3.h:222 -- 3
+	SYMMETRIC_MATRIX_3X3.cpp:50 -- 1
+PhysBAM::DIAGONALIZED_FACE_3D<float>::Isotropic_Stress_Derivative(PhysBAM::DIAGONAL_MATRIX_3X3<float> const&, PhysBAM::DIAGONALIZED_ISOTROPIC_STRESS_DERIVATIVE_3D<float>&, int) const -- 6
+	DIAGONALIZED_FACE_3D.h:221 -- 2
+	SYMMETRIC_MATRIX_3X3.h:314 -- 1
+	DIAGONALIZED_FACE_3D.h:194 -- 1
+***************************************************
+Post Processing time in milli seconds: 7040
+Total switches: 7613399 Critical switches: 230
+***************************************************
