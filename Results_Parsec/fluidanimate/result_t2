@@ -1,0 +1,252 @@
+Criticality Metric for each thread
+      2943 619567253 
+      2911 650592298 
+      2939 653913940 
+      2907 655961639 
+      2927 660434118 
+      2963 660923262 
+      2951 662261934 
+      2944 666736349 
+      2919 670748505 
+      2945 673650257 
+      2959 674841147 
+      2941 679966124 
+      2940 681100378 
+      2967 681130704 
+      2946 686573325 
+      2947 690881696 
+      2909 700123000 
+      2923 702977478 
+      2942 706161607 
+      2912 706458900 
+      2935 706838452 
+      2914 708083634 
+      2931 711511286 
+      2925 715907980 
+      2955 717310723 
+      2910 723166185 
+      2970 725787304 
+      2968 728747360 
+      2966 730886228 
+      2908 733453979 
+      2915 733880949 
+      2949 734615684 
+      2905 734981830 
+      2913 736953043 
+      2953 737328482 
+      2965 740811707 
+      2950 742032762 
+      2948 742835615 
+      2928 743831657 
+      2969 745547239 
+      2936 746878894 
+      2926 747133794 
+      2933 749920626 
+      2917 750455804 
+      2952 751416550 
+      2929 751949711 
+      2957 757840243 
+      2964 758310642 
+      2938 764759070 
+      2920 764800428 
+      2924 766341755 
+      2930 769202859 
+      2958 776518927 
+      2960 780074729 
+      2954 781981245 
+      2937 785109599 
+      2932 785835242 
+      2918 786035590 
+      2961 790190259 
+      2921 792142137 
+      2956 798560787 
+      2916 799428049 
+      2962 809145763 
+      2934 824451267 
+      2922 828770048 
+Sum = 47496770031
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+
+Critical Path 1: 
+	AdvanceFrameMT(int)
+	<---AdvanceFramesMT(void*) --594536218. 
+
+AdvanceFrameMT(int) -- 4966
+	pthreads.cpp:1130 -- 1159
+	pthreads.cpp:1134 -- 1004
+	pthreads.cpp:1142 -- 696
+ClearParticlesMT(int) -- 2531
+	pthreads.cpp:524 -- 1919
+	pthreads.cpp:530 -- 591
+	pthreads.cpp:529 -- 11
+InitDensitiesAndForcesMT(int) -- 451
+	pthreads.cpp:675 -- 442
+	pthreads.cpp:684 -- 4
+	pthreads.cpp:685 -- 4
+ComputeDensitiesMT(int) -- 175
+	fluid.hpp:354 -- 37
+	fluid.hpp:341 -- 25
+	pthreads.cpp:722 -- 23
+ComputeForcesMT(int) -- 108
+	fluid.hpp:354 -- 20
+	fluid.hpp:341 -- 15
+	stl_algobase.h:224 -- 13
+
+Critical Path 2: 
+	ComputeDensitiesMT(int)
+	<---AdvanceFrameMT(int)
+	<---AdvanceFramesMT(void*) --201641120. 
+
+ComputeDensitiesMT(int) -- 227
+	fluid.hpp:354 -- 46
+	fluid.hpp:341 -- 34
+	pthreads.cpp:730 -- 23
+InitNeighCellList(int, int, int, int*) -- 3
+	pthreads.cpp:658 -- 2
+	pthreads.cpp:664 -- 1
+parsec_barrier_wait(parsec_barrier_t*) -- 1
+	parsec_barrier.cpp:184 -- 1
+
+Critical Path 3: 
+	ComputeForcesMT(int)
+	<---AdvanceFrameMT(int)
+	<---AdvanceFramesMT(void*) --181206953. 
+
+ComputeForcesMT(int) -- 217
+	fluid.hpp:354 -- 43
+	fluid.hpp:341 -- 26
+	stl_algobase.h:224 -- 17
+InitNeighCellList(int, int, int, int*) -- 1
+	pthreads.cpp:658 -- 1
+
+Critical Path 4: 
+	parsec_barrier_wait(parsec_barrier_t*)
+	<---AdvanceFrameMT(int)
+	<---AdvanceFramesMT(void*) --40549618. 
+
+parsec_barrier_wait(parsec_barrier_t*) -- 50
+	parsec_barrier.cpp:184 -- 42
+	parsec_barrier.cpp:151 -- 7
+	parsec_barrier.cpp:199 -- 1
+ComputeDensitiesMT(int) -- 19
+	fluid.hpp:354 -- 5
+	pthreads.cpp:730 -- 5
+	fluid.hpp:341 -- 4
+ComputeForcesMT(int) -- 13
+	fluid.hpp:355 -- 2
+	fluid.hpp:341 -- 2
+	pthreads.cpp:834 -- 2
+RebuildGridMT(int) -- 2
+	pthreads.cpp:620 -- 1
+	pthreads.cpp:608 -- 1
+InitNeighCellList(int, int, int, int*) -- 1
+	pthreads.cpp:661 -- 1
+
+Critical Path 5: 
+	ProcessCollisionsMT(int)
+	<---AdvanceFrameMT(int)
+	<---AdvanceFramesMT(void*) --37670766. 
+
+ProcessCollisionsMT(int) -- 86
+	fluid.hpp:355 -- 86
+ComputeForcesMT(int) -- 12
+	fluid.hpp:354 -- 3
+	stl_algobase.h:224 -- 2
+	pthreads.cpp:845 -- 2
+
+Critical Path 6: 
+	RebuildGridMT(int)
+	<---AdvanceFrameMT(int)
+	<---AdvanceFramesMT(void*) --16233330. 
+
+RebuildGridMT(int) -- 86
+	pthreads.cpp:553 -- 20
+	pthreads.cpp:605 -- 16
+	pthreads.cpp:604 -- 15
+
+Critical Path 7: 
+	ComputeDensities2MT(int)
+	<---AdvanceFrameMT(int)
+	<---AdvanceFramesMT(void*) --7505525. 
+
+ComputeDensities2MT(int) -- 12
+	pthreads.cpp:777 -- 12
+ComputeDensitiesMT(int) -- 7
+	pthreads.cpp:737 -- 2
+	pthreads.cpp:742 -- 1
+	pthreads.cpp:719 -- 1
+
+Critical Path 8: 
+	AdvanceFramesMT(void*) --5685305. 
+
+AdvanceFramesMT(void*) -- 1996
+	pthreads.cpp:1158 -- 1996
+ProcessCollisions2MT(int) -- 3
+	pthreads.cpp:1003 -- 2
+	pthreads.cpp:1008 -- 1
+
+Critical Path 9: 
+	InitNeighCellList(int, int, int, int*)
+	<---ComputeForcesMT(int)
+	<---AdvanceFrameMT(int)
+	<---AdvanceFramesMT(void*) --5257705. 
+
+ComputeForcesMT(int) -- 4
+	fluid.hpp:347 -- 1
+	fluid.hpp:341 -- 1
+	pthreads.cpp:828 -- 1
+
+Critical Path 10: 
+	[unknown] [fluidanimate]
+	<---AdvanceFrameMT(int)
+	<---AdvanceFramesMT(void*) --3996799. 
+
+ComputeForcesMT(int) -- 1
+	pthreads.cpp:852 -- 1
+ComputeDensitiesMT(int) -- 1
+	pthreads.cpp:737 -- 1
+***************************************************
+
+Top Critical Functions and lines of code with frequency
+AdvanceFrameMT(int) -- 4966
+	pthreads.cpp:1130 -- 1159
+	pthreads.cpp:1134 -- 1004
+	pthreads.cpp:1142 -- 696
+ClearParticlesMT(int) -- 2532
+	pthreads.cpp:524 -- 1919
+	pthreads.cpp:530 -- 592
+	pthreads.cpp:529 -- 11
+AdvanceFramesMT(void*) -- 1996
+	pthreads.cpp:1158 -- 1996
+InitDensitiesAndForcesMT(int) -- 451
+	pthreads.cpp:675 -- 442
+	pthreads.cpp:684 -- 4
+	pthreads.cpp:685 -- 4
+ComputeDensitiesMT(int) -- 429
+	fluid.hpp:354 -- 89
+	fluid.hpp:341 -- 64
+	pthreads.cpp:722 -- 44
+ComputeForcesMT(int) -- 355
+	fluid.hpp:354 -- 68
+	fluid.hpp:341 -- 45
+	stl_algobase.h:224 -- 33
+RebuildGridMT(int) -- 93
+	pthreads.cpp:553 -- 21
+	pthreads.cpp:604 -- 16
+	pthreads.cpp:605 -- 16
+ProcessCollisionsMT(int) -- 91
+	fluid.hpp:355 -- 87
+	pthreads.cpp:937 -- 2
+	pthreads.cpp:939 -- 1
+parsec_barrier_wait(parsec_barrier_t*) -- 51
+	parsec_barrier.cpp:184 -- 43
+	parsec_barrier.cpp:151 -- 7
+	parsec_barrier.cpp:199 -- 1
+ComputeDensities2MT(int) -- 13
+	pthreads.cpp:777 -- 13
+***************************************************
+Post Processing time in milli seconds: 7095
+Total switches: 1028870 Critical switches: 11512
+***************************************************
