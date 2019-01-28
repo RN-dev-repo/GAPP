@@ -1,0 +1,605 @@
+Criticality Metric for each thread
+     14659 20519905 
+     14658 21425663 
+     14721 102753007 
+     14717 103604559 
+     14679 103643242 
+     14722 103971608 
+     14711 104097443 
+     14720 104101036 
+     14708 104359856 
+     14714 104390584 
+     14693 104398719 
+     14663 104448776 
+     14716 104521530 
+     14670 104571423 
+     14719 104632204 
+     14662 104818791 
+     14689 104836740 
+     14677 104882086 
+     14676 104963745 
+     14710 104987881 
+     14692 105089353 
+     14697 105101423 
+     14699 105155471 
+     14712 105178489 
+     14688 105404564 
+     14691 105412971 
+     14713 105594572 
+     14715 105612500 
+     14706 105672861 
+     14690 105677565 
+     14694 105743570 
+     14672 106007408 
+     14666 106037516 
+     14671 106097991 
+     14709 106217340 
+     14667 106274903 
+     14723 106324095 
+     14683 106368030 
+     14701 106507167 
+     14681 106608751 
+     14661 106674740 
+     14674 106758120 
+     14675 106946987 
+     14700 106959471 
+     14682 106982187 
+     14698 106992048 
+     14707 107127425 
+     14696 107194079 
+     14678 107229100 
+     14703 107344859 
+     14684 107427080 
+     14695 107451220 
+     14686 107479675 
+     14665 107632517 
+     14669 107749141 
+     14668 107836050 
+     14673 107865082 
+     14664 107969627 
+     14685 107999180 
+     14718 108030617 
+     14660 108102081 
+     14687 108192341 
+     14705 108214147 
+     14680 108231351 
+     14702 108241669 
+     14704 108377259 
+     14657 577237115 
+Sum = 7410260506
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+
+Critical Path 1: 
+	imb_LabQ2Lab
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---extract_area
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---embed_gen --34662291. 
+
+imb_LabQ2Lab -- 2422
+	im_LabQ2Lab.c:83 -- 1711
+	im_LabQ2Lab.c:89 -- 239
+	im_LabQ2Lab.c:94 -- 238
+
+Critical Path 2: 
+	imb_LabQ2disp
+	<---process_region
+	<---im_prepare_to_generate
+	<---im_prepare_to
+	<---wbuffer_work_fn
+	<---vips_thread_main_loop
+	<---g_thread_create_proxy --20067632. 
+
+imb_LabQ2disp -- 848
+	im_LabQ2disp.c:113 -- 654
+	im_LabQ2disp.c:114 -- 152
+	im_LabQ2disp.c:115 -- 40
+conv_gen -- 18
+	im_convsep.c:344 -- 17
+	im_convsep.c:341 -- 1
+vips_interpolate_bilinear_interpolate -- 14
+	interpolate.c:424 -- 10
+	interpolate.c:391 -- 3
+	interpolate.c:394 -- 1
+imb_Lab2LabQ -- 7
+	im_Lab2LabQ.c:111 -- 2
+	im_Lab2LabQ.c:121 -- 1
+	im_Lab2LabQ.c:102 -- 1
+lintran_gen -- 5
+	im_lintra.c:226 -- 5
+
+Critical Path 3: 
+	vips_interpolate_bilinear_interpolate
+	<---affinei_gen
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---extract_band
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---process_region --15758268. 
+
+vips_interpolate_bilinear_interpolate -- 1691
+	interpolate.c:424 -- 1687
+	interpolate.c:394 -- 3
+	interpolate.c:426 -- 1
+conv_gen -- 2
+	im_convsep.c:344 -- 2
+affinei_gen -- 2
+	im_affine.c:308 -- 1
+	im_affine.c:323 -- 1
+imb_LabQ2Lab -- 1
+	im_LabQ2Lab.c:87 -- 1
+
+Critical Path 4: 
+	lintran_gen
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---copy_gen
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---process_region --10128175. 
+
+lintran_gen -- 954
+	im_lintra.c:226 -- 954
+
+Critical Path 5: 
+	imb_LabQ2Lab
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---extract_area
+	<---im_prepare_to_generate
+	<---im_prepare_to
+	<---embed_gen
+	<---fill_region --5714307. 
+
+imb_LabQ2Lab -- 957
+	im_LabQ2Lab.c:83 -- 248
+	im_LabQ2Lab.c:89 -- 244
+	im_LabQ2Lab.c:94 -- 242
+
+Critical Path 6: 
+	recomb_buf
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---process_region --5374958. 
+
+recomb_buf -- 685
+	im_recomb.c:87 -- 685
+imb_Lab2XYZ -- 1
+	im_Lab2XYZ.c:86 -- 1
+imb_LabQ2Lab -- 1
+	im_LabQ2Lab.c:89 -- 1
+
+Critical Path 7: 
+	imb_Lab2XYZ
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---process_region --4254673. 
+
+imb_Lab2XYZ -- 619
+	im_Lab2XYZ.c:99 -- 217
+	im_Lab2XYZ.c:100 -- 202
+	im_Lab2XYZ.c:95 -- 191
+im_buffer_unref -- 1
+	buffer.c:291 -- 1
+
+Critical Path 8: 
+	imb_XYZ2Lab
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---copy_gen --3951205. 
+
+imb_XYZ2Lab -- 576
+	im_XYZ2Lab.c:140 -- 380
+	im_XYZ2Lab.c:141 -- 191
+	im_XYZ2Lab.c:129 -- 2
+conv_gen -- 1
+	im_convsep.c:344 -- 1
+
+Critical Path 9: 
+	extract_band
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---ifthenelse_gen
+	<---fill_region --3753591. 
+
+extract_band -- 307
+	im_extract.c:122 -- 306
+	im_extract.c:121 -- 1
+vips_interpolate_bilinear_interpolate -- 1
+	interpolate.c:424 -- 1
+
+Critical Path 10: 
+	lintran_gen
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---copy_gen
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---copy_gen --3617437. 
+
+lintran_gen -- 557
+	im_lintra.c:226 -- 552
+	im_lintra.c:220 -- 5
+imb_LabQ2Lab -- 1
+	im_LabQ2Lab.c:99 -- 1
+***************************************************
+
+Top Critical Functions and lines of code with frequency
+imb_LabQ2Lab -- 3383
+	im_LabQ2Lab.c:83 -- 1959
+	im_LabQ2Lab.c:89 -- 484
+	im_LabQ2Lab.c:94 -- 480
+vips_interpolate_bilinear_interpolate -- 1706
+	interpolate.c:424 -- 1698
+	interpolate.c:394 -- 4
+	interpolate.c:391 -- 3
+lintran_gen -- 1516
+	im_lintra.c:226 -- 1511
+	im_lintra.c:220 -- 5
+imb_LabQ2disp -- 848
+	im_LabQ2disp.c:113 -- 654
+	im_LabQ2disp.c:114 -- 152
+	im_LabQ2disp.c:115 -- 40
+recomb_buf -- 687
+	im_recomb.c:87 -- 687
+imb_Lab2XYZ -- 622
+	im_Lab2XYZ.c:99 -- 217
+	im_Lab2XYZ.c:100 -- 202
+	im_Lab2XYZ.c:95 -- 192
+imb_XYZ2Lab -- 576
+	im_XYZ2Lab.c:140 -- 380
+	im_XYZ2Lab.c:141 -- 191
+	im_XYZ2Lab.c:129 -- 2
+extract_band -- 311
+	im_extract.c:122 -- 307
+	im_extract.c:121 -- 3
+	im_extract.c:124 -- 1
+conv_gen -- 21
+	im_convsep.c:344 -- 20
+	im_convsep.c:341 -- 1
+imb_Lab2LabQ -- 7
+	im_Lab2LabQ.c:111 -- 2
+	im_Lab2LabQ.c:121 -- 1
+	im_Lab2LabQ.c:102 -- 1
+***************************************************
+Post Processing time in milli seconds: 4103
+Total switches: 339923 Critical switches: 13457
+***************************************************
+Criticality Metric for each thread
+     15727 20346993 
+     15726 25348317 
+     15790 102085406 
+     15731 102848107 
+     15748 102941801 
+     15761 103001144 
+     15759 103095142 
+     15791 103559925 
+     15783 103578090 
+     15781 103907465 
+     15785 103944925 
+     15789 103988396 
+     15764 104020244 
+     15758 104044713 
+     15746 104117325 
+     15784 104250794 
+     15787 104276377 
+     15760 104669013 
+     15786 104703535 
+     15780 104794602 
+     15738 104800238 
+     15782 104851635 
+     15775 104851703 
+     15788 104905032 
+     15728 104977397 
+     15777 105066210 
+     15737 105099812 
+     15779 105105546 
+     15744 105209495 
+     15743 105255507 
+     15765 105346421 
+     15757 105445136 
+     15741 105554507 
+     15747 105708761 
+     15729 105779122 
+     15778 105820947 
+     15745 105870128 
+     15755 106042047 
+     15750 106067163 
+     15730 106068726 
+     15749 106088261 
+     15772 106317885 
+     15769 106331642 
+     15732 106331648 
+     15733 106573529 
+     15754 106667129 
+     15773 106718360 
+     15774 106773823 
+     15740 106794412 
+     15751 106951705 
+     15766 107008087 
+     15735 107097209 
+     15753 107227568 
+     15739 107272869 
+     15736 107362911 
+     15742 107438530 
+     15768 107455477 
+     15767 107603976 
+     15763 107615602 
+     15762 107764129 
+     15752 107909710 
+     15771 107949817 
+     15776 108069490 
+     15792 108339686 
+     15770 108445297 
+     15734 108811572 
+     15725 329344451 
+Sum = 7139612622
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+
+Critical Path 1: 
+	imb_LabQ2Lab
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---extract_area
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---embed_gen --34572633. 
+
+imb_LabQ2Lab -- 2248
+	im_LabQ2Lab.c:83 -- 1654
+	im_LabQ2Lab.c:99 -- 227
+	im_LabQ2Lab.c:94 -- 189
+
+Critical Path 2: 
+	vips_interpolate_bilinear_interpolate
+	<---affinei_gen
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---extract_band
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---process_region --13900399. 
+
+vips_interpolate_bilinear_interpolate -- 1383
+	interpolate.c:424 -- 1381
+	interpolate.c:426 -- 1
+	interpolate.c:417 -- 1
+imb_LabQ2Lab -- 3
+	im_LabQ2Lab.c:89 -- 2
+	im_LabQ2Lab.c:87 -- 1
+affinei_gen -- 2
+	im_affine.c:308 -- 2
+im_rect_intersectrect -- 1
+	rect.c:84 -- 1
+
+Critical Path 3: 
+	lintran_gen
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---copy_gen
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---process_region --13178468. 
+
+lintran_gen -- 1176
+	im_lintra.c:226 -- 1176
+process_region -- 1
+	im_wrapmany.c:96 -- 1
+
+Critical Path 4: 
+	imb_LabQ2disp
+	<---process_region
+	<---im_prepare_to_generate
+	<---im_prepare_to
+	<---wbuffer_work_fn
+	<---vips_thread_main_loop
+	<---g_thread_create_proxy --7909861. 
+
+imb_LabQ2disp -- 521
+	im_LabQ2disp.c:113 -- 443
+	im_LabQ2disp.c:114 -- 44
+	im_LabQ2disp.c:115 -- 33
+conv_gen -- 4
+	im_convsep.c:344 -- 4
+vips_interpolate_bilinear_interpolate -- 3
+	interpolate.c:424 -- 3
+imb_LabS2LabQ -- 2
+	im_LabS2LabQ.c:112 -- 1
+	im_LabS2LabQ.c:68 -- 1
+buf_difflut -- 2
+	im_sharpen.c:174 -- 1
+	im_sharpen.c:156 -- 1
+
+Critical Path 5: 
+	imb_LabQ2Lab
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---extract_area
+	<---im_prepare_to_generate
+	<---im_prepare_to
+	<---embed_gen
+	<---fill_region --5704463. 
+
+imb_LabQ2Lab -- 879
+	im_LabQ2Lab.c:83 -- 248
+	im_LabQ2Lab.c:89 -- 222
+	im_LabQ2Lab.c:94 -- 208
+
+Critical Path 6: 
+	recomb_buf
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---process_region --5006434. 
+
+recomb_buf -- 641
+	im_recomb.c:87 -- 641
+vips_interpolate_bilinear_interpolate -- 1
+	interpolate.c:424 -- 1
+imb_Lab2XYZ -- 1
+	im_Lab2XYZ.c:87 -- 1
+
+Critical Path 7: 
+	imb_Lab2XYZ
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---process_region --4037617. 
+
+imb_Lab2XYZ -- 553
+	im_Lab2XYZ.c:95 -- 189
+	im_Lab2XYZ.c:99 -- 187
+	im_Lab2XYZ.c:100 -- 175
+im_region_region -- 1
+	region.c:612 -- 1
+
+Critical Path 8: 
+	im_prepare_to_generate
+	<---im_prepare_to
+	<---embed_gen
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---affinei_gen
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare --3724676. 
+
+im_prepare_to_generate -- 774
+	im_prepare.c:228 -- 774
+imb_LabQ2Lab -- 1
+	im_LabQ2Lab.c:94 -- 1
+
+Critical Path 9: 
+	extract_band
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---ifthenelse_gen
+	<---fill_region --3324678. 
+
+extract_band -- 273
+	im_extract.c:122 -- 270
+	im_extract.c:121 -- 3
+
+Critical Path 10: 
+	imb_XYZ2Lab
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---process_region
+	<---fill_region
+	<---im_region_fill
+	<---im_prepare
+	<---copy_gen --3194257. 
+
+imb_XYZ2Lab -- 417
+	im_XYZ2Lab.c:140 -- 266
+	im_XYZ2Lab.c:141 -- 148
+	im_XYZ2Lab.c:136 -- 1
+***************************************************
+
+Top Critical Functions and lines of code with frequency
+imb_LabQ2Lab -- 3131
+	im_LabQ2Lab.c:83 -- 1902
+	im_LabQ2Lab.c:99 -- 427
+	im_LabQ2Lab.c:89 -- 402
+vips_interpolate_bilinear_interpolate -- 1387
+	interpolate.c:424 -- 1385
+	interpolate.c:426 -- 1
+	interpolate.c:417 -- 1
+lintran_gen -- 1176
+	im_lintra.c:226 -- 1176
+im_prepare_to_generate -- 774
+	im_prepare.c:228 -- 774
+recomb_buf -- 641
+	im_recomb.c:87 -- 641
+imb_Lab2XYZ -- 554
+	im_Lab2XYZ.c:95 -- 189
+	im_Lab2XYZ.c:99 -- 187
+	im_Lab2XYZ.c:100 -- 175
+imb_LabQ2disp -- 521
+	im_LabQ2disp.c:113 -- 443
+	im_LabQ2disp.c:114 -- 44
+	im_LabQ2disp.c:115 -- 33
+imb_XYZ2Lab -- 417
+	im_XYZ2Lab.c:140 -- 266
+	im_XYZ2Lab.c:141 -- 148
+	im_XYZ2Lab.c:136 -- 1
+extract_band -- 274
+	im_extract.c:122 -- 270
+	im_extract.c:121 -- 4
+conv_gen -- 4
+	im_convsep.c:344 -- 4
+***************************************************
+Post Processing time in milli seconds: 2690
+Total switches: 331201 Critical switches: 11806
+***************************************************
