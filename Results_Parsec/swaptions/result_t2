@@ -1,0 +1,607 @@
+Criticality Metric for each thread
+      2457 4437059 
+      2490 469522100 
+      2484 469625722 
+      2487 472010770 
+      2491 472437837 
+      2462 472814941 
+      2519 473293728 
+      2467 473334690 
+      2468 473993918 
+      2515 474061917 
+      2512 475106635 
+      2481 475896728 
+      2460 476402765 
+      2458 476674183 
+      2494 476707071 
+      2464 476990314 
+      2482 477084093 
+      2511 477752600 
+      2509 477816223 
+      2486 478007157 
+      2479 478019364 
+      2520 478070803 
+      2485 479003520 
+      2513 479040792 
+      2507 479423646 
+      2470 479430510 
+      2474 479856526 
+      2461 480217262 
+      2500 480626109 
+      2480 480680825 
+      2475 480803788 
+      2499 481071400 
+      2514 481916685 
+      2508 482815474 
+      2472 482923635 
+      2477 483300740 
+      2516 483350143 
+      2466 483448577 
+      2459 483702338 
+      2521 483850445 
+      2496 484019871 
+      2501 484278559 
+      2469 484427845 
+      2498 485173888 
+      2471 485454360 
+      2504 485510711 
+      2478 485767346 
+      2463 486028170 
+      2473 486116154 
+      2518 486271556 
+      2502 488621545 
+      2503 489866618 
+      2497 490148075 
+      2489 490744453 
+      2506 491762552 
+      2492 492814103 
+      2517 493636037 
+      2510 493640949 
+      2495 493805989 
+      2465 495811595 
+      2483 496346404 
+      2493 496709355 
+      2488 502329234 
+      2505 504081065 
+      2476 522838339 
+Sum = 30941727806
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+
+Critical Path 1: 
+	HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int)
+	<---HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int)
+	<---worker(void*) --34529971. 
+
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 46
+	HJM_SimPath_Forward_Blocking.cpp:154 -- 14
+	HJM_SimPath_Forward_Blocking.cpp:107 -- 13
+	HJM_SimPath_Forward_Blocking.cpp:151 -- 6
+CumNormalInv(double) -- 12
+	CumNormalInv.cpp:41 -- 3
+	CumNormalInv.cpp:66 -- 2
+	CumNormalInv.cpp:52 -- 2
+Discount_Factors_Blocking(double*, int, double, double*, int) -- 6
+	HJM.cpp:395 -- 3
+	HJM.cpp:394 -- 3
+serialB(double**, double**, int, int, int) -- 5
+	HJM_SimPath_Forward_Blocking.cpp:67 -- 5
+RanUnif(long*) -- 4
+	RanUnif.cpp:27 -- 3
+	RanUnif.cpp:26 -- 1
+
+Critical Path 2: 
+	HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int)
+	<---worker(void*) --11298674. 
+
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 6
+	HJM_SimPath_Forward_Blocking.cpp:150 -- 3
+	HJM_SimPath_Forward_Blocking.cpp:151 -- 2
+	HJM_SimPath_Forward_Blocking.cpp:106 -- 1
+RanUnif(long*) -- 2
+	RanUnif.cpp:27 -- 2
+Discount_Factors_Blocking(double*, int, double, double*, int) -- 1
+	HJM.cpp:390 -- 1
+
+Critical Path 3: 
+	CumNormalInv(double)
+	<---HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int)
+	<---worker(void*) --4753692. 
+
+CumNormalInv(double) -- 1
+	CumNormalInv.cpp:66 -- 1
+serialB(double**, double**, int, int, int) -- 1
+	HJM_SimPath_Forward_Blocking.cpp:67 -- 1
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 1
+	HJM_SimPath_Forward_Blocking.cpp:121 -- 1
+
+Critical Path 4: 
+	Discount_Factors_Blocking(double*, int, double, double*, int)
+	<---HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int)
+	<---worker(void*) --2174469. 
+
+CumNormalInv(double) -- 2
+	CumNormalInv.cpp:52 -- 1
+	CumNormalInv.cpp:66 -- 1
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 2
+	HJM_SimPath_Forward_Blocking.cpp:107 -- 2
+serialB(double**, double**, int, int, int) -- 1
+	HJM_SimPath_Forward_Blocking.cpp:65 -- 1
+
+Critical Path 5: 
+	RanUnif(long*)
+	<---HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int)
+	<---worker(void*) --975333. 
+
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 3
+	HJM_SimPath_Forward_Blocking.cpp:150 -- 1
+	HJM_SimPath_Forward_Blocking.cpp:151 -- 1
+	HJM_SimPath_Forward_Blocking.cpp:107 -- 1
+RanUnif(long*) -- 1
+	RanUnif.cpp:27 -- 1
+
+Critical Path 6: 
+	CumNormalInv(double)
+	<---HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int)
+	<---HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int)
+	<---worker(void*) --944432. 
+
+CumNormalInv(double) -- 2
+	CumNormalInv.cpp:61 -- 1
+	CumNormalInv.cpp:51 -- 1
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 2
+	HJM_SimPath_Forward_Blocking.cpp:118 -- 1
+	HJM_SimPath_Forward_Blocking.cpp:107 -- 1
+***************************************************
+
+Top Critical Functions and lines of code with frequency
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 60
+	HJM_SimPath_Forward_Blocking.cpp:107 -- 17
+	HJM_SimPath_Forward_Blocking.cpp:154 -- 14
+	HJM_SimPath_Forward_Blocking.cpp:151 -- 9
+CumNormalInv(double) -- 17
+	CumNormalInv.cpp:66 -- 4
+	CumNormalInv.cpp:41 -- 3
+	CumNormalInv.cpp:52 -- 3
+serialB(double**, double**, int, int, int) -- 7
+	HJM_SimPath_Forward_Blocking.cpp:67 -- 6
+	HJM_SimPath_Forward_Blocking.cpp:65 -- 1
+Discount_Factors_Blocking(double*, int, double, double*, int) -- 7
+	HJM.cpp:395 -- 3
+	HJM.cpp:394 -- 3
+	HJM.cpp:390 -- 1
+RanUnif(long*) -- 7
+	RanUnif.cpp:27 -- 6
+	RanUnif.cpp:26 -- 1
+HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int) -- 3
+	HJM_Swaption_Blocking.cpp:182 -- 1
+	HJM_Swaption_Blocking.cpp:160 -- 1
+	HJM_Swaption_Blocking.cpp:185 -- 1
+***************************************************
+Post Processing time in milli seconds: 1049
+Total switches: 56164 Critical switches: 55
+***************************************************
+Criticality Metric for each thread
+      3108 4168323 
+      3153 436209175 
+      3163 436508796 
+      3149 436524118 
+      3148 436790125 
+      3165 437972021 
+      3158 438881048 
+      3142 439365940 
+      3156 440158917 
+      3123 440220542 
+      3152 440488761 
+      3131 440712998 
+      3141 441005412 
+      3120 441082024 
+      3138 441107988 
+      3136 441289765 
+      3114 441584718 
+      3166 441805812 
+      3133 441833011 
+      3117 442374828 
+      3127 442556851 
+      3160 442622142 
+      3128 442687611 
+      3134 442743384 
+      3121 442774128 
+      3164 442897990 
+      3139 443195734 
+      3132 443244540 
+      3124 443448050 
+      3170 443727763 
+      3110 443778264 
+      3116 444118425 
+      3122 444171011 
+      3150 445038270 
+      3126 445483758 
+      3109 445782258 
+      3143 446222060 
+      3129 446689538 
+      3135 446731042 
+      3161 447178915 
+      3169 447502094 
+      3112 447559723 
+      3146 447590600 
+      3144 447599312 
+      3115 447678052 
+      3119 447987314 
+      3140 448562589 
+      3168 448687049 
+      3172 449267397 
+      3167 449675318 
+      3155 449801790 
+      3151 450166432 
+      3125 450331964 
+      3137 450995238 
+      3130 451198056 
+      3111 451321654 
+      3157 451717143 
+      3159 452171953 
+      3154 452389074 
+      3113 454340193 
+      3171 456003584 
+      3147 456254453 
+      3162 456787822 
+      3118 457051079 
+      3145 866514263 
+Sum = 28934330202
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+
+Critical Path 1: 
+	HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int)
+	<---HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int)
+	<---worker(void*) --286346948. 
+
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 92
+	HJM_SimPath_Forward_Blocking.cpp:151 -- 31
+	HJM_SimPath_Forward_Blocking.cpp:107 -- 21
+	HJM_SimPath_Forward_Blocking.cpp:150 -- 15
+CumNormalInv(double) -- 28
+	CumNormalInv.cpp:66 -- 9
+	CumNormalInv.cpp:41 -- 4
+	CumNormalInv.cpp:52 -- 4
+RanUnif(long*) -- 19
+	RanUnif.cpp:27 -- 12
+	RanUnif.cpp:26 -- 3
+	RanUnif.cpp:24 -- 2
+Discount_Factors_Blocking(double*, int, double, double*, int) -- 17
+	HJM.cpp:395 -- 5
+	HJM.cpp:394 -- 5
+	HJM.cpp:382 -- 3
+serialB(double**, double**, int, int, int) -- 13
+	HJM_SimPath_Forward_Blocking.cpp:67 -- 11
+	HJM_SimPath_Forward_Blocking.cpp:66 -- 2
+
+Critical Path 2: 
+	CumNormalInv(double)
+	<---HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int)
+	<---worker(void*) --68780574. 
+
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 16
+	HJM_SimPath_Forward_Blocking.cpp:151 -- 5
+	HJM_SimPath_Forward_Blocking.cpp:154 -- 4
+	HJM_SimPath_Forward_Blocking.cpp:107 -- 3
+CumNormalInv(double) -- 11
+	CumNormalInv.cpp:66 -- 7
+	CumNormalInv.cpp:59 -- 1
+	CumNormalInv.cpp:41 -- 1
+serialB(double**, double**, int, int, int) -- 3
+	HJM_SimPath_Forward_Blocking.cpp:66 -- 1
+	HJM_SimPath_Forward_Blocking.cpp:67 -- 1
+	HJM_SimPath_Forward_Blocking.cpp:65 -- 1
+RanUnif(long*) -- 3
+	RanUnif.cpp:27 -- 2
+	RanUnif.cpp:25 -- 1
+Discount_Factors_Blocking(double*, int, double, double*, int) -- 2
+	HJM.cpp:390 -- 1
+	HJM.cpp:394 -- 1
+
+Critical Path 3: 
+	HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int)
+	<---worker(void*) --21503463. 
+
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 10
+	HJM_SimPath_Forward_Blocking.cpp:107 -- 4
+	HJM_SimPath_Forward_Blocking.cpp:154 -- 3
+	HJM_SimPath_Forward_Blocking.cpp:121 -- 2
+Discount_Factors_Blocking(double*, int, double, double*, int) -- 1
+	HJM.cpp:395 -- 1
+CumNormalInv(double) -- 1
+	CumNormalInv.cpp:52 -- 1
+HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int) -- 1
+	HJM_Swaption_Blocking.cpp:185 -- 1
+
+Critical Path 4: 
+	RanUnif(long*)
+	<---HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int)
+	<---worker(void*) --17759474. 
+
+CumNormalInv(double) -- 8
+	CumNormalInv.cpp:51 -- 2
+	CumNormalInv.cpp:59 -- 1
+	CumNormalInv.cpp:60 -- 1
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 5
+	HJM_SimPath_Forward_Blocking.cpp:154 -- 3
+	HJM_SimPath_Forward_Blocking.cpp:151 -- 1
+	HJM_SimPath_Forward_Blocking.cpp:107 -- 1
+serialB(double**, double**, int, int, int) -- 3
+	HJM_SimPath_Forward_Blocking.cpp:67 -- 3
+RanUnif(long*) -- 2
+	RanUnif.cpp:27 -- 2
+HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int) -- 1
+	HJM_Swaption_Blocking.cpp:184 -- 1
+
+Critical Path 5: 
+	Discount_Factors_Blocking(double*, int, double, double*, int)
+	<---HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int)
+	<---worker(void*) --9782609. 
+
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 6
+	HJM_SimPath_Forward_Blocking.cpp:107 -- 3
+	HJM_SimPath_Forward_Blocking.cpp:119 -- 1
+	HJM_SimPath_Forward_Blocking.cpp:150 -- 1
+Discount_Factors_Blocking(double*, int, double, double*, int) -- 2
+	HJM.cpp:395 -- 2
+RanUnif(long*) -- 1
+	RanUnif.cpp:24 -- 1
+CumNormalInv(double) -- 1
+	CumNormalInv.cpp:48 -- 1
+
+Critical Path 6: 
+	CumNormalInv(double)
+	<---HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int)
+	<---HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int)
+	<---worker(void*) --8990957. 
+
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 3
+	HJM_SimPath_Forward_Blocking.cpp:154 -- 1
+	HJM_SimPath_Forward_Blocking.cpp:107 -- 1
+	HJM_SimPath_Forward_Blocking.cpp:150 -- 1
+CumNormalInv(double) -- 1
+	CumNormalInv.cpp:61 -- 1
+Discount_Factors_Blocking(double*, int, double, double*, int) -- 1
+	HJM.cpp:394 -- 1
+
+Critical Path 7: 
+	worker(void*) --55541. 
+
+worker(void*) -- 1
+	HJM_Securities.cpp:110 -- 1
+***************************************************
+
+Top Critical Functions and lines of code with frequency
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 132
+	HJM_SimPath_Forward_Blocking.cpp:151 -- 38
+	HJM_SimPath_Forward_Blocking.cpp:107 -- 33
+	HJM_SimPath_Forward_Blocking.cpp:154 -- 24
+CumNormalInv(double) -- 50
+	CumNormalInv.cpp:66 -- 17
+	CumNormalInv.cpp:41 -- 6
+	CumNormalInv.cpp:52 -- 6
+RanUnif(long*) -- 25
+	RanUnif.cpp:27 -- 16
+	RanUnif.cpp:24 -- 3
+	RanUnif.cpp:26 -- 3
+Discount_Factors_Blocking(double*, int, double, double*, int) -- 24
+	HJM.cpp:395 -- 8
+	HJM.cpp:394 -- 8
+	HJM.cpp:390 -- 4
+serialB(double**, double**, int, int, int) -- 19
+	HJM_SimPath_Forward_Blocking.cpp:67 -- 15
+	HJM_SimPath_Forward_Blocking.cpp:66 -- 3
+	HJM_SimPath_Forward_Blocking.cpp:65 -- 1
+HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int) -- 7
+	HJM_Swaption_Blocking.cpp:184 -- 2
+	HJM_Swaption_Blocking.cpp:185 -- 2
+	HJM_Swaption_Blocking.cpp:182 -- 1
+worker(void*) -- 1
+	HJM_Securities.cpp:110 -- 1
+***************************************************
+Post Processing time in milli seconds: 2190
+Total switches: 55803 Critical switches: 115
+***************************************************
+Criticality Metric for each thread
+      3834 4387883 
+      3884 456305916 
+      3845 458457850 
+      3872 460630616 
+      3837 460662139 
+      3852 462984842 
+      3877 463196504 
+      3883 463772179 
+      3849 464760041 
+      3853 465663420 
+      3838 465760100 
+      3887 466881386 
+      3844 467137770 
+      3842 468963329 
+      3886 468984513 
+      3859 469840300 
+      3858 469944101 
+      3835 470048310 
+      3848 471635542 
+      3896 471685508 
+      3857 471738162 
+      3860 471756551 
+      3854 472326619 
+      3855 472768341 
+      3846 472931201 
+      3878 473021687 
+      3898 473215856 
+      3890 473604770 
+      3892 473779757 
+      3865 473936908 
+      3873 474259703 
+      3893 474266015 
+      3889 474434951 
+      3868 474762564 
+      3875 475696939 
+      3895 475845983 
+      3876 476070816 
+      3874 476602431 
+      3871 476712913 
+      3879 477270507 
+      3862 477422688 
+      3891 477890589 
+      3847 478164591 
+      3888 478854960 
+      3880 479026556 
+      3882 479154174 
+      3869 479878258 
+      3866 480186344 
+      3894 480542856 
+      3840 483140581 
+      3897 484055451 
+      3864 484083669 
+      3856 485759144 
+      3867 486242413 
+      3861 486413645 
+      3850 486639399 
+      3841 487050329 
+      3839 488046813 
+      3843 488329847 
+      3836 488700848 
+      3881 488703250 
+      3870 491028492 
+      3885 492123269 
+      3851 492941059 
+      3863 522698665 
+Sum = 30483782813
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+
+Critical Path 1: 
+	HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int)
+	<---HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int)
+	<---worker(void*) --55319595. 
+
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 58
+	HJM_SimPath_Forward_Blocking.cpp:107 -- 20
+	HJM_SimPath_Forward_Blocking.cpp:151 -- 13
+	HJM_SimPath_Forward_Blocking.cpp:154 -- 8
+CumNormalInv(double) -- 22
+	CumNormalInv.cpp:66 -- 7
+	CumNormalInv.cpp:51 -- 4
+	CumNormalInv.cpp:59 -- 3
+RanUnif(long*) -- 9
+	RanUnif.cpp:27 -- 8
+	RanUnif.cpp:24 -- 1
+Discount_Factors_Blocking(double*, int, double, double*, int) -- 7
+	HJM.cpp:395 -- 3
+	HJM.cpp:383 -- 1
+	HJM.cpp:388 -- 1
+serialB(double**, double**, int, int, int) -- 2
+	HJM_SimPath_Forward_Blocking.cpp:67 -- 2
+
+Critical Path 2: 
+	RanUnif(long*)
+	<---HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int)
+	<---worker(void*) --14699893. 
+
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 2
+	HJM_SimPath_Forward_Blocking.cpp:154 -- 1
+	HJM_SimPath_Forward_Blocking.cpp:150 -- 1
+RanUnif(long*) -- 1
+	RanUnif.cpp:26 -- 1
+CumNormalInv(double) -- 1
+	CumNormalInv.cpp:59 -- 1
+
+Critical Path 3: 
+	Discount_Factors_Blocking(double*, int, double, double*, int)
+	<---HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int)
+	<---worker(void*) --6928156. 
+
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 9
+	HJM_SimPath_Forward_Blocking.cpp:107 -- 3
+	HJM_SimPath_Forward_Blocking.cpp:154 -- 3
+	HJM_SimPath_Forward_Blocking.cpp:150 -- 1
+RanUnif(long*) -- 2
+	RanUnif.cpp:26 -- 1
+	RanUnif.cpp:27 -- 1
+CumNormalInv(double) -- 1
+	CumNormalInv.cpp:57 -- 1
+serialB(double**, double**, int, int, int) -- 1
+	HJM_SimPath_Forward_Blocking.cpp:67 -- 1
+
+Critical Path 4: 
+	CumNormalInv(double)
+	<---HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int)
+	<---worker(void*) --4402961. 
+
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 9
+	HJM_SimPath_Forward_Blocking.cpp:107 -- 5
+	HJM_SimPath_Forward_Blocking.cpp:154 -- 2
+	HJM_SimPath_Forward_Blocking.cpp:151 -- 1
+Discount_Factors_Blocking(double*, int, double, double*, int) -- 3
+	HJM.cpp:395 -- 2
+	HJM.cpp:382 -- 1
+RanUnif(long*) -- 2
+	RanUnif.cpp:23 -- 1
+	RanUnif.cpp:27 -- 1
+CumNormalInv(double) -- 1
+	CumNormalInv.cpp:66 -- 1
+serialB(double**, double**, int, int, int) -- 1
+	HJM_SimPath_Forward_Blocking.cpp:67 -- 1
+
+Critical Path 5: 
+	dMax(double, double)
+	<---worker(void*) --1117512. 
+
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 2
+	HJM_SimPath_Forward_Blocking.cpp:154 -- 1
+	HJM_SimPath_Forward_Blocking.cpp:107 -- 1
+CumNormalInv(double) -- 1
+	CumNormalInv.cpp:52 -- 1
+
+Critical Path 6: 
+	CumNormalInv(double)
+	<---HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int)
+	<---HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int)
+	<---worker(void*) --649447. 
+
+Discount_Factors_Blocking(double*, int, double, double*, int) -- 1
+	HJM.cpp:390 -- 1
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 1
+	HJM_SimPath_Forward_Blocking.cpp:151 -- 1
+
+Critical Path 7: 
+	main --46661. 
+
+main -- 1
+	HJM_Securities.cpp:294 -- 1
+***************************************************
+
+Top Critical Functions and lines of code with frequency
+HJM_SimPath_Forward_Blocking(double**, int, int, double, double*, double*, double**, long*, int) -- 81
+	HJM_SimPath_Forward_Blocking.cpp:107 -- 29
+	HJM_SimPath_Forward_Blocking.cpp:151 -- 16
+	HJM_SimPath_Forward_Blocking.cpp:154 -- 15
+CumNormalInv(double) -- 26
+	CumNormalInv.cpp:66 -- 8
+	CumNormalInv.cpp:59 -- 4
+	CumNormalInv.cpp:51 -- 4
+RanUnif(long*) -- 14
+	RanUnif.cpp:27 -- 10
+	RanUnif.cpp:26 -- 2
+	RanUnif.cpp:23 -- 1
+Discount_Factors_Blocking(double*, int, double, double*, int) -- 11
+	HJM.cpp:395 -- 5
+	HJM.cpp:390 -- 2
+	HJM.cpp:388 -- 1
+serialB(double**, double**, int, int, int) -- 4
+	HJM_SimPath_Forward_Blocking.cpp:67 -- 4
+HJM_Swaption_Blocking(double*, double, double, double, double, double, int, int, double, double*, double**, long, long, int, int) -- 1
+	HJM_Swaption_Blocking.cpp:159 -- 1
+main -- 1
+	HJM_Securities.cpp:294 -- 1
+***************************************************
+Post Processing time in milli seconds: 1165
+Total switches: 56167 Critical switches: 60
+***************************************************
