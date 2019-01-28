@@ -1,0 +1,1229 @@
+All Samples - sampling rate 5 ms - 20148 buffer
+
+Critical Path 1:
+pgain(long, Points*, double, long*, int, parsec_barrier_t*)
+        <---pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)
+        <---localSearchSub(void*) --107834764372.
+
+0. pgain(long, Points*, double, long*, int, parsec_barrier_t*) -- 902614
+        streamcluster.cpp:960 -- 129584
+        streamcluster.cpp:1000 -- 122517
+        streamcluster.cpp:1160 -- 113750
+1. dist(Point, Point, int) -- 462013
+        streamcluster.cpp:653 -- 459109
+        streamcluster.cpp:652 -- 2031
+        streamcluster.cpp:651 -- 873
+2. parsec_barrier_wait(parsec_barrier_t*) -- 8109
+        parsec_barrier.cpp:184 -- 6154
+        parsec_barrier.cpp:151 -- 1857
+        parsec_barrier.cpp:199 -- 38
+3. pspeedy(Points*, float, long*, int, parsec_barrier_t*) -- 9
+        streamcluster.cpp:729 -- 4
+        streamcluster.cpp:752 -- 4
+        streamcluster.cpp:766 -- 1
+4. pFL(Points*, int*, int, float, long*, double, long, float, int, parsec_barrier_t*) -- 7
+        streamcluster.cpp:1235 -- 7
+5. memset -- 1
+        string_fortified.h:71 -- 1
+
+Critical Path 2:
+parsec_barrier_wait(parsec_barrier_t*)
+        <---pgain(long, Points*, double, long*, int, parsec_barrier_t*)
+        <---pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)
+        <---localSearchSub(void*) --9101118903.
+
+0. dist(Point, Point, int) -- 35565
+        streamcluster.cpp:653 -- 35387
+        streamcluster.cpp:652 -- 135
+        streamcluster.cpp:651 -- 43
+1. parsec_barrier_wait(parsec_barrier_t*) -- 31378
+        parsec_barrier.cpp:184 -- 24070
+        parsec_barrier.cpp:151 -- 7241
+        parsec_barrier.cpp:199 -- 26
+2. pgain(long, Points*, double, long*, int, parsec_barrier_t*) -- 4699
+        streamcluster.cpp:1068 -- 4410
+        streamcluster.cpp:1046 -- 85
+        streamcluster.cpp:1049 -- 83
+3. pspeedy(Points*, float, long*, int, parsec_barrier_t*) -- 6
+        streamcluster.cpp:808 -- 5
+        streamcluster.cpp:729 -- 1
+4. shuffle(Points*) -- 2
+        streamcluster.cpp:628 -- 1
+        streamcluster.cpp:629 -- 1
+
+Critical Path 3:
+pspeedy(Points*, float, long*, int, parsec_barrier_t*)
+        <---pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)
+        <---localSearchSub(void*) --2262444727.
+
+0. dist(Point, Point, int) -- 11586
+        streamcluster.cpp:653 -- 11529
+        streamcluster.cpp:652 -- 48
+        streamcluster.cpp:651 -- 9
+1. pspeedy(Points*, float, long*, int, parsec_barrier_t*) -- 2126
+        streamcluster.cpp:762 -- 739
+        streamcluster.cpp:760 -- 364
+        streamcluster.cpp:709 -- 357
+2. pgain(long, Points*, double, long*, int, parsec_barrier_t*) -- 468
+        streamcluster.cpp:1068 -- 447
+        streamcluster.cpp:1049 -- 9
+        streamcluster.cpp:1046 -- 5
+3. parsec_barrier_wait(parsec_barrier_t*) -- 48
+        parsec_barrier.cpp:184 -- 34
+        parsec_barrier.cpp:151 -- 14
+4. shuffle(Points*) -- 4
+        streamcluster.cpp:626 -- 2
+        streamcluster.cpp:628 -- 1
+        streamcluster.cpp:629 -- 1
+
+Critical Path 4:
+pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)
+        <---localSearchSub(void*) --296478566.
+
+0. pFL(Points*, int*, int, float, long*, double, long, float, int, parsec_barrier_t*) -- 1841
+        streamcluster.cpp:1222 -- 1122
+        streamcluster.cpp:1233 -- 711
+        streamcluster.cpp:1235 -- 8
+1. pkmedian(Points*, long, long, long*, int, parsec_barrier_t*) -- 533
+        streamcluster.cpp:1608 -- 320
+        streamcluster.cpp:1548 -- 101
+        streamcluster.cpp:1576 -- 92
+2. dist(Point, Point, int) -- 176
+        streamcluster.cpp:653 -- 176
+3. shuffle(Points*) -- 37
+        streamcluster.cpp:629 -- 25
+        streamcluster.cpp:628 -- 7
+        streamcluster.cpp:626 -- 5
+4. parsec_barrier_wait(parsec_barrier_t*) -- 25
+        parsec_barrier.cpp:184 -- 18
+        parsec_barrier.cpp:151 -- 7
+5. pgain(long, Points*, double, long*, int, parsec_barrier_t*) -- 2
+        streamcluster.cpp:1068 -- 2
+6. pspeedy(Points*, float, long*, int, parsec_barrier_t*) -- 2
+        streamcluster.cpp:808 -- 2
+
+Critical Path 5:
+selectfeasible_fast(Points*, int**, int, int, parsec_barrier_t*)
+        <---pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)
+        <---localSearchSub(void*) --165500640.
+
+0. dist(Point, Point, int) -- 791
+        streamcluster.cpp:653 -- 790
+        streamcluster.cpp:652 -- 1
+1. pgain(long, Points*, double, long*, int, parsec_barrier_t*) -- 77
+        streamcluster.cpp:1068 -- 75
+        streamcluster.cpp:1056 -- 2
+2. selectfeasible_fast(Points*, int**, int, int, parsec_barrier_t*) -- 67
+        streamcluster.cpp:1294 -- 67
+3. parsec_barrier_wait(parsec_barrier_t*) -- 8
+        parsec_barrier.cpp:184 -- 7
+        parsec_barrier.cpp:151 -- 1
+
+Critical Path 6:
+parsec_barrier_wait(parsec_barrier_t*)
+        <---pspeedy(Points*, float, long*, int, parsec_barrier_t*)
+        <---pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)
+        <---localSearchSub(void*) --83379236.
+
+0. dist(Point, Point, int) -- 372
+        streamcluster.cpp:653 -- 372
+1. parsec_barrier_wait(parsec_barrier_t*) -- 106
+        parsec_barrier.cpp:184 -- 76
+        parsec_barrier.cpp:151 -- 30
+2. pgain(long, Points*, double, long*, int, parsec_barrier_t*) -- 43
+        streamcluster.cpp:1068 -- 42
+        streamcluster.cpp:1049 -- 1
+3. pspeedy(Points*, float, long*, int, parsec_barrier_t*) -- 1
+        streamcluster.cpp:752 -- 1
+
+Critical Path 7:
+localSearchSub(void*) --16629129.
+
+0. localSearchSub(void*) -- 14
+        streamcluster.cpp:1696 -- 14
+
+Critical Path 8:
+pgain(long, Points*, double, long*, int, parsec_barrier_t*) --4084867.
+
+0. dist(Point, Point, int) -- 19
+        streamcluster.cpp:653 -- 19
+1. pgain(long, Points*, double, long*, int, parsec_barrier_t*) -- 16
+        streamcluster.cpp:1055 -- 7
+        streamcluster.cpp:1068 -- 7
+        streamcluster.cpp:1025 -- 2
+
+Critical Path 9:
+parsec_barrier_wait(parsec_barrier_t*)
+        <---pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)
+        <---localSearchSub(void*) --2765452.
+
+0. parsec_barrier_wait(parsec_barrier_t*) -- 53
+        parsec_barrier.cpp:184 -- 42
+        parsec_barrier.cpp:151 -- 9
+        parsec_barrier.cpp:152 -- 2
+1. dist(Point, Point, int) -- 3
+        streamcluster.cpp:653 -- 2
+        streamcluster.cpp:651 -- 1
+
+Critical Path 10:
+[unknown] [streamcluster]
+        <---pgain(long, Points*, double, long*, int, parsec_barrier_t*)
+        <---pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)
+        <---localSearchSub(void*) --2167752.
+
+0. dist(Point, Point, int) -- 4
+        streamcluster.cpp:653 -- 4
+***************************************************
+
+Top Critical Functions and lines of code with frequency
+pgain(long, Points*, double, long*, int, parsec_barrier_t*) -- 907919
+        streamcluster.cpp:960 -- 129585
+        streamcluster.cpp:1000 -- 122517
+        streamcluster.cpp:1160 -- 113750
+dist(Point, Point, int) -- 510529
+        streamcluster.cpp:653 -- 507388
+        streamcluster.cpp:652 -- 2215
+        streamcluster.cpp:651 -- 926
+parsec_barrier_wait(parsec_barrier_t*) -- 39727
+        parsec_barrier.cpp:184 -- 30401
+        parsec_barrier.cpp:151 -- 9159
+        parsec_barrier.cpp:199 -- 64
+pspeedy(Points*, float, long*, int, parsec_barrier_t*) -- 2144
+        streamcluster.cpp:762 -- 739
+        streamcluster.cpp:760 -- 364
+        streamcluster.cpp:709 -- 357
+pFL(Points*, int*, int, float, long*, double, long, float, int, parsec_barrier_t*) -- 1848
+        streamcluster.cpp:1222 -- 1122
+        streamcluster.cpp:1233 -- 711
+        streamcluster.cpp:1235 -- 15
+pkmedian(Points*, long, long, long*, int, parsec_barrier_t*) -- 533
+        streamcluster.cpp:1608 -- 320
+        streamcluster.cpp:1548 -- 101
+        streamcluster.cpp:1576 -- 92
+selectfeasible_fast(Points*, int**, int, int, parsec_barrier_t*) -- 67
+        streamcluster.cpp:1294 -- 67
+shuffle(Points*) -- 43
+        streamcluster.cpp:629 -- 27
+        streamcluster.cpp:628 -- 9
+        streamcluster.cpp:626 -- 7
+localSearchSub(void*) -- 14
+        streamcluster.cpp:1696 -- 14
+memset -- 1
+        string_fortified.h:71 -- 1
+***************************************************
+Post Processing time in milli seconds: 43707
+Total switches: 14016900 Critical switches: 1282423
+***************************************************
+
+With all samples - buffer count 4096
+     25549 436319489
+     25558 437404600
+     25542 438112756
+     25552 438639495
+     25525 439106502
+     25517 439162454
+     25547 439536331
+     25507 439665538
+     25555 440438707
+     25556 440551211
+     25563 440987724
+     25520 441017911
+     25539 441127860
+     25516 441359271
+     25504 441462776
+     25513 441728483
+     25532 441787785
+     25514 441891465
+     25502 442351293
+     25515 442399125
+     25521 442401947
+     25534 442560616
+     25506 443052950
+     25500 443111624
+     25560 443159212
+     25503 443454340
+     25554 443570849
+     25550 443764093
+     25510 443810337
+     25559 443883774
+     25562 444003599
+     25509 444370479
+     25505 445051780
+     25522 445201456
+     25561 445481058
+     25538 445615194
+     25541 445616530
+     25528 445935247
+     25508 445946470
+     25540 445948741
+     25518 446358173
+     25537 446436434
+     25527 446480576
+     25553 446721451
+     25544 446846794
+     25536 447044955
+     25546 447090279
+     25501 447139182
+     25529 447336884
+     25557 447569231
+     25531 447682875
+     25535 447856741
+     25524 447901820
+     25526 447923659
+     25545 448464639
+     25543 448506090
+     25551 448647579
+     25512 449354920
+     25548 450346696
+     25519 450358573
+     25533 450386388
+     25511 450606280
+     25530 451543447
+     25523 455634666
+     25116 816494602
+     25110 820753395
+     25118 822728636
+     25087 822835334
+     25122 826156848
+     25128 826198596
+     25131 826222118
+     25141 826677055
+     25088 830131512
+     25111 830520056
+     25086 830727610
+     25120 831338895
+     25140 831845090
+     25098 831845754
+     25092 831900097
+     25097 833199367
+     25107 833262050
+     25114 833429320
+     25085 835291626
+     25095 835686143
+     25090 836369596
+     25109 837107831
+     25102 837923123
+     25130 838244841
+     25139 838324811
+     25089 839735395
+     25142 840060446
+     25115 840236956
+     25101 840405221
+     25093 840469456
+     25112 840774492
+     25104 842664641
+     25103 842747507
+     25099 844624518
+     25105 844658063
+     25124 845276973
+     25117 845728239
+     25094 846048666
+     25125 846403499
+     25121 846503615
+     25123 846699298
+     25127 846709536
+     25132 846744601
+     25091 847118605
+     25108 848190388
+     25119 848939949
+     25096 849879003
+     25082 849964698
+     25083 851243668
+     25100 851411063
+     25133 854579165
+     25081 854738338
+     25129 855165658
+     25084 855252455
+     25126 855575219
+     25136 856105591
+     25138 856420424
+     25137 857595620
+     25135 857709810
+     25134 860215855
+     25080 862965242
+     25113 865837883
+     25106 867332415
+     25079 920830824
+     25420 970786225
+     25416 970963592
+     25457 971913493
+     25443 972806328
+     25438 972886537
+     25469 973104611
+     25433 974274635
+     25414 974861125
+     25434 974958984
+     25408 976067698
+     25410 976754261
+     25463 978437323
+     25432 979312280
+     25422 979878225
+     25439 981110307
+     25446 981917492
+     25450 982613303
+     25453 982831264
+     25435 982860217
+     25442 983727872
+     25427 984299610
+     25441 984602057
+     25431 984948730
+     25465 985172819
+     25459 985549973
+     25460 986120029
+     25413 987207783
+     25418 987338491
+     25415 988445600
+     25445 988607102
+     25454 988933448
+     25462 988986465
+     25421 988989630
+     25423 989159685
+     25440 989177969
+     25428 989261029
+     25456 989357734
+     25417 989982369
+     25468 990426985
+     25448 990789603
+     25429 990810166
+     25461 991017489
+     25470 991061580
+     25426 991303297
+     25466 991545887
+     25467 991942806
+     25458 991969641
+     25419 992307093
+     25412 992386282
+     25430 992423410
+     25411 993784204
+     25447 994245832
+     25451 994570154
+     25424 994686382
+     25452 995270966
+     25409 996901851
+     25436 999195317
+     25425 999375817
+     25449 1000144472
+     25437 1001948955
+     25444 1003003266
+     25464 1005107356
+     25455 1008995357
+     25192 1018115217
+     25219 1018897167
+     25174 1019642299
+     25225 1024473633
+     25201 1025242730
+     25220 1026100109
+     25218 1028813526
+     25227 1029196710
+     25197 1031283078
+     25176 1032148432
+     25179 1032278390
+     25231 1032442442
+     25196 1032589456
+     25203 1032705680
+     25183 1033469637
+     25175 1034922221
+     25208 1035093077
+     25232 1035604197
+     25213 1035624237
+     25217 1035966119
+     25195 1037385176
+     25228 1037709846
+     25199 1037847767
+     25222 1038134400
+     25188 1038174555
+     25215 1038926317
+     25230 1038929329
+     25200 1039005708
+     25226 1039103295
+     25185 1039235136
+     25173 1039882912
+     25204 1040037413
+     25209 1040193081
+     25214 1041162236
+     25189 1041231620
+     25212 1041677154
+     25224 1042090583
+     25211 1042521157
+     25206 1042643591
+     25182 1042786000
+     25229 1043077812
+     25194 1043246800
+     25193 1043560803
+     25190 1044057559
+     25210 1044070898
+     25221 1044449945
+     25184 1044938727
+     25170 1045117086
+     25207 1046665392
+     25187 1047890151
+     25178 1048000280
+     25216 1048422492
+     25198 1049030618
+     25202 1049144867
+     25177 1049396599
+     25205 1050338678
+     25181 1050796041
+     25223 1051492610
+     25171 1051516310
+     25186 1053378758
+     25191 1054392295
+     25172 1056542555
+     25180 1060302664
+     25407 1069439326
+     25314 1094358318
+     25270 1096545741
+     25289 1096810542
+     25265 1099175649
+     25309 1099984613
+     25269 1100137363
+     25280 1102269965
+     25320 1102470259
+     25288 1103438017
+     25169 1104589554
+     25305 1104691048
+     25304 1104763396
+     25303 1105369048
+     25293 1105654230
+     25300 1106267699
+     25326 1107456318
+     25318 1108200251
+     25282 1108558373
+     25284 1108855098
+     25274 1109934210
+     25281 1110066179
+     25291 1110158381
+     25264 1110278186
+     25267 1110459101
+     25315 1110681284
+     25273 1111905931
+     25292 1112589293
+     25285 1112681409
+     25311 1113421515
+     25287 1113492247
+     25325 1113939335
+     25279 1114834394
+     25310 1115619060
+     25324 1116471332
+     25321 1117907569
+     25294 1118771774
+     25323 1119676936
+     25306 1119702537
+     25266 1119876297
+     25322 1120510669
+     25272 1120917920
+     25297 1121293395
+     25278 1121467955
+     25271 1121735801
+     25283 1122306499
+     25307 1123030664
+     25275 1123143518
+     25276 1123587212
+     25319 1123928472
+     25317 1124821933
+     25298 1125246511
+     25312 1125351585
+     25286 1125715325
+     25295 1125728038
+     25277 1126761350
+     25301 1127380664
+     25313 1127910274
+     25268 1128518854
+     25308 1129146908
+     25290 1130054563
+     25296 1130696770
+     25316 1133210870
+     25299 1135724908
+     24988 1144269007
+     24981 1149956675
+     24980 1154153497
+     25042 1157664800
+     25036 1161520823
+     25009 1162163008
+     25263 1167286276
+     24995 1167430334
+     24998 1168082606
+     25004 1169224798
+     25022 1169269664
+     25027 1169424372
+     25033 1170192585
+     25013 1170690737
+     25025 1172340155
+     24994 1172456047
+     25018 1173460783
+     25019 1174113118
+     25012 1174200035
+     25034 1174252281
+     24982 1174296462
+     25010 1174369807
+     25008 1174692271
+     25017 1174833426
+     24993 1175486472
+     24987 1176051624
+     24990 1178460957
+     25014 1178540566
+     25006 1179654303
+     24983 1179877412
+     24989 1180836559
+     25040 1182364375
+     25041 1182598540
+     25002 1183203473
+     25023 1183493069
+     24986 1183805734
+     25001 1184123657
+     24985 1184586167
+     25000 1185256762
+     25035 1185850646
+     24997 1185961727
+     24992 1186037916
+     24984 1186054121
+     25016 1186396380
+     25015 1189705804
+     25007 1193009828
+     25028 1193310234
+     25026 1193326331
+     25011 1195783722
+     25029 1196445917
+     25030 1196811931
+     24999 1197735921
+     25005 1198435324
+     25021 1200122890
+     24996 1205032033
+     25020 1208931179
+     25032 1209088092
+     25039 1210440162
+     24991 1211375287
+     25031 1215405825
+     25024 1216359810
+     25038 1219506256
+     25037 1224133283
+     25003 1231206989
+     24979 1268676713
+     24978 2099217902
+     25302 11778176007
+Sum = 372401456644
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+Critical Path 1: pgain(long, Points*, double, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --22578084105 WakeCount: 304808
+
+Critical Path 2: parsec_barrier_wait(parsec_barrier_t*)<-pgain(long, Points*, double, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --3822900097 WakeCount: 11723
+
+Critical Path 3: pspeedy(Points*, float, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --219583360 WakeCount: 1045
+
+Critical Path 4: pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --152834336 WakeCount: 669
+
+Critical Path 5: [unknown] [streamcluster]<-pgain(long, Points*, double, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --52964276 WakeCount: 180
+
+Critical Path 6: parsec_barrier_wait(parsec_barrier_t*)<-pspeedy(Points*, float, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --51166480 WakeCount: 269
+
+Critical Path 7: localSearchSub(void*) --12093249 WakeCount: 0
+
+Critical Path 8: parsec_barrier_wait(parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --1378268 WakeCount: 9
+
+Critical Path 9: localSearch(Points*, long, long, long*)<-streamCluster(PStream*, long, long, int, long, long, char*)<-main --55889 WakeCount: 0
+
+Critical Path 10: pgain(long, Points*, double, long*, int, parsec_barrier_t*) --34641 WakeCount: 0
+
+Top Critical Functions and lines of code
+0. pgain(long, Points*, double, long*, int, parsec_barrier_t*) -- 2109137
+        streamcluster.cpp:1160 -- 304976
+        streamcluster.cpp:960 -- 265162
+        streamcluster.cpp:1025 -- 261457
+1. dist(Point, Point, int) -- 274209
+        streamcluster.cpp:653 -- 271737
+        streamcluster.cpp:652 -- 2062
+        streamcluster.cpp:651 -- 410
+2. parsec_barrier_wait(parsec_barrier_t*) -- 56586
+        parsec_barrier.cpp:184 -- 31150
+        parsec_barrier.cpp:151 -- 24548
+        parsec_barrier.cpp:156 -- 379
+3. pFL(Points*, int*, int, float, long*, double, long, float, int, parsec_barrier_t*) -- 4411
+        streamcluster.cpp:1222 -- 2920
+        streamcluster.cpp:1233 -- 1481
+        streamcluster.cpp:1235 -- 10
+4. pspeedy(Points*, float, long*, int, parsec_barrier_t*) -- 3090
+        streamcluster.cpp:762 -- 1070
+        streamcluster.cpp:760 -- 499
+        streamcluster.cpp:815 -- 445
+5. pkmedian(Points*, long, long, long*, int, parsec_barrier_t*) -- 183
+        streamcluster.cpp:1548 -- 59
+        streamcluster.cpp:1608 -- 59
+        streamcluster.cpp:1538 -- 22
+6. shuffle(Points*) -- 59
+        streamcluster.cpp:629 -- 39
+        streamcluster.cpp:628 -- 17
+        streamcluster.cpp:626 -- 3
+7. localSearch(Points*, long, long, long*) -- 10
+        streamcluster.cpp:1718 -- 10
+8. localSearchSub(void*) -- 4
+        streamcluster.cpp:1696 -- 4
+***************************************************
+Results based on wake count
+***************************************************
+Critical Path 1: pgain(long, Points*, double, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --22578084105 WakeCount: 304808
+
+Critical Path 2: parsec_barrier_wait(parsec_barrier_t*)<-pgain(long, Points*, double, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --3822900097 WakeCount: 11723
+
+Critical Path 3: pspeedy(Points*, float, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --219583360 WakeCount: 1045
+
+Critical Path 4: pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --152834336 WakeCount: 669
+
+Critical Path 5: parsec_barrier_wait(parsec_barrier_t*)<-pspeedy(Points*, float, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --51166480 WakeCount: 269
+
+Critical Path 6: [unknown] [streamcluster]<-pgain(long, Points*, double, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --52964276 WakeCount: 180
+
+Critical Path 7: parsec_barrier_wait(parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --1378268 WakeCount: 9
+
+Critical Path 8: pgain(long, Points*, double, long*, int, parsec_barrier_t*) --34641 WakeCount: 0
+
+Critical Path 9: localSearch(Points*, long, long, long*)<-streamCluster(PStream*, long, long, int, long, long, char*)<-main --55889 WakeCount: 0
+
+Critical Path 10: localSearchSub(void*) --12093249 WakeCount: 0
+
+***************************************************
+pgain(long, Points*, double, long*, int, parsec_barrier_t*) -- 2109137
+        streamcluster.cpp:1160 -- 304976
+        streamcluster.cpp:960 -- 265162
+        streamcluster.cpp:1025 -- 261457
+dist(Point, Point, int) -- 274209
+        streamcluster.cpp:653 -- 271737
+        streamcluster.cpp:652 -- 2062
+        streamcluster.cpp:651 -- 410
+parsec_barrier_wait(parsec_barrier_t*) -- 56586
+        parsec_barrier.cpp:184 -- 31150
+        parsec_barrier.cpp:151 -- 24548
+        parsec_barrier.cpp:156 -- 379
+pFL(Points*, int*, int, float, long*, double, long, float, int, parsec_barrier_t*) -- 4411
+        streamcluster.cpp:1222 -- 2920
+        streamcluster.cpp:1233 -- 1481
+        streamcluster.cpp:1235 -- 10
+pspeedy(Points*, float, long*, int, parsec_barrier_t*) -- 3090
+        streamcluster.cpp:762 -- 1070
+        streamcluster.cpp:760 -- 499
+        streamcluster.cpp:815 -- 445
+pkmedian(Points*, long, long, long*, int, parsec_barrier_t*) -- 183
+        streamcluster.cpp:1548 -- 59
+        streamcluster.cpp:1608 -- 59
+        streamcluster.cpp:1538 -- 22
+shuffle(Points*) -- 59
+        streamcluster.cpp:629 -- 39
+        streamcluster.cpp:628 -- 17
+        streamcluster.cpp:626 -- 3
+localSearch(Points*, long, long, long*) -- 10
+        streamcluster.cpp:1718 -- 10
+localSearchSub(void*) -- 4
+        streamcluster.cpp:1696 -- 4
+***************************************************
+Post Processing time in milli seconds: 78903
+Total switches: 21040646 Critical switches: 2246172
+***************************************************
+With lost samples
+
+Criticality Metric for each thread
+     14084 300883069 
+     14080 301554296 
+     14067 303654266 
+     14113 303705793 
+     14108 303714851 
+     14098 303952429 
+     14097 303963924 
+     14071 304019094 
+     14109 304038100 
+     14057 304042883 
+     14111 304067384 
+     14058 304140629 
+     14078 304277115 
+     14061 304412329 
+     14081 304444838 
+     14075 304731087 
+     14062 304768321 
+     14107 304782649 
+     14099 304807842 
+     14076 304827065 
+     14103 304994459 
+     14066 305042666 
+     14083 305270810 
+     14060 305338385 
+     14104 305362898 
+     14101 305383720 
+     14069 305429819 
+     14100 305584616 
+     14116 305708111 
+     14102 305810331 
+     14086 305908987 
+     14090 306094077 
+     14114 306131312 
+     14106 306134800 
+     14077 306147275 
+     14119 306323199 
+     14064 306349908 
+     14065 306404409 
+     14085 306452183 
+     14118 306458975 
+     14091 306498374 
+     14082 306510910 
+     14063 306531078 
+     14115 306748985 
+     14093 306766521 
+     14088 306771842 
+     14073 306868751 
+     14087 306945216 
+     14068 307204225 
+     14095 307280677 
+     14092 307659193 
+     14096 307729188 
+     14070 307840336 
+     14079 307891380 
+     14112 307923025 
+     14074 308037850 
+     14089 308159114 
+     14094 308458457 
+     14110 308545311 
+     14117 308741229 
+     14059 308786702 
+     14072 308821555 
+     14056 310152041 
+     14105 312208938 
+     13711 710057792 
+     13727 711084513 
+     13749 713267013 
+     13708 714349228 
+     13751 715402105 
+     13702 716088939 
+     13756 716126191 
+     13706 716148900 
+     13724 716223937 
+     13703 716494022 
+     13759 716673850 
+     13699 716748950 
+     13717 719017850 
+     13732 719109572 
+     13723 719444896 
+     13728 719608228 
+     13718 720211338 
+     13719 720650175 
+     13729 720703671 
+     13730 721354967 
+     13715 722363206 
+     13701 722794968 
+     13742 724591880 
+     13738 725611732 
+     13716 726041190 
+     13745 726230618 
+     13752 726352214 
+     13721 726583740 
+     13744 726846964 
+     13739 727283619 
+     13737 727468384 
+     13761 727626298 
+     13707 727736597 
+     13720 728277427 
+     13754 728522776 
+     13736 728550958 
+     13746 728669439 
+     13741 729213852 
+     13743 729420322 
+     13760 729485513 
+     13722 730921032 
+     13735 731515822 
+     13726 731680809 
+     13755 731909697 
+     13709 733066836 
+     13725 735339231 
+     13714 735486284 
+     13758 735794107 
+     13731 736328991 
+     13750 736717772 
+     13705 737779739 
+     13740 738006724 
+     13700 738553219 
+     13710 738812774 
+     13747 739227747 
+     13712 739942809 
+     13997 740227241 
+     13704 740416091 
+     13753 740475524 
+     13733 743105544 
+     13734 743556130 
+     14011 743629333 
+     13713 743762965 
+     13748 744386780 
+     13983 744715005 
+     14014 745497687 
+     14007 745634225 
+     14020 745705682 
+     14018 745853290 
+     13996 746072798 
+     13998 746179088 
+     14004 746560189 
+     14019 746675437 
+     14028 747507267 
+     14013 747670480 
+     13986 747715630 
+     13757 747771750 
+     14022 748041219 
+     13980 748212995 
+     14010 748333979 
+     13973 748659892 
+     13968 749011445 
+     13988 749072603 
+     13990 749283696 
+     14000 749394340 
+     14029 749564149 
+     14009 749827912 
+     13991 749836559 
+     14008 750598617 
+     13989 750701303 
+     13985 750848119 
+     14015 751017746 
+     14031 751311865 
+     13992 751385745 
+     13987 751545961 
+     13976 751980940 
+     14017 751982430 
+     14026 752033327 
+     13977 752496994 
+     13981 752553443 
+     13978 752923992 
+     14005 753287648 
+     14002 753496037 
+     14003 754329054 
+     14021 754566564 
+     13993 754956237 
+     13972 754972927 
+     14025 755184467 
+     13969 755814281 
+     14027 755871202 
+     14030 756095086 
+     13971 756138228 
+     13975 756163831 
+     13970 756242610 
+     14001 756340038 
+     13984 756544774 
+     13982 757011383 
+     14024 757707899 
+     13974 757738719 
+     13979 758267385 
+     14023 759197638 
+     14012 760731170 
+     13994 762281247 
+     14016 763164261 
+     14006 766054362 
+     13999 767248846 
+     13844 812392170 
+     13802 815296872 
+     13832 816669757 
+     13838 817951004 
+     13791 820395560 
+     13814 821851662 
+     13788 822070138 
+     13812 822155335 
+     13819 822197633 
+     13843 822813908 
+     13805 823021454 
+     13799 823491334 
+     13785 823785169 
+     13789 823903196 
+     13829 824637042 
+     13823 824765384 
+     13818 824985353 
+     13787 825011744 
+     13836 825327492 
+     13831 825483199 
+     13811 825949164 
+     13825 826257657 
+     13826 827138347 
+     13840 827345949 
+     13698 827939169 
+     13800 827969093 
+     13815 828042900 
+     13847 828243200 
+     13786 828245361 
+     13837 828256920 
+     13801 828583566 
+     13848 829017183 
+     13796 829319201 
+     13810 829541226 
+     13834 829861576 
+     13846 830147138 
+     13790 830848694 
+     13798 831051749 
+     13797 831326777 
+     13817 831720895 
+     13841 831773827 
+     13830 832407061 
+     13842 832782290 
+     13808 832945081 
+     13807 833278122 
+     13828 834577859 
+     13822 834857473 
+     13803 834877995 
+     13827 834978759 
+     13794 835931732 
+     13839 835932908 
+     13795 836317013 
+     13845 837675847 
+     13816 837926342 
+     13824 838229936 
+     13804 838590074 
+     13806 839082647 
+     13809 839374945 
+     13793 839922140 
+     13820 842079503 
+     13821 842162536 
+     13813 843284605 
+     13833 843348072 
+     13792 844585614 
+     13933 847768079 
+     13888 848304604 
+     13967 848971052 
+     13878 848983629 
+     13912 854281727 
+     13895 854525394 
+     13894 856236553 
+     13917 856725870 
+     13883 856797916 
+     13916 857074114 
+     13900 857698620 
+     13911 858114119 
+     13890 858758431 
+     13897 858761338 
+     13937 858768508 
+     13936 859001255 
+     13907 859346089 
+     13923 859347824 
+     13892 859544813 
+     13940 859661252 
+     13903 859678348 
+     13879 859805282 
+     13914 859884510 
+     13899 860053320 
+     13905 860190391 
+     13889 860216365 
+     13906 860432345 
+     13922 860805639 
+     13887 860965930 
+     13928 861009489 
+     13918 861527864 
+     13931 861597497 
+     13896 861881189 
+     13921 861896348 
+     13908 862330247 
+     13927 862893841 
+     13891 862938427 
+     13932 863080110 
+     13882 863374225 
+     13930 863665045 
+     13929 863689103 
+     13885 863786590 
+     13935 864007147 
+     13881 864198845 
+     13920 864598308 
+     13919 865259351 
+     13884 865885135 
+     13909 866123562 
+     13898 867264029 
+     13901 867438160 
+     13924 867498332 
+     13893 868007448 
+     13938 868032292 
+     13904 868221630 
+     13913 869214459 
+     13915 869432515 
+     13925 869743041 
+     13934 869883132 
+     13939 870413948 
+     13886 870763363 
+     13880 871425392 
+     13902 873867447 
+     13926 874147647 
+     13910 874905947 
+     13784 922356781 
+     13877 931376280 
+     13644 1001403840 
+     13654 1004787389 
+     13655 1008528367 
+     13618 1010240111 
+     13656 1011496308 
+     13638 1012469067 
+     13602 1013569214 
+     13606 1013982534 
+     13648 1015844686 
+     13639 1017456666 
+     13645 1018621771 
+     13640 1018717127 
+     13603 1019192053 
+     13619 1019208972 
+     13610 1019738886 
+     13632 1020428815 
+     13633 1021267962 
+     13631 1021691730 
+     13643 1024279337 
+     13627 1025147968 
+     13641 1027311624 
+     13634 1030546484 
+     13599 1031296124 
+     13615 1033246881 
+     13660 1033290668 
+     13637 1034856793 
+     13635 1035156874 
+     13625 1035255671 
+     13628 1035992022 
+     13651 1036637856 
+     13657 1037611767 
+     13621 1038325495 
+     13609 1038650650 
+     13652 1039351539 
+     13623 1039405306 
+     13616 1039635364 
+     13620 1040380134 
+     13653 1040908347 
+     13646 1041368248 
+     13614 1041462324 
+     13601 1042241229 
+     13629 1042391828 
+     13658 1043281745 
+     13661 1046609881 
+     13647 1047005368 
+     13659 1047479332 
+     13608 1048257762 
+     13613 1049291233 
+     13630 1050351304 
+     13612 1050667978 
+     13642 1053380454 
+     13636 1055614067 
+     13607 1056509828 
+     13626 1056896193 
+     13622 1058830853 
+     13617 1064182897 
+     13649 1065433189 
+     13650 1065993379 
+     13605 1066246999 
+     13624 1068659805 
+     13611 1072134255 
+     13604 1074054082 
+     13600 1082868352 
+     13598 1112781416 
+     13597 2138927755 
+Sum = 291586089723
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+Critical Path 1: pgain(long, Points*, double, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --11754992218 WakeCount: 122360
+
+Critical Path 2: parsec_barrier_wait(parsec_barrier_t*)<-pgain(long, Points*, double, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --591739411 WakeCount: 2216
+
+Critical Path 3: pspeedy(Points*, float, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --403882633 WakeCount: 1325
+
+Critical Path 4: pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --287005077 WakeCount: 282
+
+Critical Path 5: parsec_barrier_wait(parsec_barrier_t*)<-pspeedy(Points*, float, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --18579399 WakeCount: 33
+
+Critical Path 6: [unknown] [streamcluster]<-pgain(long, Points*, double, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --1599675 WakeCount: 2
+
+Critical Path 7: parsec_barrier_wait(parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --1524261 WakeCount: 16
+
+Critical Path 8: localSearchSub(void*) --975081 WakeCount: 0
+
+Critical Path 9: selectfeasible_fast(Points*, int**, int, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --555454 WakeCount: 0
+
+Critical Path 10: pgain(long, Points*, double, long*, int, parsec_barrier_t*) --238205 WakeCount: 0
+
+Top Critical Functions and lines of code
+0. pgain(long, Points*, double, long*, int, parsec_barrier_t*) -- 280679
+	streamcluster.cpp:1120 -- 38661
+	streamcluster.cpp:960 -- 36493
+	streamcluster.cpp:1160 -- 36314
+1. dist(Point, Point, int) -- 138079
+	streamcluster.cpp:653 -- 136718
+	streamcluster.cpp:652 -- 882
+	streamcluster.cpp:651 -- 479
+2. parsec_barrier_wait(parsec_barrier_t*) -- 12053
+	parsec_barrier.cpp:184 -- 7916
+	parsec_barrier.cpp:151 -- 4055
+	parsec_barrier.cpp:185 -- 21
+3. pspeedy(Points*, float, long*, int, parsec_barrier_t*) -- 1482
+	streamcluster.cpp:762 -- 425
+	streamcluster.cpp:828 -- 370
+	streamcluster.cpp:815 -- 290
+4. pkmedian(Points*, long, long, long*, int, parsec_barrier_t*) -- 436
+	streamcluster.cpp:1548 -- 233
+	streamcluster.cpp:1608 -- 110
+	streamcluster.cpp:1576 -- 44
+5. pFL(Points*, int*, int, float, long*, double, long, float, int, parsec_barrier_t*) -- 406
+	streamcluster.cpp:1222 -- 214
+	streamcluster.cpp:1233 -- 183
+	streamcluster.cpp:1235 -- 9
+6. shuffle(Points*) -- 76
+	streamcluster.cpp:629 -- 51
+	streamcluster.cpp:628 -- 16
+	streamcluster.cpp:626 -- 9
+7. localSearchSub(void*) -- 2
+	streamcluster.cpp:1696 -- 2
+8. selectfeasible_fast(Points*, int**, int, int, parsec_barrier_t*) -- 2
+	streamcluster.cpp:1294 -- 2
+9. memset -- 1
+	string_fortified.h:71 -- 1
+***************************************************
+Results based on wake count
+***************************************************
+Critical Path 1: pgain(long, Points*, double, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --11754992218 WakeCount: 122360
+
+Critical Path 2: parsec_barrier_wait(parsec_barrier_t*)<-pgain(long, Points*, double, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --591739411 WakeCount: 2216
+
+Critical Path 3: pspeedy(Points*, float, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --403882633 WakeCount: 1325
+
+Critical Path 4: pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --287005077 WakeCount: 282
+
+Critical Path 5: parsec_barrier_wait(parsec_barrier_t*)<-pspeedy(Points*, float, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --18579399 WakeCount: 33
+
+Critical Path 6: parsec_barrier_wait(parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --1524261 WakeCount: 16
+
+Critical Path 7: [unknown] [streamcluster]<-pgain(long, Points*, double, long*, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --1599675 WakeCount: 2
+
+Critical Path 8: selectfeasible_fast(Points*, int**, int, int, parsec_barrier_t*)<-pkmedian(Points*, long, long, long*, int, parsec_barrier_t*)<-localSearchSub(void*) --555454 WakeCount: 0
+
+Critical Path 9: pgain(long, Points*, double, long*, int, parsec_barrier_t*) --238205 WakeCount: 0
+
+Critical Path 10: localSearch(Points*, long, long, long*)<-streamCluster(PStream*, long, long, int, long, long, char*)<-main --185802 WakeCount: 0
+
+***************************************************
+pgain(long, Points*, double, long*, int, parsec_barrier_t*) -- 280679
+	streamcluster.cpp:1120 -- 38661
+	streamcluster.cpp:960 -- 36493
+	streamcluster.cpp:1160 -- 36314
+dist(Point, Point, int) -- 138078
+	streamcluster.cpp:653 -- 136717
+	streamcluster.cpp:652 -- 882
+	streamcluster.cpp:651 -- 479
+parsec_barrier_wait(parsec_barrier_t*) -- 12053
+	parsec_barrier.cpp:184 -- 7916
+	parsec_barrier.cpp:151 -- 4055
+	parsec_barrier.cpp:185 -- 21
+pspeedy(Points*, float, long*, int, parsec_barrier_t*) -- 1482
+	streamcluster.cpp:762 -- 425
+	streamcluster.cpp:828 -- 370
+	streamcluster.cpp:815 -- 290
+pkmedian(Points*, long, long, long*, int, parsec_barrier_t*) -- 436
+	streamcluster.cpp:1548 -- 233
+	streamcluster.cpp:1608 -- 110
+	streamcluster.cpp:1576 -- 44
+pFL(Points*, int*, int, float, long*, double, long, float, int, parsec_barrier_t*) -- 406
+	streamcluster.cpp:1222 -- 214
+	streamcluster.cpp:1233 -- 183
+	streamcluster.cpp:1235 -- 9
+shuffle(Points*) -- 75
+	streamcluster.cpp:629 -- 50
+	streamcluster.cpp:628 -- 16
+	streamcluster.cpp:626 -- 9
+localSearch(Points*, long, long, long*) -- 23
+	streamcluster.cpp:1718 -- 23
+selectfeasible_fast(Points*, int**, int, int, parsec_barrier_t*) -- 2
+	streamcluster.cpp:1294 -- 2
+memset -- 1
+	string_fortified.h:71 -- 1
+***************************************************
+Post Processing time in milli seconds: 23331
+Total switches: 6635649 Critical switches: 338417
+***************************************************
