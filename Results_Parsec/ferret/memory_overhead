@@ -1,0 +1,76 @@
+ Command being timed: "/data/rn1115/parsec-3.0/pkgs/apps/ferret/inst/amd64-linux.gcc-pthreads/bin/ferret corel lsh queries 50 20 15 output.txt"
+        User time (seconds): 656.86
+        System time (seconds): 1.41
+        Percent of CPU this job got: 2156%
+        Elapsed (wall clock) time (h:mm:ss or m:ss): 0:30.52
+        Average shared text size (kbytes): 0
+        Average unshared data size (kbytes): 0
+        Average stack size (kbytes): 0
+        Average total size (kbytes): 0
+        Maximum resident set size (kbytes): 138712
+        Average resident set size (kbytes): 0
+        Major (requiring I/O) page faults: 0
+        Minor (reclaiming a frame) page faults: 129842
+        Voluntary context switches: 16379
+        Involuntary context switches: 65342
+        Swaps: 0
+        File system inputs: 0
+        File system outputs: 9064
+        Socket messages sent: 0
+        Socket messages received: 0
+        Signals delivered: 0
+        Page size (bytes): 4096
+        Exit status: 0
+
+With GAPP
+--------------
+ Command being timed: "/data/rn1115/parsec-3.0/pkgs/apps/ferret/inst/amd64-linux.gcc-pthreads/bin/ferret corel lsh queries 50 20 15 output.txt"
+        User time (seconds): 677.04
+        System time (seconds): 1.61
+        Percent of CPU this job got: 2179%
+        Elapsed (wall clock) time (h:mm:ss or m:ss): 0:31.14
+        Average shared text size (kbytes): 0
+        Average unshared data size (kbytes): 0
+        Average stack size (kbytes): 0
+        Average total size (kbytes): 0
+        Maximum resident set size (kbytes): 138672
+        Average resident set size (kbytes): 0
+        Major (requiring I/O) page faults: 0
+        Minor (reclaiming a frame) page faults: 130271
+        Voluntary context switches: 16472
+        Involuntary context switches: 67474
+        Swaps: 0
+        File system inputs: 0
+        File system outputs: 9064
+        Socket messages sent: 0
+        Socket messages received: 0
+        Signals delivered: 0
+        Page size (bytes): 4096
+        Exit status: 0
+
+GAPP Memory
+--------------
+ Command being timed: "python GAPP_dynamic_final.py -x ferret -t 32"
+        User time (seconds): 18.04
+        System time (seconds): 63.56
+        Percent of CPU this job got: 78%
+        Elapsed (wall clock) time (h:mm:ss or m:ss): 1:43.81
+        Average shared text size (kbytes): 0
+        Average unshared data size (kbytes): 0
+        Average stack size (kbytes): 0
+        Average total size (kbytes): 0
+        Maximum resident set size (kbytes): 132120
+        Average resident set size (kbytes): 0
+        Major (requiring I/O) page faults: 0
+        Minor (reclaiming a frame) page faults: 2342827
+        Voluntary context switches: 85246
+        Involuntary context switches: 7743
+        Swaps: 0
+        File system inputs: 0
+        File system outputs: 312
+        Socket messages sent: 0
+        Socket messages received: 0
+        Signals delivered: 0
+        Page size (bytes): 4096
+        Exit status: 0
+

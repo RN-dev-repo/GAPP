@@ -1,0 +1,341 @@
+Criticality Metric for each thread
+     18827 8571133 
+     18831 8582098 
+     18834 8711043 
+     18829 8829963 
+     18835 9001648 
+     18836 9027118 
+     18832 9174086 
+     18826 9194235 
+     18823 9217168 
+     18824 9395605 
+     18837 9457885 
+     18830 9587060 
+     18828 9599915 
+     18833 9773052 
+     18825 9801816 
+     18868 24370363 
+     18806 42253117 
+     18822 79495428 
+     18818 81468342 
+     18812 83134090 
+     18814 84071933 
+     18810 84192775 
+     18815 84925481 
+     18813 85329939 
+     18819 85535361 
+     18811 85963159 
+     18817 86191871 
+     18809 86234123 
+     18816 87680724 
+     18808 89195460 
+     18820 90341578 
+     18821 91561385 
+     18807 501635114 
+     18852 663481961 
+     18845 664022380 
+     18841 672125909 
+     18842 679734324 
+     18844 683933897 
+     18840 687660335 
+     18851 689313160 
+     18848 692002828 
+     18849 699620246 
+     18838 700542898 
+     18850 713596434 
+     18839 715946921 
+     18847 719876279 
+     18843 723655579 
+     18846 730895472 
+     18853 2151574143 
+     18854 2155083247 
+     18866 2158609988 
+     18859 2160028429 
+     18864 2160204768 
+     18857 2165758081 
+     18861 2173435363 
+     18863 2173873425 
+     18862 2173965595 
+     18856 2179350937 
+     18858 2180876772 
+     18865 2190961061 
+     18855 2201462939 
+     18860 2210711527 
+     18867 2241151372 
+Sum = 45104960338
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+
+Critical Path 1: 
+	emd
+	<---sdist_emd
+	<---raw_query
+	<---cass_table_query
+	<---t_rank --16259206300. 
+
+findBasicVariables -- 26795
+	emd.c:350 -- 4671
+	emd.c:353 -- 4435
+	emd.c:383 -- 4095
+isOptimal -- 23340
+	emd.c:422 -- 13155
+	emd.c:423 -- 5280
+	emd.c:420 -- 3693
+russel -- 17259
+	emd.c:699 -- 7955
+	emd.c:695 -- 1845
+	emd.c:698 -- 1183
+dist_L2_float -- 5777
+	cass_dist.h:116 -- 5777
+findLoop -- 4307
+	emd.c:556 -- 774
+	emd.c:549 -- 690
+	emd.c:584 -- 670
+
+Critical Path 2: 
+	LSH_query_bootstrap
+	<---LSH_query
+	<---__LSH_query
+	<---cass_table_query
+	<---t_vec --4066693616. 
+
+dist_L2_float -- 20760
+	cass_dist.h:116 -- 20760
+LSH_query_bootstrap -- 2588
+	LSH_query.c:257 -- 1668
+	LSH_query.c:247 -- 396
+	LSH_query.c:248 -- 205
+bitmap_contain -- 328
+	bitmap.c:124 -- 211
+	bitmap.c:123 -- 74
+	bitmap.c:128 -- 43
+bitmap_insert -- 297
+	bitmap.c:135 -- 132
+	bitmap.c:136 -- 54
+	bitmap.c:133 -- 52
+LSH_query_merge -- 186
+	LSH_query.c:369 -- 184
+	LSH_query.c:365 -- 1
+	LSH_query.c:367 -- 1
+
+Critical Path 3: 
+	dist_L2_float
+	<---sdist_emd
+	<---raw_query
+	<---cass_table_query
+	<---t_rank --1250055301. 
+
+findBasicVariables -- 2022
+	emd.c:350 -- 336
+	emd.c:353 -- 334
+	emd.c:383 -- 296
+isOptimal -- 1759
+	emd.c:422 -- 985
+	emd.c:423 -- 404
+	emd.c:420 -- 271
+russel -- 1344
+	emd.c:699 -- 619
+	emd.c:695 -- 121
+	emd.c:698 -- 100
+dist_L2_float -- 485
+	cass_dist.h:116 -- 485
+findLoop -- 347
+	emd.c:556 -- 61
+	emd.c:584 -- 59
+	emd.c:549 -- 53
+
+Critical Path 4: 
+	sdist_emd
+	<---raw_query
+	<---cass_table_query
+	<---t_rank --1164223052. 
+
+findBasicVariables -- 1875
+	emd.c:353 -- 367
+	emd.c:350 -- 326
+	emd.c:383 -- 242
+isOptimal -- 1599
+	emd.c:422 -- 899
+	emd.c:423 -- 376
+	emd.c:420 -- 237
+russel -- 1319
+	emd.c:699 -- 581
+	emd.c:695 -- 151
+	emd.c:698 -- 90
+dist_L2_float -- 470
+	cass_dist.h:116 -- 470
+findLoop -- 290
+	emd.c:549 -- 59
+	emd.c:556 -- 49
+	emd.c:584 -- 35
+
+Critical Path 5: 
+	cass_result_merge_lists
+	<---t_rank --356221235. 
+
+cass_result_merge_lists -- 475
+	util.c:284 -- 461
+	util.c:281 -- 5
+	util.c:267 -- 4
+findBasicVariables -- 394
+	emd.c:353 -- 95
+	emd.c:383 -- 74
+	emd.c:350 -- 45
+isOptimal -- 310
+	emd.c:422 -- 201
+	emd.c:423 -- 59
+	emd.c:420 -- 41
+russel -- 298
+	emd.c:699 -- 123
+	emd.c:695 -- 40
+	emd.c:698 -- 16
+dist_L2_float -- 115
+	cass_dist.h:116 -- 115
+
+Critical Path 6: 
+	LSH_query
+	<---__LSH_query
+	<---cass_table_query
+	<---t_vec --151527883. 
+
+dist_L2_float -- 764
+	cass_dist.h:116 -- 764
+LSH_query_bootstrap -- 95
+	LSH_query.c:257 -- 65
+	LSH_query.c:247 -- 16
+	LSH_query.c:248 -- 7
+bitmap_contain -- 11
+	bitmap.c:124 -- 9
+	bitmap.c:128 -- 1
+	bitmap.c:123 -- 1
+bitmap_insert -- 9
+	bitmap.c:141 -- 4
+	bitmap.c:138 -- 2
+	bitmap.c:135 -- 2
+LSH_query -- 9
+	LSH_query.c:388 -- 9
+
+Critical Path 7: 
+	image_segment
+	<---t_seg --143207483. 
+
+image_segment -- 861
+	srm.c:409 -- 121
+	srm.c:411 -- 67
+	srm.c:318 -- 67
+bucket_sort -- 179
+	srm.c:189 -- 159
+	srm.c:176 -- 20
+find_set -- 157
+	srm.c:122 -- 157
+union_set -- 32
+	srm.c:137 -- 19
+	srm.c:146 -- 12
+	srm.c:143 -- 1
+
+Critical Path 8: 
+	t_rank --121871961. 
+
+cass_result_merge_lists -- 156
+	util.c:284 -- 156
+findBasicVariables -- 136
+	emd.c:383 -- 28
+	emd.c:350 -- 26
+	emd.c:353 -- 20
+isOptimal -- 116
+	emd.c:422 -- 68
+	emd.c:423 -- 28
+	emd.c:420 -- 15
+russel -- 102
+	emd.c:699 -- 35
+	emd.c:695 -- 9
+	emd.c:754 -- 7
+dist_L2_float -- 30
+	cass_dist.h:116 -- 30
+
+Critical Path 9: 
+	t_seg --107435685. 
+
+t_seg -- 423
+	ferret-pthreads.c:247 -- 415
+	ferret-pthreads.c:234 -- 6
+	ferret-pthreads.c:238 -- 2
+image_segment -- 275
+	srm.c:409 -- 58
+	srm.c:345 -- 22
+	srm.c:319 -- 21
+find_set -- 38
+	srm.c:122 -- 38
+bucket_sort -- 37
+	srm.c:189 -- 31
+	srm.c:176 -- 6
+union_set -- 2
+	srm.c:137 -- 1
+	srm.c:144 -- 1
+
+Critical Path 10: 
+	bitmap_insert
+	<---LSH_query
+	<---__LSH_query
+	<---cass_table_query
+	<---t_vec --44153817. 
+
+dist_L2_float -- 213
+	cass_dist.h:116 -- 213
+LSH_query_bootstrap -- 34
+	LSH_query.c:257 -- 27
+	LSH_query.c:251 -- 2
+	LSH_query.c:248 -- 2
+bitmap_insert -- 3
+	bitmap.c:135 -- 2
+	bitmap.c:136 -- 1
+LSH_query_merge -- 2
+	LSH_query.c:369 -- 2
+bitmap_contain -- 1
+	bitmap.c:124 -- 1
+***************************************************
+
+Top Critical Functions and lines of code with frequency
+findBasicVariables -- 31224
+	emd.c:350 -- 5404
+	emd.c:353 -- 5252
+	emd.c:383 -- 4735
+dist_L2_float -- 28614
+	cass_dist.h:116 -- 28614
+isOptimal -- 27129
+	emd.c:422 -- 15310
+	emd.c:423 -- 6147
+	emd.c:420 -- 4259
+russel -- 20323
+	emd.c:699 -- 9313
+	emd.c:695 -- 2166
+	emd.c:698 -- 1395
+findLoop -- 5024
+	emd.c:556 -- 893
+	emd.c:549 -- 820
+	emd.c:584 -- 778
+LSH_query_bootstrap -- 2717
+	LSH_query.c:257 -- 1760
+	LSH_query.c:247 -- 413
+	LSH_query.c:248 -- 214
+emdinit -- 2511
+	emd.c:217 -- 1430
+	emd.c:216 -- 585
+	emd.c:214 -- 315
+cass_result_merge_lists -- 1895
+	util.c:284 -- 1871
+	util.c:281 -- 11
+	util.c:267 -- 5
+image_segment -- 1137
+	srm.c:409 -- 179
+	srm.c:411 -- 82
+	srm.c:318 -- 82
+newSol -- 854
+	emd.c:483 -- 203
+	emd.c:493 -- 100
+	emd.c:480 -- 90
+***************************************************
+Post Processing time in milli seconds: 52991
+Total switches: 83011 Critical switches: 42838
+***************************************************
