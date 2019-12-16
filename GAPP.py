@@ -1,11 +1,7 @@
 #!/usr/bin/python
 
-#Sorts based on top 50 CMetric, all callPaths - CMetric
-#, all call paths - call path count and all samples
-
 from __future__ import print_function
 from bcc import BPF, PerfType, PerfSWConfig
-from bcc import BPF
 import sys
 import ctypes as ct # For mapping the 'C' structure to Python
 import argparse	#For parsing command line arguments
@@ -83,19 +79,6 @@ BPF_PERCPU_ARRAY(inTS, u64, 1); //Store the time at which a thread was switched 
 BPF_PERF_OUTPUT(events); //Buffer to write event details
 BPF_STACK_TRACE(stacktraces, 4086);
 
-/*sched_switch_args {
-    // from /sys/kernel/debug/tracing/events/sched/sched_switch/format
-    u64 __unused__;
-    char prev_comm[16];
-    pid_t prev_pid;
-    int prev_prio;
-    long prev_state;
-    char next_comm[16];
-    pid_t next_pid;
-    int next_prio;
-};
-*/
-
 TRACEPOINT_PROBE(task, task_rename){
 
     u32 threadId, totalCount;
@@ -121,6 +104,7 @@ TRACEPOINT_PROBE(task, task_rename){
 
 TASK_NEWTASK
 
+//Sampling probe
 int do_perf_event(struct bpf_perf_event_data *ctx){
 
     u32 zero32 = 0;
@@ -143,7 +127,8 @@ int do_perf_event(struct bpf_perf_event_data *ctx){
 
     u32 totalCount;
     bpf_probe_read(&totalCount, sizeof(totalCount), totalThreadCount);
-
+    
+    //Add sample to the ring buffer
     if( (tempCount <= STACK_FILTER) || tempCount ==1 ){
             
         struct key_t key = {};
@@ -159,6 +144,7 @@ int do_perf_event(struct bpf_perf_event_data *ctx){
     return 0;
 }
 
+//Trace thread exit
 TRACEPOINT_PROBE(sched, sched_process_exit){
 
   u32 zero32 = 0;
@@ -174,8 +160,7 @@ TRACEPOINT_PROBE(sched, sched_process_exit){
   u32 *countVal = count.lookup(&zero32);
   if(!countVal)
     return 0; 
-  //lock_xadd(countVal, -1);
-  countVal -= 1;
+  lock_xadd(countVal, -1);
   return 0;
 }
 
