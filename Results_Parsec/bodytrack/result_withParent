@@ -1,0 +1,342 @@
+Criticality Metric for each thread
+     46811 474135914
+     46824 476214267
+     46853 477800421
+     46816 478000394
+     46825 478117821
+     46836 478622779
+     46855 479229500
+     46850 479432520
+     46833 479561350
+     46808 479967299
+     46810 480502005
+     46831 480741010
+     46844 480752396
+     46797 480896953
+     46817 481039818
+     46840 481098791
+     46807 481240503
+     46819 481380806
+     46823 481472742
+     46842 481511254
+     46851 481577199
+     46799 481701209
+     46841 481731933
+     46835 481808872
+     46845 481884808
+     46812 482305293
+     46839 482446968
+     46818 482570624
+     46847 483179503
+     46821 483652434
+     46837 483821296
+     46822 484184190
+     46795 484662626
+     46852 484698920
+     46804 484834265
+     46828 484912763
+     46803 485173660
+     46849 485203723
+     46798 485321629
+     46793 485391095
+     46854 485480083
+     46809 485535002
+     46794 485831503
+     46846 485948648
+     46827 486454261
+     46843 486510457
+     46848 486764073
+     46838 486785141
+     46805 486970310
+     46806 487108709
+     46820 487220750
+     46834 487300162
+     46815 487366337
+     46814 487730424
+     46796 488144226
+     46830 488218667
+     46832 488564073
+     46800 489452670
+     46826 489597952
+     46801 489977323
+     46829 490292244
+     46813 490820895
+     46802 491274753
+     46792 734218098
+     46856 921339128
+     46791 8530658463
+Sum = 40668345905
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+
+Critical Path 1:
+        void FlexDownSample2<unsigned char>()[bodytrack]
+        <---TrackingModel::OutputBMP()[bodytrack]
+        <---mainPthreads()[bodytrack]
+        <---main ()[bodytrack]
+        <---__libc_start_main ()[libc-2.27.so] --2875482321.
+
+Functions and lines
+
+        bool FlexFilterRowV<unsigned char, float>(FlexImage<unsigned char, 1>&, FlexImage<unsigned char, 1>&, float*, int, bool) -- 284
+                FlexFilter.h:63 -- 133
+                FlexFilter.h:62 -- 127
+                FlexFilter.h:58 -- 19
+
+        bool FlexFilterColumnV<unsigned char, float>(FlexImage<unsigned char, 1>&, FlexImage<unsigned char, 1>&, float*, int, bool) -- 241
+                FlexFilter.h:88 -- 115
+                FlexFilter.h:89 -- 92
+                FlexFilter.h:84 -- 33
+
+        __ieee754_exp_fma4 ()[libm-2.27.so] -- 153
+                 -- 153
+
+        int FlexCopyC1CM<unsigned char, 3>(FlexImage<unsigned char, 1>&, FlexImage<unsigned char, 3>&, int) -- 41
+                FlexDataExchange.h:202 -- 40
+                FlexDataExchange.h:201 -- 1
+
+        __memcpy_ssse3 ()[libc-2.27.so] -- 24
+                 -- 24
+
+Critical Path 2:
+        mainPthreads()[bodytrack]
+        <---main ()[bodytrack]
+        <---__libc_start_main ()[libc-2.27.so] --641781324.
+
+Functions and lines
+
+        __ieee754_exp_fma4 ()[libm-2.27.so] -- 171
+                 -- 171
+
+        __memmove_ssse3 ()[libc-2.27.so] -- 10
+                 -- 10
+
+        expf32x ()[libm-2.27.so] -- 8
+                 -- 8
+
+        mainPthreads(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, int, int, int, int, bool) -- 7
+                ParticleFilter.h:256 (StackTop) -- 2
+                ParticleFilter.h:153 (StackTop) -- 1
+                stl_vector.h:798 -- 1
+
+        delta_alpha(float, std::vector<float, std::allocator<float> >&, float) -- 5
+                AnnealingFactor.cpp:36 -- 2
+                AnnealingFactor.cpp:40 -- 2
+                AnnealingFactor.cpp:37 -- 1
+
+Critical Path 3:
+        TrackingModel::OutputBMP()[bodytrack]
+        <---mainPthreads()[bodytrack]
+        <---main ()[bodytrack]
+        <---__libc_start_main ()[libc-2.27.so] --452853407.
+
+Functions and lines
+
+        bool FlexFilterRowV<unsigned char, float>(FlexImage<unsigned char, 1>&, FlexImage<unsigned char, 1>&, float*, int, bool) -- 48
+                FlexFilter.h:62 -- 26
+                FlexFilter.h:63 -- 17
+                FlexFilter.h:58 -- 5
+
+        bool FlexFilterColumnV<unsigned char, float>(FlexImage<unsigned char, 1>&, FlexImage<unsigned char, 1>&, float*, int, bool) -- 40
+                FlexFilter.h:88 -- 24
+                FlexFilter.h:89 -- 12
+                FlexFilter.h:84 -- 4
+
+        __ieee754_exp_fma4 ()[libm-2.27.so] -- 22
+                 -- 22
+
+        void FlexDownSample2<unsigned char>(FlexImage<unsigned char, 1>&, FlexImage<unsigned char, 1>&, bool) -- 6
+                FlexTransform.h:54 -- 5
+                FlexTransform.h:55 -- 1
+
+        int FlexCopyC1CM<unsigned char, 3>(FlexImage<unsigned char, 1>&, FlexImage<unsigned char, 3>&, int) -- 5
+                FlexDataExchange.h:202 -- 5
+
+Critical Path 4:
+        ParticleFilterPthread<TrackingModel>::CalcWeights()[bodytrack]
+        <---mainPthreads()[bodytrack]
+        <---main ()[bodytrack]
+        <---__libc_start_main ()[libc-2.27.so] --73063361.
+
+Functions and lines
+
+        __ieee754_exp_fma4 ()[libm-2.27.so] -- 20
+                 -- 20
+
+        ParticleFilterPthread<TrackingModel>::CalcWeights(std::vector<std::vector<float, std::allocator<float> >, std::allocator<std::vector<float, std::allocator<float> > > >&) -- 2
+                ParticleFilterPthread.h:187 (StackTop) -- 2
+
+        expf32x ()[libm-2.27.so] -- 2
+                 -- 2
+
+        __GI___libc_free ()[libc-2.27.so] -- 1
+                 -- 1
+
+Critical Path 5:
+        RandomGenerator::Rand()[bodytrack]
+        <---RandomGenerator::RandExp()[bodytrack]
+        <---mainPthreads()[bodytrack]
+        <---main ()[bodytrack]
+        <---__libc_start_main ()[libc-2.27.so] --59130702.
+
+Functions and lines
+
+        __ieee754_exp_fma4 ()[libm-2.27.so] -- 17
+                 -- 17
+
+        RandomGenerator::Rand() -- 1
+                RandomGenerator.cpp:68 -- 1
+
+        __ieee754_log_fma4 ()[libm-2.27.so] -- 1
+                 -- 1
+
+Critical Path 6:
+        RandomGenerator::Rand()[bodytrack]
+        <---mainPthreads()[bodytrack]
+        <---main ()[bodytrack]
+        <---__libc_start_main ()[libc-2.27.so] --35921663.
+
+Functions and lines
+
+        __ieee754_exp_fma4 ()[libm-2.27.so] -- 8
+                 -- 8
+
+        __memmove_ssse3 ()[libc-2.27.so] -- 3
+                 -- 3
+
+Critical Path 7:
+        RandomGenerator::RandExp()[bodytrack]
+        <---mainPthreads()[bodytrack]
+        <---main ()[bodytrack]
+        <---__libc_start_main ()[libc-2.27.so] --25341537.
+
+Functions and lines
+
+        __ieee754_exp_fma4 ()[libm-2.27.so] -- 6
+                 -- 6
+
+        ParticleFilterPthread<TrackingModel>::CalcWeights(std::vector<std::vector<float, std::allocator<float> >, std::allocator<std::vector<float, std::allocator<float> > > >&) -- 1
+                ParticleFilterPthread.h:190 -- 1
+
+        __memmove_ssse3 ()[libc-2.27.so] -- 1
+                 -- 1
+
+        __ieee754_log_fma4 ()[libm-2.27.so] -- 1
+                 -- 1
+
+Critical Path 8:
+        threads::WorkerGroup::SendInternalCmd()[bodytrack]
+        <---threads::WorkerGroup::SendCmd()[bodytrack]
+        <---mainPthreads()[bodytrack]
+        <---main ()[bodytrack]
+        <---__libc_start_main ()[libc-2.27.so] --24863755.
+
+Functions and lines
+
+        __ieee754_exp_fma4 ()[libm-2.27.so] -- 13
+                 -- 13
+
+        mainPthreads(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, int, int, int, int, bool) -- 3
+                ParticleFilter.h:141 -- 1
+                ParticleFilterPthread.h:207 -- 1
+                ParticleFilter.h:159 -- 1
+
+        __memmove_ssse3 ()[libc-2.27.so] -- 1
+                                                                                                                                                                                                  247,1         66%
+                 -- 1
+
+        RandomGenerator::Rand() -- 1
+                RandomGenerator.cpp:72 -- 1
+
+        __ieee754_log_fma4 ()[libm-2.27.so] -- 1
+                 -- 1
+
+Critical Path 9:
+        BetaAnnealingFactor()[bodytrack]
+        <---ParticleFilterPthread<TrackingModel>::CalcWeights()[bodytrack]
+        <---mainPthreads()[bodytrack]
+        <---main ()[bodytrack]
+        <---__libc_start_main ()[libc-2.27.so] --24687328.
+
+Functions and lines
+
+        __ieee754_exp_fma4 ()[libm-2.27.so] -- 8
+                 -- 8
+
+        delta_alpha(float, std::vector<float, std::allocator<float> >&, float) -- 2
+                AnnealingFactor.cpp:40 -- 1
+                AnnealingFactor.cpp:36 (StackTop) -- 1
+
+        __GI___libc_free ()[libc-2.27.so] -- 1
+                 -- 1
+
+Critical Path 10:
+        AsyncImageLoader::LoadSet()[bodytrack]
+        <---AsyncImageLoader::Run()[bodytrack]
+        <---thread_entry ()[bodytrack]
+        <---start_thread ()[libpthread-2.27.so] --15754756.
+
+Functions and lines
+
+        AsyncImageLoader::LoadSet(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&, std::vector<BinaryImage, std::allocator<BinaryImage> >&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&, std::vector<FlexImage<unsigned char, 1>, std::allocator<FlexImage<unsigned char, 1> > >&) -- 7
+                BinaryImage.h:90 -- 2
+                BinaryImage.h:93 (StackTop) -- 1
+                BinaryImage.h:90 (StackTop) -- 1
+
+        int FlexConvert<unsigned char, unsigned char, 1>(FlexImage<unsigned char, 1> const&, FlexImage<unsigned char, 1>&, bool) -- 3
+                FlexDataExchange.h:233 (StackTop) -- 3
+
+        __memset_sse2_unaligned_erms ()[libc-2.27.so] -- 1
+                 -- 1
+***************************************************
+
+Top Critical Functions and lines of code with frequency
+
+        __ieee754_exp_fma4 ()[libm-2.27.so] -- 418
+                 -- 418
+
+        bool FlexFilterRowV<unsigned char, float>(FlexImage<unsigned char, 1>&, FlexImage<unsigned char, 1>&, float*, int, bool) -- 332
+                FlexFilter.h:62 -- 153
+                FlexFilter.h:63 -- 150
+                FlexFilter.h:58 -- 24
+
+        bool FlexFilterColumnV<unsigned char, float>(FlexImage<unsigned char, 1>&, FlexImage<unsigned char, 1>&, float*, int, bool) -- 281
+                FlexFilter.h:88 -- 139
+                                                                                                                                                                                                  306,1         87%
+                FlexFilter.h:89 -- 104
+                FlexFilter.h:84 -- 37
+
+        int FlexCopyC1CM<unsigned char, 3>(FlexImage<unsigned char, 1>&, FlexImage<unsigned char, 3>&, int) -- 46
+                FlexDataExchange.h:202 -- 45
+                FlexDataExchange.h:201 -- 1
+
+        __memmove_ssse3 ()[libc-2.27.so] -- 34
+                 -- 34
+
+        void FlexDownSample2<unsigned char>(FlexImage<unsigned char, 1>&, FlexImage<unsigned char, 1>&, bool) -- 29
+                FlexTransform.h:54 -- 22
+                FlexTransform.h:55 -- 7
+
+        __memcpy_ssse3 ()[libc-2.27.so] -- 25
+                 -- 25
+
+        expf32x ()[libm-2.27.so] -- 21
+                 -- 21
+
+        mainPthreads(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, int, int, int, int, bool) -- 21
+                ParticleFilter.h:279 -- 6
+                ParticleFilter.h:278 -- 4
+                ParticleFilter.h:256 (StackTop) -- 2
+
+        int FlexConvert<unsigned char, unsigned char, 1>(FlexImage<unsigned char, 1> const&, FlexImage<unsigned char, 1>&, bool) -- 20
+                FlexDataExchange.h:233 -- 16
+                FlexDataExchange.h:233 (StackTop) -- 3
+                FlexDataExchange.h:232 -- 1
+***************************************************
+Post Processing time in milli seconds: 354
+Total switches: 1406487 Critical switches: 6060
+Stack trace with no samples: 5388
+***************************************************
+                                                                                                                                                                                                  125,1         22%
+
