@@ -1,0 +1,328 @@
+Criticality Metric for each thread
+     21385 1008537219
+     21393 1342260759
+     21392 1394338091
+     21387 1510210522
+     21383 1515443428
+     21388 1528124105
+     21384 1548889748
+     21391 1574403678
+     21389 1734536803
+     21395 1865755031
+     21397 1877974327
+     21396 1878902076
+     21386 2039455351
+     21394 2359720049
+     21390 2666146643
+     21382 3229850626
+Sum = 29074548456
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+
+Critical Path 1:
+        __GI___poll ()[libc-2.27.so]
+        <---MPIDI_CH3I_Progress ()[libmpi.so.12.1.1]
+        <---MPIC_Wait ()[libmpi.so.12.1.1]
+        <---MPIC_Recv ()[libmpi.so.12.1.1]
+        <---MPIR_Bcast_binomial ()[libmpi.so.12.1.1]
+        <---MPIR_Bcast_intra ()[libmpi.so.12.1.1]
+        <---MPIR_Bcast ()[libmpi.so.12.1.1]
+        <---MPIR_Bcast_impl ()[libmpi.so.12.1.1]
+        <---MPIR_Allreduce_intra ()[libmpi.so.12.1.1]
+        <---MPIR_Allreduce_impl ()[libmpi.so.12.1.1] --3379408365.
+
+Functions and lines
+
+        dgemv_ ()[libblas.so.3.8.0] -- 594
+                 -- 594
+
+        double Vmath::Dot2<double>()[libLibUtilities-g.so.5.0.0b] -- 116
+                 -- 116
+
+        gather_double_add ()[libMultiRegions-g.so.5.0.0b] -- 58
+                 -- 58
+
+        dgemm_ ()[libblas.so.3.8.0] -- 57
+                 -- 57
+
+        MPIDU_Sock_wait ()[libmpi.so.12.1.1] -- 36
+                 -- 36
+
+Critical Path 2:
+        __GI___poll ()[libc-2.27.so]
+        <---MPIDI_CH3I_Progress ()[libmpi.so.12.1.1]
+        <---MPIC_Wait ()[libmpi.so.12.1.1]
+        <---MPIC_Recv ()[libmpi.so.12.1.1]
+        <---MPIR_Reduce_intra ()[libmpi.so.12.1.1]
+        <---MPIR_Reduce_impl ()[libmpi.so.12.1.1]
+        <---MPIR_Allreduce_intra ()[libmpi.so.12.1.1]
+        <---MPIR_Allreduce_impl ()[libmpi.so.12.1.1]
+        <---MPI_Allreduce ()[libmpi.so.12.1.1]
+        <---Nektar::LibUtilities::CommMpi::v_AllReduce()[libLibUtilities-g.so.5.0.0b] --452130960.
+        Functions and lines
+
+        dgemv_ ()[libblas.so.3.8.0] -- 47
+                 -- 47
+
+        double Vmath::Dot2<double>()[libLibUtilities-g.so.5.0.0b] -- 32
+                 -- 32
+
+        gather_double_add ()[libMultiRegions-g.so.5.0.0b] -- 30
+                 -- 30
+
+        MPIDU_Sock_wait ()[libmpi.so.12.1.1] -- 11
+                 -- 11
+
+        MPID_Request_release ()[libmpi.so.12.1.1] -- 9
+                 -- 9
+
+Critical Path 3:
+        Nektar::LibUtilities::CommMpi::v_AllReduce()[libLibUtilities-g.so.5.0.0b]
+        <---Nektar::MultiRegions::GlobalLinSysIterative::DoConjugateGradient()[libMultiRegions-g.so.5.0.0b]
+        <---Nektar::MultiRegions::GlobalLinSysStaticCond::v_Solve()[libMultiRegions-g.so.5.0.0b]
+        <---Nektar::MultiRegions::ContField2D::GlobalSolve()[libMultiRegions-g.so.5.0.0b]
+        <---Nektar::MultiRegions::ContField2D::v_HelmSolve()[libMultiRegions-g.so.5.0.0b]
+        <---Nektar::VelocityCorrectionScheme::v_SolvePressure()[IncNavierStokesSolver-g]
+        <---Nektar::VelocityCorrectionScheme::SolveUnsteadyStokesSystem()[IncNavierStokesSolver-g]
+        <---Nektar::LibUtilities::TimeIntegrationScheme::TimeIntegrate()[libLibUtilities-g.so.5.0.0b]
+        <---Nektar::LibUtilities::TimeIntegrationScheme::TimeIntegrate()[libLibUtilities-g.so.5.0.0b]
+        <---Nektar::SolverUtils::UnsteadySystem::v_DoSolve()[libSolverUtils-g.so.5.0.0b] --414670916.
+
+Functions and lines
+
+        double Vmath::Dot2<double>()[libLibUtilities-g.so.5.0.0b] -- 18
+                 -- 18
+
+        gather_double_add ()[libMultiRegions-g.so.5.0.0b] -- 8
+                 -- 8
+
+        __tls_get_addr ()[ld-2.27.so] -- 3
+                 -- 3
+
+        std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_release() -- 1
+                atomicity.h:81 -- 1
+
+        void Nektar::LibUtilities::Comm::AllReduce<Nektar::Array<Nektar::OneD, double> >()[libSolverUtils-g.so.5.0.0b] -- 1
+                 -- 1
+
+Critical Path 4:
+        __GI___poll ()[libc-2.27.so]
+        <---MPIDI_CH3I_Progress ()[libmpi.so.12.1.1]
+        <---MPIR_Waitall_impl ()[libmpi.so.12.1.1]
+        <---PMPI_Waitall ()[libmpi.so.12.1.1]
+        <---comm_wait ()[libMultiRegions-g.so.5.0.0b]
+        <---pw_exec ()[libMultiRegions-g.so.5.0.0b]
+        <---gs_aux ()[libMultiRegions-g.so.5.0.0b]
+        <---nektar_gs ()[libMultiRegions-g.so.5.0.0b]
+        <---Nektar::MultiRegions::AssemblyMap::UniversalAssembleBnd()[libMultiRegions-g.so.5.0.0b]
+        <---Nektar::MultiRegions::GlobalLinSysIterativeStaticCond::v_DoMatrixMultiply()[libMultiRegions-g.so.5.0.0b] --241853645.
+Functions and lines
+
+        dgemv_ ()[libblas.so.3.8.0] -- 89
+                 -- 89
+
+        MPIDU_Sock_wait ()[libmpi.so.12.1.1] -- 7
+                 -- 7
+
+        void Vmath::Assmb<double>()[libLibUtilities-g.so.5.0.0b] -- 5
+                 -- 5
+
+        Nektar::StorageSmvBsr<double>::Multiply_generic()[libLibUtilities-g.so.5.0.0b] -- 3
+                 -- 3
+
+        MPIDU_Socki_event_enqueue.isra.1 ()[libmpi.so.12.1.1] -- 3
+                 -- 3
+
+Critical Path 5:
+        MPIDI_CH3I_Progress ()[libmpi.so.12.1.1]
+        <---MPIC_Wait ()[libmpi.so.12.1.1]
+        <---MPIC_Recv ()[libmpi.so.12.1.1]
+        <---MPIR_Bcast_binomial ()[libmpi.so.12.1.1]
+        <---MPIR_Bcast_intra ()[libmpi.so.12.1.1]
+        <---MPIR_Bcast ()[libmpi.so.12.1.1]
+        <---MPIR_Bcast_impl ()[libmpi.so.12.1.1]
+        <---MPIR_Allreduce_intra ()[libmpi.so.12.1.1]
+        <---MPIR_Allreduce_impl ()[libmpi.so.12.1.1]
+        <---MPI_Allreduce ()[libmpi.so.12.1.1] --96824703.
+
+Functions and lines
+
+        dgemv_ ()[libblas.so.3.8.0] -- 10
+                 -- 10
+
+        double Vmath::Dot2<double>()[libLibUtilities-g.so.5.0.0b] -- 4
+                 -- 4
+
+        gather_double_add ()[libMultiRegions-g.so.5.0.0b] -- 3
+                 -- 3
+
+        MPIU_Handle_obj_alloc_unsafe ()[libmpi.so.12.1.1] -- 2
+                 -- 2
+
+        MPL_large_readv ()[libmpi.so.12.1.1] -- 2
+                 -- 2
+
+Critical Path 6:
+        __GI___poll ()[libc-2.27.so]
+        <---MPIDI_CH3I_Progress ()[libmpi.so.12.1.1]
+        <---MPIR_Waitall_impl ()[libmpi.so.12.1.1]
+        <---PMPI_Waitall ()[libmpi.so.12.1.1]
+        <---comm_wait ()[libMultiRegions-g.so.5.0.0b]
+        <---pw_exec ()[libMultiRegions-g.so.5.0.0b]
+        <---gs_aux ()[libMultiRegions-g.so.5.0.0b]
+        <---nektar_gs ()[libMultiRegions-g.so.5.0.0b]
+        <---Gs::Gather()[libMultiRegions-g.so.5.0.0b]
+        <---Nektar::MultiRegions::AssemblyMapCG::v_UniversalAssemble()[libMultiRegions-g.so.5.0.0b] --54743271.
+
+Functions and lines
+        dgemm_ ()[libblas.so.3.8.0] -- 28
+                 -- 28
+
+        dgemv_ ()[libblas.so.3.8.0] -- 3
+                 -- 3
+
+        Nektar::StdRegions::StdTriExp::v_IProductWRTBase_SumFacKernel()[libStdRegions-g.so.5.0.0b] -- 2
+                 -- 2
+
+        daxpy_ ()[libblas.so.3.8.0] -- 2
+                 -- 2
+
+        lsame_ ()[libblas.so.3.8.0] -- 1
+                 -- 1
+
+Critical Path 7:
+        writev ()[libc-2.27.so]
+        <---MPIDU_Sock_writev ()[libmpi.so.12.1.1]
+        <---MPIDI_CH3_iSendv ()[libmpi.so.12.1.1]
+        <---MPIDI_CH3_EagerContigIsend ()[libmpi.so.12.1.1]
+        <---MPID_Isend ()[libmpi.so.12.1.1]
+        <---PMPI_Isend ()[libmpi.so.12.1.1]
+        <---comm_isend ()[libMultiRegions-g.so.5.0.0b]
+        <---pw_exec_sends ()[libMultiRegions-g.so.5.0.0b]
+        <---pw_exec ()[libMultiRegions-g.so.5.0.0b]
+        <---gs_aux ()[libMultiRegions-g.so.5.0.0b] --32726184.
+
+Functions and lines
+
+        dgemv_ ()[libblas.so.3.8.0] -- 19
+                 -- 19
+
+        dgemm_ ()[libblas.so.3.8.0] -- 5
+                 -- 5
+
+        Nektar::ConstMatrix<double>::GetTransposeFlag()[libLibUtilities-g.so.5.0.0b] -- 1
+                 -- 1
+
+        Nektar::StdRegions::StdTriExp::v_PhysDeriv()[libStdRegions-g.so.5.0.0b] -- 1
+                 -- 1
+
+        scatter_double ()[libMultiRegions-g.so.5.0.0b] -- 1
+                 -- 1
+
+Critical Path 8:
+        MPIDU_Sock_writev ()[libmpi.so.12.1.1]
+        <---MPIDI_CH3_iSendv ()[libmpi.so.12.1.1]
+        <---MPIDI_CH3_EagerContigIsend ()[libmpi.so.12.1.1]
+        <---MPID_Isend ()[libmpi.so.12.1.1]
+        <---PMPI_Isend ()[libmpi.so.12.1.1]
+        <---comm_isend ()[libMultiRegions-g.so.5.0.0b]
+        <---pw_exec_sends ()[libMultiRegions-g.so.5.0.0b]
+        <---pw_exec ()[libMultiRegions-g.so.5.0.0b]
+        <---gs_aux ()[libMultiRegions-g.so.5.0.0b]
+        <---nektar_gs ()[libMultiRegions-g.so.5.0.0b] --18803418.
+
+Functions and lines
+
+        dgemv_ ()[libblas.so.3.8.0] -- 16
+                 -- 16
+
+        dgemm_ ()[libblas.so.3.8.0] -- 3
+                 -- 3
+
+        Nektar::NekSparseDiagBlkMatrix<Nektar::StorageSmvBsr<double> >::Multiply()[libLibUtilities-g.so.5.0.0b] -- 1
+                 -- 1
+
+        comm_irecv ()[libMultiRegions-g.so.5.0.0b] -- 1
+                 -- 1
+
+        Nektar::MultiRegions::GlobalLinSysIterative::DoConjugateGradient()[libMultiRegions-g.so.5.0.0b] -- 1
+                 -- 1
+
+Critical Path 9:
+        writev ()[libc-2.27.so]
+        <---MPIDU_Sock_writev ()[libmpi.so.12.1.1]
+        <---MPIDI_CH3_iStartMsgv ()[libmpi.so.12.1.1]
+        <---MPIDI_CH3_EagerContigSend ()[libmpi.so.12.1.1]
+        <---MPID_Send ()[libmpi.so.12.1.1]
+        <---MPIC_Send ()[libmpi.so.12.1.1]
+        <---MPIR_Reduce_intra ()[libmpi.so.12.1.1]
+        <---MPIR_Reduce_impl ()[libmpi.so.12.1.1]
+        <---MPIR_Allreduce_intra ()[libmpi.so.12.1.1]
+        <---MPIR_Allreduce_impl ()[libmpi.so.12.1.1] --17000795.
+
+Functions and lines
+
+        dgemv_ ()[libblas.so.3.8.0] -- 3
+                 -- 3
+
+        gather_double_add ()[libMultiRegions-g.so.5.0.0b] -- 1
+                 -- 1
+
+        void Nektar::LibUtilities::Comm::AllReduce<Nektar::Array<Nektar::OneD, double> >()[libSolverUtils-g.so.5.0.0b] -- 1
+                 -- 1
+
+        MPIDI_CH3U_Recvq_FDP_or_AEU ()[libmpi.so.12.1.1] -- 1
+                 -- 1
+
+Critical Path 10:
+        MPIDU_Sock_writev ()[libmpi.so.12.1.1]
+        <---MPIDI_CH3_iStartMsgv ()[libmpi.so.12.1.1]
+        <---MPIDI_CH3_EagerContigSend ()[libmpi.so.12.1.1]
+        <---MPID_Send ()[libmpi.so.12.1.1]
+        <---MPIC_Send ()[libmpi.so.12.1.1]
+        <---MPIR_Bcast_binomial ()[libmpi.so.12.1.1]
+        <---MPIR_Bcast_intra ()[libmpi.so.12.1.1]
+        <---MPIR_Bcast ()[libmpi.so.12.1.1]
+        <---MPIR_Bcast_impl ()[libmpi.so.12.1.1]
+        <---MPIR_Allreduce_intra ()[libmpi.so.12.1.1] --13269134.
+
+Functions and lines
+***************************************************
+
+Top Critical Functions and lines of code with frequency
+
+        dgemv_ ()[libblas.so.3.8.0] -- 781
+                 -- 781
+
+        double Vmath::Dot2<double>()[libLibUtilities-g.so.5.0.0b] -- 170
+                 -- 170
+
+        gather_double_add ()[libMultiRegions-g.so.5.0.0b] -- 100
+                 -- 100
+
+        dgemm_ ()[libblas.so.3.8.0] -- 96
+                 -- 96
+
+        MPIDU_Sock_wait ()[libmpi.so.12.1.1] -- 56
+                 -- 56
+
+        MPIR_Reduce_intra ()[libmpi.so.12.1.1] -- 33
+                 -- 33
+
+        MPIR_Allreduce_intra ()[libmpi.so.12.1.1] -- 28
+                 -- 28
+
+        void Vmath::Assmb<double>()[libLibUtilities-g.so.5.0.0b] -- 28
+                 -- 28
+
+        MPID_Request_release ()[libmpi.so.12.1.1] -- 28
+                 -- 28
+
+        readv ()[libc-2.27.so] -- 23
+                 -- 23
+***************************************************
+Post Processing time in milli seconds: 2075
+Total switches: 1172752 Critical switches: 197238
+Stack trace with no samples: 151974
+***************************************************
