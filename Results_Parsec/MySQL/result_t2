@@ -1,0 +1,393 @@
+ysbench oltp_read_write --table-size=1000000 --threads=64 --time=60 --db-driver=mysql --mysql-db=dbtest --mysql-host=127.0.0.1 --mysql-user=root run
+
+Criticality Metric for each thread
+      5135 119121954
+      5163 121638712
+      5136 123463305
+      5147 124656361
+      5126 127150658
+      5128 127631756
+      5167 127784862
+      5140 128479200
+      5164 128574099
+      5169 128874835
+      5124 128908787
+      5178 129570016
+      5162 129862005
+      5154 130367599
+      5127 130932957
+      5157 131181307
+      5141 131286629
+      5137 131715895
+      5166 132500870
+      5160 133844850
+      5151 133967469
+      5150 133983767
+      5155 135324470
+      5156 135410959
+      5158 135803575
+      5146 136073941
+      5130 138014203
+      5125 138150117
+      5171 138863520
+      5174 138947104
+      5143 138976848
+      5149 139098619
+      5139 139403867
+      5177 139467571
+      5133 139576352
+      5134 140065552
+      5168 140801554
+      5176 141520102
+      5145 142222760
+      5165 142232729
+      5129 144007434
+      5142 144338782
+      5172 145159591
+      5175 145437626
+      5131 145478158
+      5153 145579504
+      5159 146953484
+      5170 147611264
+      5144 148979654
+      5132 150370938
+      5148 150417818
+      5152 150509622
+      5138 151360744
+      5161 168265878
+      5173 170791655
+Sum = 7590713888
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+ysbench oltp_read_write --table-size=1000000 --threads=64 --time=60 --db-driver=mysql --mysql-db=dbtest --mysql-host=127.0.0.1 --mysql-user=root run
+
+Criticality Metric for each thread
+      5135 119121954
+      5163 121638712
+      5136 123463305
+      5147 124656361
+      5126 127150658
+      5128 127631756
+      5167 127784862
+      5140 128479200
+      5164 128574099
+      5169 128874835
+      5124 128908787
+      5178 129570016
+      5162 129862005
+      5154 130367599
+      5127 130932957
+      5157 131181307
+      5141 131286629
+      5137 131715895
+      5166 132500870
+      5160 133844850
+      5151 133967469
+      5150 133983767
+      5155 135324470
+      5156 135410959
+      5158 135803575
+      5146 136073941
+      5130 138014203
+      5125 138150117
+      5171 138863520
+      5174 138947104
+      5143 138976848
+      5149 139098619
+      5139 139403867
+      5177 139467571
+      5133 139576352
+      5134 140065552
+      5168 140801554
+      5176 141520102
+      5145 142222760
+      5165 142232729
+      5129 144007434
+      5142 144338782
+      5172 145159591
+      5175 145437626
+      5131 145478158
+      5153 145579504
+      5159 146953484
+      5170 147611264
+      5144 148979654
+      5132 150370938
+      5148 150417818
+      5152 150509622
+      5138 151360744
+      5161 168265878
+      5173 170791655
+Sum = 7590713888
+***************************************************
+Critical Call Paths, functions and Lines of Code - all paths based on CMetric:
+***************************************************
+
+Critical Path 1:
+        fil_flush()[mysqld]
+        <---log_write_up_to()[mysqld]
+        <---trx_commit_complete_for_mysql()[mysqld]
+        <---innobase_commit()[mysqld]
+        <---ha_commit_low()[mysqld]
+        <---TC_LOG_DUMMY::commit()[mysqld]
+        <---ha_commit_trans()[mysqld]
+        <---trans_commit()[mysqld]
+        <---mysql_execute_command()[mysqld]
+        <---Prepared_statement::execute()[mysqld] --38665097.
+
+Functions and lines
+
+        pfs_os_file_flush_func -- 1462
+                os0file.ic:507 (StackTop) -- 1462
+
+        ut_crc32_64_low_hw(unsigned int, unsigned long) -- 2
+                ut0crc32.cc:193 -- 2
+
+        log_write_up_to(unsigned long, bool) -- 1
+                log0log.cc:1288 -- 1
+
+Critical Path 2:
+        Prepared_statement::execute_loop()[mysqld]
+        <---mysqld_stmt_execute()[mysqld]
+        <---dispatch_command()[mysqld]
+        <---do_command()[mysqld]
+        <---handle_connection ()[mysqld]
+        <---pfs_spawn_thread ()[mysqld]
+        <---start_thread ()[libpthread-2.27.so] --7821567.
+
+Functions and lines
+
+        Prepared_statement::execute_loop(String*, bool, unsigned char*, unsigned char*) -- 2
+                sql_prepare.cc:3539 (StackTop) -- 2
+
+Critical Path 3:
+        sync_array_reserve_cell()[mysqld]
+        <---rw_lock_s_lock_spin()[mysqld]
+        <---pfs_rw_lock_s_lock_func()[mysqld]
+        <---row_search_mvcc()[mysqld]
+        <---ha_innobase::index_read()[mysqld]
+        <---handler::ha_index_read_idx_map()[mysqld]
+        <---join_read_const_table()[mysqld]
+        <---JOIN::extract_func_dependent_tables()[mysqld]
+        <---JOIN::make_join_plan()[mysqld]
+        <---JOIN::optimize()[mysqld] --2155119.
+
+Functions and lines
+
+        sync_array_reserve_cell(sync_array_t*, void*, unsigned long, char const*, unsigned long) -- 469
+                sync0arr.cc:389 (StackTop) -- 469
+
+        ut_delay(unsigned long) -- 2
+                ut0ut.cc:406 -- 2
+
+        rw_lock_s_lock_spin(rw_lock_t*, unsigned long, char const*, unsigned long) -- 1
+                sync0rw.cc:386 -- 1
+        recv ()[libpthread-2.27.so] -- 1
+                 -- 1
+
+        JOIN::make_join_plan() -- 1
+                sql_optimizer.cc:4999 -- 1
+
+Critical Path 4:
+        copy_fields()[mysqld]
+        <---end_write()[mysqld]
+        <---evaluate_join_record()[mysqld]
+        <---sub_select()[mysqld]
+        <---JOIN::exec()[mysqld]
+        <---handle_query()[mysqld]
+        <---execute_sqlcom_select()[mysqld]
+        <---mysql_execute_command()[mysqld]
+        <---Prepared_statement::execute()[mysqld]
+        <---Prepared_statement::execute_loop()[mysqld] --1790247.
+
+Functions and lines
+
+        my_strnncollsp_simple -- 1
+                ctype-simple.c:176 -- 1
+
+        copy_fields(Temp_table_param*, THD const*) -- 1
+                sql_executor.cc:4331 (StackTop) -- 1
+
+Critical Path 5:
+        page_cur_search_with_match_bytes()[mysqld]
+        <---btr_cur_search_to_nth_level()[mysqld]
+        <---btr_estimate_n_rows_in_range_low()[mysqld]
+        <---ha_innobase::records_in_range()[mysqld]
+        <---handler::multi_range_read_info_const()[mysqld]
+        <---DsMrr_impl::dsmrr_info_const()[mysqld]
+        <---get_key_scans_params()[mysqld]
+        <---test_quick_select()[mysqld]
+        <---JOIN::estimate_rowcount()[mysqld]
+        <---JOIN::make_join_plan()[mysqld] --1468215.
+
+Functions and lines
+
+        page_cur_search_with_match_bytes(buf_block_t const*, dict_index_t const*, dtuple_t const*, page_cur_mode_t, unsigned long*, unsigned long*, unsigned long*, unsigned long*, page_cur_t*) -- 47
+                page0cur.cc:731 (StackTop) -- 47
+
+        page_dir_slot_get_rec -- 23
+                page0page.ic:769 (StackTop) -- 23
+
+        PolicyMutex<TTASEventMutex<GenericPolicy> >::exit() -- 1
+                ib0mutex.h:689 -- 1
+
+        LEX::first_lists_tables_same() -- 1
+                sql_lex.cc:4048 -- 1
+
+        thd_get_thread_id -- 1
+                sql_class.cc:3802 -- 1
+
+Critical Path 6:
+        btr_search_guess_on_hash()[mysqld]
+        <---btr_cur_search_to_nth_level()[mysqld]
+        <---btr_pcur_open_with_no_init_func()[mysqld]
+        <---row_search_mvcc()[mysqld]
+        <---ha_innobase::index_read()[mysqld]
+        <---handler::ha_index_read_idx_map()[mysqld]
+        <---join_read_const_table()[mysqld]
+        <---JOIN::extract_func_dependent_tables()[mysqld]
+        <---JOIN::make_join_plan()[mysqld]
+        <---JOIN::optimize()[mysqld] --1370347.
+
+Functions and lines
+
+        btr_cur_position -- 60
+                btr0cur.ic:116 (StackTop) -- 60
+
+        ha_search_and_get_data -- 3
+                ha0ha.ic:176 (StackTop) -- 3
+
+        st_select_lex::setup_conds(THD*) -- 1
+                sql_resolver.cc:1153 -- 1
+
+        update_ref_and_keys -- 1
+                sql_optimizer.cc:8183 -- 1
+
+Critical Path 7:
+        rw_lock_s_lock_spin()[mysqld]
+        <---pfs_rw_lock_s_lock_func()[mysqld]
+        <---row_search_mvcc()[mysqld]
+        <---ha_innobase::index_read()[mysqld]
+        <---handler::ha_index_read_idx_map()[mysqld]
+        <---join_read_const_table()[mysqld]
+        <---JOIN::extract_func_dependent_tables()[mysqld]
+        <---JOIN::make_join_plan()[mysqld]
+        <---JOIN::optimize()[mysqld]
+        <---st_select_lex::optimize()[mysqld] --1173416.
+
+Functions and lines
+
+        rw_lock_s_lock_spin(rw_lock_t*, unsigned long, char const*, unsigned long) -- 77
+                sync0rw.cc:425 (StackTop) -- 76
+                sync0rw.cc:354 (StackTop) -- 1
+
+        sync_array_get_and_reserve_cell -- 75
+                sync0arr.ic:70 (StackTop) -- 75
+
+        pfs_start_stage_v1 -- 1
+                pfs.cc:4837 -- 1
+
+        ut_rnd_interval -- 1
+                ut0rnd.ic:120 (StackTop) -- 1
+
+Critical Path 8:
+        sync_array_reserve_cell()[mysqld]
+        <---TTASEventMutex<GenericPolicy>::wait()[mysqld]
+        <---log_write_up_to()[mysqld]
+        <---trx_commit_complete_for_mysql()[mysqld]
+        <---innobase_commit()[mysqld]
+        <---ha_commit_low()[mysqld]
+        <---TC_LOG_DUMMY::commit()[mysqld]
+        <---ha_commit_trans()[mysqld]
+        <---trans_commit()[mysqld]
+        <---mysql_execute_command()[mysqld] --1142252.
+
+Functions and lines
+
+        sync_array_reserve_cell(sync_array_t*, void*, unsigned long, char const*, unsigned long) -- 195
+                sync0arr.cc:389 (StackTop) -- 195
+
+Critical Path 9:
+        sync_array_reserve_cell()[mysqld]
+        <---rw_lock_x_lock_func()[mysqld]
+        <---pfs_rw_lock_x_lock_func()[mysqld]
+        <---btr_cur_update_in_place()[mysqld]
+        <---btr_cur_optimistic_update()[mysqld]
+        <---row_upd_clust_rec()[mysqld]
+        <---row_upd_clust_step()[mysqld]
+        <---row_upd()[mysqld]
+        <---row_upd_step()[mysqld]
+        <---row_update_for_mysql_using_upd_graph()[mysqld] --1046947.
+
+Functions and lines
+
+        sync_array_reserve_cell(sync_array_t*, void*, unsigned long, char const*, unsigned long) -- 150
+                sync0arr.cc:389 (StackTop) -- 150
+
+        mtr_t::Command::release_resources() -- 1
+                dyn0buf.h:144 -- 1
+
+        setup_fields(THD*, Bounds_checked_array<Item*>, List<Item>&, unsigned long, List<Item>*, bool, bool) -- 1
+                sql_list.h:447 -- 1
+
+Critical Path 10:
+        page_cur_search_with_match_bytes()[mysqld]
+        <---btr_cur_search_to_nth_level()[mysqld]
+        <---btr_pcur_open_with_no_init_func()[mysqld]
+        <---row_search_mvcc()[mysqld]
+        <---ha_innobase::index_read()[mysqld]
+        <---handler::ha_index_read_idx_map()[mysqld]
+        <---join_read_const_table()[mysqld]
+        <---JOIN::extract_func_dependent_tables()[mysqld]
+        <---JOIN::make_join_plan()[mysqld]
+        <---JOIN::optimize()[mysqld] --913782.
+
+Functions and lines
+
+        page_cur_search_with_match_bytes(buf_block_t const*, dict_index_t const*, dtuple_t const*, page_cur_mode_t, unsigned long*, unsigned long*, unsigned long*, unsigned long*, page_cur_t*) -- 55
+                page0cur.cc:731 (StackTop) -- 55
+
+        page_dir_slot_get_rec -- 5
+                page0page.ic:769 (StackTop) -- 5
+
+        rec_get_info_bits -- 1
+                rem0rec.ic:613 -- 1
+***************************************************
+Top Critical Functions and lines of code with frequency
+
+        pfs_os_file_flush_func -- 1462
+                os0file.ic:507 (StackTop) -- 1462
+
+        sync_array_reserve_cell(sync_array_t*, void*, unsigned long, char const*, unsigned long) -- 814
+                sync0arr.cc:389 (StackTop) -- 814
+
+        page_cur_search_with_match_bytes(buf_block_t const*, dict_index_t const*, dtuple_t const*, page_cur_mode_t, unsigned long*, unsigned long*, unsigned long*, unsigned long*, page_cur_t*) -- 102
+                page0cur.cc:731 (StackTop) -- 102
+
+        rw_lock_s_lock_spin(rw_lock_t*, unsigned long, char const*, unsigned long) -- 78
+                sync0rw.cc:425 (StackTop) -- 76
+                sync0rw.cc:354 (StackTop) -- 1
+                sync0rw.cc:386 -- 1
+
+        sync_array_get_and_reserve_cell -- 75
+                sync0arr.ic:70 (StackTop) -- 75
+
+        btr_cur_position -- 60
+                btr0cur.ic:116 (StackTop) -- 60
+
+        page_dir_slot_get_rec -- 28
+                page0page.ic:769 (StackTop) -- 28
+
+        ha_search_and_get_data -- 3
+                ha0ha.ic:176 (StackTop) -- 3
+
+        ut_crc32_64_low_hw(unsigned int, unsigned long) -- 2
+                ut0crc32.cc:193 -- 2
+
+        Prepared_statement::execute_loop(String*, bool, unsigned char*, unsigned char*) -- 2
+                sql_prepare.cc:3539 (StackTop) -- 2
+***************************************************
+Post Processing time in milli seconds: 2857
+Total switches: 584840 Critical switches: 5019
+Stack trace with no samples: 4856
+***************************************************
