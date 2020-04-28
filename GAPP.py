@@ -1,7 +1,11 @@
 #!/usr/bin/python
 
+#Sorts based on top 50 CMetric, all callPaths - CMetric
+#, all call paths - call path count and all samples
+
 from __future__ import print_function
 from bcc import BPF, PerfType, PerfSWConfig
+from bcc import BPF
 import sys
 import ctypes as ct # For mapping the 'C' structure to Python
 import argparse	#For parsing command line arguments
@@ -37,10 +41,9 @@ parser.add_argument("-d", metavar="<Stack Depth>", dest = "stack_depth", type = 
 parser.add_argument("-b", metavar="<Ring buffer Size>", dest = "buffer", type = positive_int, required = False, help = "Number of pages to be allocated for the ring buffer, Default = 64" )
 
 parser.add_argument("--threads_only", help = "Trace threads alone", action = "store_true")
-
 parser.add_argument("--process_only", help = "Trace processes alone", action = "store_true")
-
 parser.add_argument("--trace_lib", help = "Include library paths in tracing", action = "store_true")
+parser.add_argument("--kernel_stack", help = "Get kernel stack traces", action = "store_true")
 
 args = parser.parse_args()
 
@@ -58,7 +61,8 @@ struct key_t {
     u32 tgid; // Parent thread ID
     u64 cm;  //CMetric
     int source; // 0 - sampling, 1 - critical time slice, 2 - non-critical time slice
-    int stackid;
+    int user_stackid;
+    int kernel_stackid;
     u64 inst_ptr;
     int store_stackTop;
 };
@@ -77,7 +81,21 @@ BPF_HASH(GLOBAL_WT_TC, u32, u64,1); //Stores the cumulative sum of weighted thre
 BPF_PERCPU_ARRAY(LOCAL_WT_TC, u64,1); //Stores the snapshot of GLOBAL_WT_TC - CPU Local
 BPF_PERCPU_ARRAY(inTS, u64, 1); //Store the time at which a thread was switched in - CPU Local
 BPF_PERF_OUTPUT(events); //Buffer to write event details
-BPF_STACK_TRACE(stacktraces, 4086);
+BPF_STACK_TRACE(user_stacktraces, 4086);
+BPF_STACK_TRACE(kernel_stacktraces, 4086);
+
+/*sched_switch_args {
+    // from /sys/kernel/debug/tracing/events/sched/sched_switch/format
+    u64 __unused__;
+    char prev_comm[16];
+    pid_t prev_pid;
+    int prev_prio;
+    long prev_state;
+    char next_comm[16];
+    pid_t next_pid;
+    int next_prio;
+};
+*/
 
 TRACEPOINT_PROBE(task, task_rename){
 
@@ -104,7 +122,6 @@ TRACEPOINT_PROBE(task, task_rename){
 
 TASK_NEWTASK
 
-//Sampling probe
 int do_perf_event(struct bpf_perf_event_data *ctx){
 
     u32 zero32 = 0;
@@ -127,8 +144,7 @@ int do_perf_event(struct bpf_perf_event_data *ctx){
 
     u32 totalCount;
     bpf_probe_read(&totalCount, sizeof(totalCount), totalThreadCount);
-    
-    //Add sample to the ring buffer
+
     if( (tempCount <= STACK_FILTER) || tempCount ==1 ){
             
         struct key_t key = {};
@@ -144,7 +160,6 @@ int do_perf_event(struct bpf_perf_event_data *ctx){
     return 0;
 }
 
-//Trace thread exit
 TRACEPOINT_PROBE(sched, sched_process_exit){
 
   u32 zero32 = 0;
@@ -160,7 +175,8 @@ TRACEPOINT_PROBE(sched, sched_process_exit){
   u32 *countVal = count.lookup(&zero32);
   if(!countVal)
     return 0; 
-  lock_xadd(countVal, -1);
+  //lock_xadd(countVal, -1);
+  countVal -= 1;
   return 0;
 }
 
@@ -361,11 +377,13 @@ TRACEPOINT_PROBE(sched, sched_switch){
 
     if( (ratio <= STACK_FILTER || ratio == 1) && TRACE_THREADS_ONLY){ //If thread_avg < threshold and not parent thread
 
-      key.stackid	= stacktraces.get_stackid(args, BPF_F_USER_STACK);
+      key.user_stackid	= user_stacktraces.get_stackid(args, BPF_F_USER_STACK);
+      if (GET_KERNEL_STACK)
+        key.kernel_stackid= kernel_stacktraces.get_stackid(args, 0);
       key.source	= 1;       	
     }
     else{
-      key.stackid = 0;
+      key.user_stackid = 0;
       key.source  = 2;
     }
     key.store_stackTop = ((prev_tc <= STACK_FILTER) || prev_tc == 1)? 1:0;
@@ -434,12 +452,16 @@ pgmName = ""
 #Segments for customizing the filters
 task_newtask_probe = task_newtask_pgm
 trace_threads_only = '1'
+get_kernel_stack = '0'
 
 if args.threads_only:
   trace_threads_only = 'key.tgid != key.tid'
 
 if args.process_only:
   task_newtask_probe = ''
+
+if args.kernel_stack:
+  get_kernel_stack = '1'
 
 #Get the path to target
 if args.targetPath is not None:
@@ -473,6 +495,7 @@ bpf_text = bpf_text.replace('TASK_NEWTASK', task_newtask_probe)
 bpf_text = bpf_text.replace('PGM_FILTER', pgm_filter)
 bpf_text = bpf_text.replace('STACK_FILTER', stack_filter)
 bpf_text = bpf_text.replace('TRACE_THREADS_ONLY', trace_threads_only)
+bpf_text = bpf_text.replace('GET_KERNEL_STACK', get_kernel_stack)
 
 #Print the customized program
 #print(bpf_text)
@@ -490,17 +513,20 @@ class Data(ct.Structure):
              ("cm", ct.c_ulonglong),
              ("source", ct.c_uint),
              ("user_stack_id", ct.c_int),
+             ("kernel_stack_id", ct.c_int),
              ("inst_ptr", ct.c_ulonglong),
              ("store_stackTop", ct.c_int)]
 
-stack_traces = b["stacktraces"]
+user_stack_traces = b["user_stacktraces"]
+kernel_stack_traces = b["kernel_stacktraces"]
 
 sampleAddr = dict() #Stores addresses corresponding to samples
 CMetric = dict() #Dictionary to store CMetric
 CM_Entry = 1 #Number of CMetric entry
 CMetric_sampleAddr = dict() # Stores the sample address for each Cmetric - to get line of code
 CMetric_callPath   = dict() # Stores the call path for each CMetric
-symbolMap          = dict() #Store symbols corresponding addresses
+user_symbolMap     = dict() #Store symbols corresponding addresses
+kernel_symbolMap   = dict() 
 total_switch = 0
 noSample     = 0
 
@@ -519,94 +545,126 @@ def trimSymbol(string_ret):
       return string_ret[0]+'()['+ symbol[1]
   else:
     return string_ret.split('(',1)[0]+'()'
+################################################
+def getKernelStack(kernel_stack_id):
+
+    kernel_call_path = ""
+    kernel_flag = 0
+
+    kernel_stack =[] if kernel_stack_id < 0 else \
+                    kernel_stack_traces.walk(kernel_stack_id)
+    #For each address in the stack trace, get the symbols and create call path
+
+    for addr in kernel_stack:
+      if addr in kernel_symbolMap:
+        kernel_string_ret = kernel_symbolMap[addr]
+      else:
+        kernel_string_ret = b.ksym(addr)
+        kernel_symbolMap[addr] = kernel_string_ret
+      if kernel_flag == 0:
+        kernel_call_path = kernel_call_path + (kernel_string_ret.split('+',1)[0]).strip("\n ' '")
+        kernel_flag += 1
+      else: #If not stack top address
+        kernel_call_path = kernel_call_path + ("\n\t") + "<---" + (kernel_string_ret.split('+',1)[0]).strip("\n ' '")
+
+    return kernel_call_path
+
+################################################
 
 def print_event(cpu, data, size):
 
-      global CM_Entry #Unique id for stack traces
-      global total_switch # Total number of context switches
-      global noSample #Stores the number of switches without samples
+    global CM_Entry #Unique id for stack traces
+    global total_switch # Total number of context switches
+    global noSample #Stores the number of switches without samples
 
-      event = ct.cast(data, ct.POINTER(Data)).contents
-      flag = 0
-      call_path = ""
-	
-      if event.source == 0: #Sample data
-              if event.inst_ptr in symbolMap:
-                string_ret  = symbolMap[event.inst_ptr]
-              else:
-                #Map address to symbols
-		string_ret = b.sym(event.inst_ptr, event.tgid, show_offset=False, show_module = True)
-                string_ret = trimSymbol(string_ret)
-                symbolMap[event.inst_ptr]=string_ret
+    event = ct.cast(data, ct.POINTER(Data)).contents
+    flag = 0
+    user_call_path = ""
+    kernel_call_path = ""
+      
+    if event.source == 0: #Sample data
+      if event.inst_ptr in user_symbolMap:
+        string_ret  = user_symbolMap[event.inst_ptr]
+      else:
+        #Map address to symbols
+        string_ret = b.sym(event.inst_ptr, event.tgid, show_offset=False, show_module = True)
+        string_ret = trimSymbol(string_ret)
+        user_symbolMap[event.inst_ptr]=string_ret
 
-              if "unknown" in string_ret:
-                  return
+      if "unknown" in string_ret:
+          return
 
-              #Add to list of samples for this thread ID         			
-	      if event.tid not in sampleAddr:
-		sampleAddr[event.tid] = list()
+      #Add to list of samples for this thread ID         			
+      if event.tid not in sampleAddr:
+        sampleAddr[event.tid] = list()
 
-	      if (string_ret.find(pgmName) >= 0): # If address belongs to application address map
-		sampleAddr[event.tid].append("0x" + format(event.inst_ptr, 'x'))			
-              else:
-                sampleAddr[event.tid].append(string_ret)
-	      return
+      if (string_ret.find(pgmName) >= 0): # If address belongs to application address map
+        sampleAddr[event.tid].append("0x" + format(event.inst_ptr, 'x'))			
+      else:
+        sampleAddr[event.tid].append(string_ret)
+      return
 
-      if event.source == 2: # Reset Sample array if time slice not critical	
-        if event.tid in sampleAddr:
-	    sampleAddr[event.tid]=[]
-	total_switch += 1
-	return
-			
-      if event.source == 1: #Critical Stack trace
+    if event.source == 2: # Reset Sample array if time slice not critical	
+      if event.tid in sampleAddr:
+          sampleAddr[event.tid]=[]
+      total_switch += 1
+      return
+                      
+    if event.source == 1: #Critical Stack trace
 
-                skip_stackTop = 0
-                appl_addr = 0
+      skip_stackTop = 0
+      appl_addr = 0
 
-		total_switch += 1
-        	user_stack =[] if event.user_stack_id < 0 else \
-			stack_traces.walk(event.user_stack_id)	
-                #For each address in the stack trace, get the symbols and create call path	
-		for addr in user_stack:		
-                  if addr in symbolMap:
-                    string_ret  = symbolMap[addr]
-                  else:
-		    string_ret = b.sym(addr, event.tgid, show_offset=False, show_module = True)
-                    string_ret = trimSymbol(string_ret)
-                    symbolMap[addr]=string_ret
+      total_switch += 1
+      user_stack =[] if event.user_stack_id < 0 else \
+              user_stack_traces.walk(event.user_stack_id)	
+      #For each address in the stack trace, get the symbols and create call path	
+      for addr in user_stack:		
+        if addr in user_symbolMap:
+          string_ret  = user_symbolMap[addr]
+        else:
+          string_ret = b.sym(addr, event.tgid, show_offset=False, show_module = True)
+          string_ret = trimSymbol(string_ret)
+          user_symbolMap[addr]=string_ret
 
-                  if "unknown" in string_ret:
-                    if flag == 0:
-                        skip_stackTop = 1
-                    continue
+        if "unknown" in string_ret:
+          if flag == 0:
+              skip_stackTop = 1
+          continue
 
-		  if (string_ret.find(pgmName) >= 0):  # If address belongs to application address map
-                    appl_addr = 1
+        if (string_ret.find(pgmName) >= 0):  # If address belongs to application address map
+          appl_addr = 1
 
-                  if appl_addr or args.trace_lib:
-		    if flag == 0: #Store top address of stack trace				                                       
-		      if event.tid not in sampleAddr:
-			sampleAddr[event.tid] = list()
-                      if len(sampleAddr[event.tid]) ==0 and event.store_stackTop == 1 and skip_stackTop ==0:
-                        noSample += 1
-                        if appl_addr:
-		          sampleAddr[event.tid].append("0xz" + format(addr, 'x'))
-    		      call_path = call_path+ (string_ret.split('+',1)[0]).strip("\n ' '")
-					
-                    else: #If not stack top address
-		      call_path = call_path + "\n\t" + "<---" + (string_ret.split('+',1)[0]).strip("\n ' '")
-		    flag += 1			
-		    if flag==depth:	#Number of stack frames
-                      break
+        if appl_addr or args.trace_lib:
+          if flag == 0: #Store top address of stack trace, if no samples				                                       
+            if event.tid not in sampleAddr:
+              sampleAddr[event.tid] = list()
+            if len(sampleAddr[event.tid]) ==0 and event.store_stackTop == 1 and skip_stackTop ==0:
+              noSample += 1
+              if appl_addr:
+                sampleAddr[event.tid].append("0xz" + format(addr, 'x'))
+                
+            user_call_path = user_call_path+ (string_ret.split('+',1)[0]).strip("\n ' '")
+                              
+          else: #If not stack top address
+            user_call_path = user_call_path + "\n\t" + "<---" + (string_ret.split('+',1)[0]).strip("\n ' '")
+  
+          flag += 1			
+          if flag==depth:	#Number of stack frames
+            break
 
-        	if flag>0:		  
-		  CMetric[CM_Entry] = event.cm	#Stores Cmetric of this critical stack trace
-		  CMetric_sampleAddr[CM_Entry] = list(sampleAddr[event.tid])	#Stores sample addresses of this critical stack trace
-		  CMetric_callPath[CM_Entry] = call_path	##Stores call path of this critical stack trace
-		  CM_Entry += 1
-		
-		sampleAddr[event.tid]=[]		
-                return
+      if flag>0:
+
+        if get_kernel_stack == '1':
+          kernel_call_path = getKernelStack(event.kernel_stack_id)
+        CMetric[CM_Entry] = event.cm	#Stores Cmetric of this critical stack trace
+	#Stores sample addresses of this critical stack trace
+        CMetric_sampleAddr[CM_Entry] = list(sampleAddr[event.tid])
+        CMetric_callPath[CM_Entry] = (user_call_path, kernel_call_path) #Stores call path of this critical stack trace
+        CM_Entry += 1
+      
+      sampleAddr[event.tid]=[]		
+      return
 		
 #Function to execute for each event written to the ring buffer
 b["events"].open_perf_buffer(print_event, page_cnt=buffer_size)
@@ -619,12 +677,17 @@ criticalSwitch_allCM= dict()
 criticalLine        = dict()
 critLineSamples     = dict()
 critLineSamples_all = dict()
+critKernelPaths     = dict()
 allFunction = dict()
 allLines    = dict()
 addrMap_fun = dict()
 addrMap_line= dict()
 
 def combine_Results(function, line, count, resultFunc, resultLine, tempFunc, tempLine):
+
+    #resultFunc and resultLine are for displaying the 
+    #critical functions and lines combining results of 
+    #Top 10 critical paths
     if function:
       if function in resultFunc:
         resultFunc[function] += count
@@ -638,6 +701,7 @@ def combine_Results(function, line, count, resultFunc, resultLine, tempFunc, tem
         resultLine[function] = dict()
         resultLine[function][line] = count
 
+      #tempFunc and tempLine are functions and lines of current critical path alone
       if function in tempFunc:
         tempFunc[function] += count
         if line in tempLine[function]:
@@ -664,19 +728,25 @@ def combine_samples(addrList, resultFunc, resultLine):
   for element, count in addrList.items():
     specialString = ""
     if "0x" in element:
+      #'0xz' pattern in the address denotes this is a stack top address(return address)
+      # not a sample address 
       if 'z' in element:
         specialString=" (StackTop)"
+        #remove 'z'
         element = element.replace('z','')
       else:
         specialString = ""
       if element in addrMap_fun:
         function = addrMap_fun[element]
         line     = addrMap_line[element]
+        #Add (StackTop) label to the line
         if specialString:
-           line = line + specialString      
+           line = line + specialString
+        #Combine all samples for this path      
         combine_Results(function, line, count, \
                 resultFunc, resultLine, tempFunc, tempLine);
       else:
+        #Prepre to call addr2line
         addrStringList.append(element)
         addrCountList.append(count)
         if specialString:
@@ -685,6 +755,7 @@ def combine_samples(addrList, resultFunc, resultLine):
           stackTopList.append(0)
         #result = str(subprocess.check_output(['addr2line', '-s', '-C', '-f', '-p', '-i', element, '-e', "/data/rn1115/cfd/test/IncNavierStokesSolver-g"], stderr=subprocess.STDOUT))
     else:
+      #library functions
       function = element
       line = ""
       combine_Results(function, line, count, resultFunc, \
@@ -706,6 +777,7 @@ def combine_samples(addrList, resultFunc, resultLine):
             specialString = ""
           result = result.strip("\n ' '")
         if result:
+          #Retrieve function and line number from addr2line result
 	  result = result.split('\n', 1)[0]
 	  result = result.strip("\n ' '")
           if " at " in result:
@@ -720,13 +792,15 @@ def combine_samples(addrList, resultFunc, resultLine):
                 addrMap_line[element] = line
                 if specialString:
                   line = line + specialString      
+              #There will not be any line if sample is not from application binary
               else:
                 addrMap_line[element] = ""
               combine_Results(function, line, count, \
                 resultFunc, resultLine, tempFunc, tempLine);
 
   i=0
-  print("Functions and lines")
+  print("\tFunctions and lines + Frequency")
+  print("\t--------------------------------")
   for key, value in sorted(tempFunc.items(), key=lambda x:x[1], reverse=True):
     print("\n\t%s -- %u" % (key, value))
 
@@ -748,13 +822,20 @@ def choose_path(pathDict, strategy):
 
   i=0
   print ("***************************************************")
-  for key, value in sorted(pathDict.items(), key=lambda x:x[1], reverse=True):
+  for key, value in sorted(pathDict.items(), key=lambda x:x[1][0], reverse=True):
     if ( i<10 ):
-      print("\nCritical Path %d: \n\t%s --%u. \n" % (i+1,key, value))  
+      print("\nCritical Path %d -- CMetric, Frequency" % (i+1))
+      print("----------------------------------------")
+      print("\t%s --%u, %d. \n" % (key, value[0], value[1]))  
       addrList = critLineSamples_all[key]
       #for element, count in addrList.items():
        # print(element,count)
       combine_samples(addrList, resultFunc, resultLine) 
+      if get_kernel_stack:
+        print("\n\tKernel Call Paths")
+        print("\t-----------------------")
+        for path, count in sorted(critKernelPaths[key].items(), key=lambda x:x[1], reverse=True):
+          print("\t%s -- %d\n" % (path, count))
       i+= 1;
     else:
       break;  
@@ -793,27 +874,44 @@ finally:
 	print ("Sum = %d" % sum)
         print ("***************************************************")
 
-	for key, value in sorted(CMetric.items(), key=lambda x:x[1], reverse= True): # key is CM_Entry, value is CMetric
-	  callPath = CMetric_callPath[key]
+	#for key, value in sorted(CMetric.items(), key=lambda x:x[1], reverse= True): # key is CM_Entry, value is CMetric
+	for key, value in CMetric.items(): # key is CM_Entry, value is CMetric
+	  user_callPath = CMetric_callPath[key][0]
+          kernel_callPath = CMetric_callPath[key][1]
 
           #Combine all call paths irrespective of CMetric value and then sort as per CMetric value
-          if callPath in criticalSwitch_allCM:
-            criticalSwitch_allCM[callPath] += value
+          if user_callPath in criticalSwitch_allCM:
+            criticalSwitch_allCM[user_callPath][0] += value
+            criticalSwitch_allCM[user_callPath][1] += 1
           else:
-            criticalSwitch_allCM[callPath] = value  
+            criticalSwitch_allCM[user_callPath] = [value,1]  
 
           #Combine the sample addresses
-          if callPath not in critLineSamples_all:
-            critLineSamples_all[callPath] = dict()
-          lineDict = critLineSamples_all[callPath]
+          if user_callPath not in critLineSamples_all:
+            critLineSamples_all[user_callPath] = dict()
+          lineDict = critLineSamples_all[user_callPath]
           addrList = CMetric_sampleAddr[key]
+            
           for element in addrList:
             if element in lineDict:
               lineDict[element] += 1
             else:
               lineDict[element] = 1          
 
-	print ("Critical Call Paths, functions and Lines of Code - all paths based on CMetric:")
+          #Combine kernel call paths
+          if user_callPath not in critKernelPaths:
+            critKernelPaths[user_callPath] = dict()
+          allKernelPaths = critKernelPaths[user_callPath]
+
+          if kernel_callPath in allKernelPaths:
+            allKernelPaths[kernel_callPath] += 1
+          else:
+            allKernelPaths[kernel_callPath] = 1
+          
+          user_callPath = ""
+          kernel_callPath = ""
+        
+	print ("Critical Call Paths, functions and Lines of Code:")
 	choose_path(criticalSwitch_allCM, 1)
 
 	end = datetime.datetime.now()
