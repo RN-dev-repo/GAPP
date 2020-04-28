@@ -63,6 +63,7 @@ GAPP allows customizing its execution through several command line arguments.
     
     --trace_lib           - Include library paths in tracing
 
+    --kernel_stack        - Show kernel stack traces of the critical paths
 
 Optional arguments explained
 1. -t 		: Threshold - Number of active threads when profiling should start
@@ -74,6 +75,7 @@ Optional arguments explained
 2. --process_only: Trace only processes in the application (Omit threads)
 3. --threads_only: Trace only threads in the application (Omit processes)
 4. --trace-lib   : Include stack traces triggered from dynamic shared libraries (You will get full stack trace only if the libraries are                    compiled with frame pointers)
+5. --kernel_stack: Display kernel stack traces of the critical paths. This helps to identify bottlenecks caused by hardware events.
 
 For example, 
 
