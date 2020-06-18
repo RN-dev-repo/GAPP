@@ -378,8 +378,10 @@ TRACEPOINT_PROBE(sched, sched_switch){
     if( (ratio <= STACK_FILTER || ratio == 1) && TRACE_THREADS_ONLY){ //If thread_avg < threshold and not parent thread
 
       key.user_stackid	= user_stacktraces.get_stackid(args, BPF_F_USER_STACK);
-      if (GET_KERNEL_STACK)
+      if (GET_KERNEL_STACK && args->prev_state != TASK_RUNNING)
         key.kernel_stackid= kernel_stacktraces.get_stackid(args, 0);
+      else
+        key.kernel_stackid = -1;
       key.source	= 1;       	
     }
     else{
@@ -655,7 +657,7 @@ def print_event(cpu, data, size):
 
       if flag>0:
 
-        if get_kernel_stack == '1':
+        if get_kernel_stack == '1' and event.kernel_stack_id >= 0:
           kernel_call_path = getKernelStack(event.kernel_stack_id)
         CMetric[CM_Entry] = event.cm	#Stores Cmetric of this critical stack trace
 	#Stores sample addresses of this critical stack trace
@@ -831,7 +833,7 @@ def choose_path(pathDict, strategy):
       #for element, count in addrList.items():
        # print(element,count)
       combine_samples(addrList, resultFunc, resultLine) 
-      if get_kernel_stack:
+      if get_kernel_stack == '1':
         print("\n\tKernel Call Paths")
         print("\t-----------------------")
         for path, count in sorted(critKernelPaths[key].items(), key=lambda x:x[1], reverse=True):
